@@ -1,0 +1,26 @@
+---
+import "../styles/global.css";
+---
+
+<header class="md:bg-[#041E18]/5 bg-[#041E18] text-white md:fixed w-full top-10 backdrop-blur-md z-50">
+  <div class="max-w-7xl mx-auto flex items-center justify-between p-6 md:border-white rounded-full">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2">
+      <div class="w-8 h-8 rounded-full bg-[#36f4a4]"></div>
+      <span class="font-extrabold text-xl tracking-wide">MonPortfolio</span>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="#about" class="hover:text-[#36f4a4] transition-colors">Projets</a>
+      <a href="#projects" class="hover:text-[#36f4a4] transition-colors">Parcours</a>
+      <a href="#tools" class="hover:text-[#36f4a4] transition-colors">Outils</a>
+      <a href="#contact" class="hover:text-[#36f4a4] transition-colors">Contact</a>
+    </nav>
+
+    <!-- Bouton mobile -->
+    <button class="md:hidden text-[#36f4a4] text-3xl">
+      ☰
+    </button>
+  </div>
+</header>
