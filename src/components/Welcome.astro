@@ -1,23 +1,25 @@
 ---
 import "../styles/global.css";
+import FadeIn from "../components/FadeIn.jsx";
 ---
-
+<FadeIn client:load>
 <div class="md:w-2/3 w-full mx-auto h-dvh space-y-32 content-center pt-14 pb-14">
 	<div class="space-y-7">
 		<img class="h-44 max-w-full rounded-full mx-auto shadow-[0_0_40px_10px_rgba(54,244,164,0.6)]" src="/pdp.png" alt="image description">
-		<h1 class="text-6xl text-center font-extrabold">Hello ! C'est Maxence 👋</h1>
-		<div class="grid grid-cols-3 gap-5 w-1/2 mx-auto">
-			<div class="inline-block p-0 bg-[#041E18] text-white border-2 border-[#36f4a4] text-center rounded-full text-xs">
+		
+		<h1 class="text-3xl md:text-6xl text-center font-extrabold font-title">Hello ! C'est Maxence 👋</h1>
+		<div class="grid md:grid-cols-3 grid-cols-1 gap-5 w-1/2 mx-auto">
+			<div class="md:inline-block p-0 bg-[#041E18] text-white border-2 border-[#36f4a4] text-center rounded-full md:text-xs">
 				Maxence Garandel
 			</div>
-			<div class="inline-block p-0 bg-[#041E18] text-white border-2 border-[#36f4a4] text-center rounded-full text-xs">
+			<div class="md:inline-block p-0 bg-[#041E18] text-white border-2 border-[#36f4a4] text-center rounded-full md:text-xs">
 				26 ans
 			</div>
-			<div class="inline-block p-0 bg-[#041E18] text-white border-2 border-[#36f4a4] text-center rounded-full text-xs">
+			<div class="md:inline-block p-0 bg-[#041E18] text-white border-2 border-[#36f4a4] text-center rounded-full md:text-xs">
 				Rennes
 			</div>
 		</div>
-		<p class="text-center"> 
+		<p class="text-left font-title text-sm leading-7 mx-10"> 
 			Je vous souhaite la bienvenue sur mon site ! Ici, je vous présente, mes projets, mon parcours, les outils qui j'utilise et que je maitrise,... Bref, tout ce qu'il faut savoir sur moi !<br>
 			Tout d'abord, je suis Maxence, j'ai <span class="bg-[#36f4a4] text-[#041E18] px-1 rounded">26 ans</span> et j'habite actuellement à <span class="bg-[#36f4a4] text-[#041E18] px-1 rounded">Rennes</span> ! Je suis passionné par l'univers du web, par la création de site internet (vitrine et e-commerce) et par développement web. <br>
 			J'aime connaître et comprendre ce qu'il se passe derrière les pages que nous visitions tous les jours, que ce soit techniquement ou stratégiquement. <br>
@@ -25,5 +27,4 @@ import "../styles/global.css";
 		</p>	
 	</div>
 </div>
-
-</style>
+</FadeIn>

@@ -7,6 +7,7 @@ import Ajout from '../components/ajout.astro';
 import Stack from '../components/stack.astro';
 import Header from '../components/Header.astro';
 import Contact from '../components/contact.astro';
+import Separator from '../components/separator.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -14,8 +15,11 @@ import Contact from '../components/contact.astro';
 
 <Layout>
 	<Header />
-	<div class="bg-[#041E18] text-white">
+	<div class="text-[#F5F5F5] bg-[#041E18] relative before:absolute before:top-0 before:left-0 before:w-full
+     before:h-full before:content-[''] before:opacity-[0.05] before:z-10 before:pointer-events-none
+     before:bg-[url('https://www.ui-layouts.com/noise.gif')]">
 	<Welcome />
+	<Separator />
 	<Projet />
 	<Ajout />
 	<Pro />
