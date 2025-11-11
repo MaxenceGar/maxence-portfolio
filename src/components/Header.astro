@@ -2,16 +2,36 @@
 import "../styles/global.css";
 ---
 
-<header class="fixed w-full -right-10 top-10 z-50 text-white font-title">
-  <div class="max-w-7xl mx-auto flex items-center justify-between">
+<header class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] md:w-[90%] backdrop-blur-lg bg-[#041E18]/70 border border-white/10 rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] text-white transition-all duration-300">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+
     <!-- Logo -->
-    <a href="/" class="flex items-center">
+    <a href="/" class="flex items-center gap-3 group">
       <img
-  src="/icon/Logo-MG.svg"
-  alt="Logo MonPortfolio"
-  class="backdrop-blur-md white px-6 py-6 w-40 h-auto object-contain rounded-xl"
-  style="backdrop-filter: blur(8px);"
-/>
+        src="/icon/Logo-MG.svg"
+        alt="Logo MonPortfolio"
+        class="w-32 h-auto object-contain transition-transform duration-300 group-hover:scale-105"
+      />
     </a>
+
+    <!-- Navigation -->
+    <nav class="hidden md:flex items-center gap-8 font-title text-sm tracking-wide">
+      <a href="#about" class="hover:text-green-max transition-colors">À propos</a>
+      <a href="#projects" class="hover:text-green-max transition-colors">Projets</a>
+      <a href="#skills" class="hover:text-green-max transition-colors">Compétences</a>
+      <a href="#contact" class="px-4 py-2 bg-green-max text-[#041E18] font-semibold rounded-lg hover:bg-green-max/80 transition-all duration-200">
+        Contact
+      </a>
+    </nav>
+
+    <!-- Burger (mobile) -->
+    <div class="md:hidden flex items-center">
+      <button class="p-2 rounded-lg border border-white/10 hover:border-green-max transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
   </div>
 </header>

@@ -1,28 +1,26 @@
 ---
 import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-import Projet from '../components/Projets.astro';
-import Pro from '../components/pro.astro';
-import Ajout from '../components/ajout.astro';
-import Stack from '../components/stack.astro';
 import Header from '../components/Header.astro';
 import Contact from '../components/contact.astro';
-import Separator from '../components/separator.astro';
 import Presentation from '@/components/presentation.astro';
 import Project from '../components/project.astro';
+import SmoothFollower from "../components/SmoothFollower.tsx";
+import Cv from '../components/Cv.astro'
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
 	<Header />
-	<div class="text-[#F5F5F5] bg-[#041E18] relative before:absolute before:top-0 before:left-0 before:w-full
+	<SmoothFollower client:only="react" />  <!-- 👈 c’est ici que la magie opère -->
+	<div id="nested" class="text-[#F5F5F5] bg-[#041E18] relative before:absolute before:top-0 before:left-0 before:w-full
      before:h-full before:content-[''] before:opacity-[0.05] before:z-10 before:pointer-events-none
      before:bg-[url('https://www.ui-layouts.com/noise.gif')]">
 	<Welcome />
 	<Presentation />
-	<Separator />
 	<Project />
+	<Cv />
 	<Contact />
 	</div>
 </Layout>
