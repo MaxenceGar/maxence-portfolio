@@ -14,6 +14,8 @@
   --font-title: 'Poppins', sans-serif;
   --font-serif: 'Instrument Serif', serif;
   --color-green-max: #36f4a4;
+  --color-green-max-dark: #041E18;
+  --color-green-secondaire: #284F46;
 }
 
 @layer utilities {

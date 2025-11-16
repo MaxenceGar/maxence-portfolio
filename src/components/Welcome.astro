@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import FadeIn from "../components/FadeIn.jsx";
+import { Icon } from "astro-icon/components";
 ---
 
 <FadeIn client:load>
@@ -31,9 +32,38 @@ import FadeIn from "../components/FadeIn.jsx";
       </h1>
 
       <p class="text-lg md:text-xl max-w-2xl mx-auto text-white/80 font-body leading-relaxed">
-        Développeur web passionné, je crée des expériences digitales sur mesure — 
-        entre <span class="text-green-max font-semibold">esthétique</span> et <span class="text-green-max font-semibold">performance</span>.
+          <span class="text-green-max">Assistant e-commerce</span> et <span class="text-green-max">développeur web</span> spécialisé en Shopify et site web vitrine durant son temps libre
       </p>
+
+      <div class="flex justify-center gap-2">
+  
+  <!-- Shopify -->
+  <div class="bg-green-50 text-black rounded-full border-2 border-green-max-dark flex justify-center items-center gap-2 px-4 py-1">
+    <p>Shopify</p>
+    <Icon 
+      name="shopify"
+      class="w-4 md:w-6 h-full text-green-max-dark" />
+  </div>
+
+  <!-- Figma -->
+  <div class="bg-green-50 text-black rounded-full border-2 border-green-max-dark flex justify-center items-center gap-2 px-4 py-1">
+    <p>Figma</p>
+    <Icon 
+      name="figma"
+      class="w-4 md:w-6 h-full text-green-max-dark" />
+  </div>
+
+  <!-- Dev -->
+  <div class="bg-green-50 text-black rounded-full border-2 border-green-max-dark flex justify-center items-center gap-2 px-4 py-1">
+    <p>Dev Web</p>
+    <Icon 
+      name="run"
+      class="w-4 md:w-6 h-full text-green-max-dark" />
+  </div>
+
+</div>
+
+      </div>
 
       <!-- Boutons d’action -->
       <div class="flex justify-center gap-6 pt-4">
@@ -61,4 +91,5 @@ import FadeIn from "../components/FadeIn.jsx";
   </div>
 
 </section>
+<hr class="border-white border-4">
 </FadeIn>
