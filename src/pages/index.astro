@@ -15,14 +15,10 @@ import Cv from '../components/Cv.astro'
 <Layout>
 	<Header />
 	<SmoothFollower client:only="react" />  <!-- 👈 c’est ici que la magie opère -->
-	<div id="nested" class="text-[#F5F5F5] bg-[#041E18] relative before:absolute before:top-0 before:left-0 before:w-full
-     before:h-full before:content-[''] before:opacity-[0.05] before:z-10 before:pointer-events-none
-     before:bg-[url('https://www.ui-layouts.com/noise.gif')]">
 	<Welcome />
 	<Presentation />
 	<Project />
 	<Cv />
 	<Contact />
-	</div>
 	<Footer />
 </Layout>
