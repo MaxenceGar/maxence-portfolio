@@ -38,3 +38,10 @@
 html {
   scroll-behavior: smooth;
 }
+
+.grain {
+    background-image: url(../images/grain.svg);
+    background-position: 0 0, 0 0;
+    background-repeat: repeat, repeat-x;
+    background-size: auto, auto 40px;
+}
