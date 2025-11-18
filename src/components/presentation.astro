@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import SlideFromLeft from "../components/SlideFromLeft.tsx";
+import SlideFromRight from "../components/SlideFromRight.tsx";
 ---
 
 <section class="relative py-24 overflow-hidden">
@@ -7,6 +9,7 @@ import "../styles/global.css";
 
   <div class="relative grid md:grid-cols-2 grid-cols-1 md:w-3/4 w-11/12 mx-auto gap-14 items-center">
     <!-- Image -->
+     <SlideFromLeft client:load>
     <div class="flex justify-center md:justify-end order-2 md:order-1">
       <div class="relative group rotate-1 hover:rotate-0 transition-transform duration-500">
         <div class="absolute -inset-3 bg-green-max rounded-xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity"></div>
@@ -17,8 +20,10 @@ import "../styles/global.css";
         />
       </div>
     </div>
+    </SlideFromLeft>
 
     <!-- Texte -->
+     <SlideFromRight client:load>
     <div class="order-1 md:order-2 text-[#041E18] font-body leading-relaxed space-y-6 md:pl-8 animate-fade-in text-white">
       <h2 class="font-title text-3xl md:text-4xl font-semibold mb-6 border-l-4 border-green-max pl-4">
         Enchanté, moi c’est <span class="text-green-max">Maxence</span> 👋
@@ -40,6 +45,7 @@ import "../styles/global.css";
         Ce site est d’ailleurs entièrement conçu par mes soins avec <span class="bg-green-max text-[#041E18] px-2 rounded-md font-semibold">Astro</span> & <span class="bg-green-max text-[#041E18] px-2 rounded-md font-semibold">Tailwind CSS</span> — épaulé par ChatGPT, mais pas assisté ! Un trio moderne et efficace pour développer un site moderne et esthétique 🌿
       </p>
     </div>
+    </SlideFromRight>
   </div>
 </section>
 

@@ -3,62 +3,86 @@
 	<head>
 
 	<!-- Google Tag Manager -->
-		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','GTM-PZB5ZT24');</script>
+	<script>
+		(function(w,d,s,l,i){
+			w[l]=w[l]||[];
+			w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+			var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+			j.async=true;
+			j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+			f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-PZB5ZT24');
+	</script>
 	<!-- End Google Tag Manager -->
 
 	<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCSNXP0LNN"></script>
-		<script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCSNXP0LNN"></script>
+	<script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
 		gtag('js', new Date());
-
 		gtag('config', 'G-ZCSNXP0LNN');
-		</script>
+	</script>
 
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/FAVICON.png" />
-		<meta name="generator" content={Astro.generator} />
-		<meta name="google-site-verification" content="YLdxamp0EqdZeqQyNIxeYvtPNbQ8trAidkZj9YjlhOY" />
-		<title>Maxence Garandel</title>
-		<meta name="description" content="Découvrez mon portfolio dès maintenant, mes projets, mon parcours, mes contacts,... Tout ce qu'il faut s'avoir sur moi. Assistant Shopify et developpeur de site internet à Rennes." />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<link rel="icon" type="image/svg+xml" href="/FAVICON.png" />
+	<meta name="generator" content={Astro.generator} />
+	<meta name="google-site-verification" content="YLdxamp0EqdZeqQyNIxeYvtPNbQ8trAidkZj9YjlhOY" />
+	<title>Maxence Garandel</title>
+	<meta name="description" content="Découvrez mon portfolio dès maintenant, mes projets, mon parcours, mes contacts,... Tout ce qu'il faut s'avoir sur moi. Assistant Shopify et developpeur de site internet à Rennes." />
 
 	<!-- Sécurité & bonnes pratiques -->
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src * data:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src *;" />
-		<meta name="referrer" content="strict-origin-when-cross-origin" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-	<!-- Accessibilité / PWA (optionnel) -->
-		<link rel="manifest" href="/manifest.json" />
-		<meta name="theme-color" content="#ffffff" />
+	<!-- 🚀 Version CSP corrigée et compatible Astro + React + GTM -->
+	<meta http-equiv="Content-Security-Policy"
+	content="
+		default-src 'self' https://www.googletagmanager.com https://www.google-analytics.com;
+		script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com;
+		style-src 'self' 'unsafe-inline';
+		img-src 'self' blob: data: https://*;
+		connect-src *;
+		font-src 'self' data:;
+		frame-src https://www.googletagmanager.com;
+	">
+	
+	<meta name="referrer" content="strict-origin-when-cross-origin" />
 
-		<script type="application/ld+json">
-			{
-			"@context": "https://schema.org",
-			"@type": "LocalBusiness",
-			"name": "Maxence Garandel",
-			"description": "Portfolio de Maxence Garandel, Assitant Shopify et Dev Web.",
-			"address": {
-				"@type": "PostalAddress",
-				"addressLocality": "Rennes",
-				"addressCountry": "FR"
-			},
-			"url": "https://maxence-garandel.vercel.app/",
-			"telephone": "06 73 55 11 50"
-			}
-		</script>
+	<!-- Accessibilité / PWA -->
+	<link rel="manifest" href="/manifest.json" />
+	<meta name="theme-color" content="#ffffff" />
+
+	<script type="application/ld+json">
+		{
+		"@context": "https://schema.org",
+		"@type": "LocalBusiness",
+		"name": "Maxence Garandel",
+		"description": "Portfolio de Maxence Garandel, Assitant Shopify et Dev Web.",
+		"address": {
+			"@type": "PostalAddress",
+			"addressLocality": "Rennes",
+			"addressCountry": "FR"
+		},
+		"url": "https://maxence-garandel.vercel.app/",
+		"telephone": "06 73 55 11 50"
+		}
+	</script>
+
 	</head>
+
 	<body>
+
 		<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZB5ZT24"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+		<noscript>
+			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZB5ZT24"
+			height="0" width="0" style="display:none;visibility:hidden"></iframe>
+		</noscript>
+		<!-- End Google Tag Manager (noscript) -->
+
 		<slot />
+
 	</body>
 </html>
 

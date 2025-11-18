@@ -1,17 +1,25 @@
 ---
 import ProjectSection from "./ProjectSection.astro";
+import SlideFromBottom from "../components/SlideFromBottom";
 ---
 
 <main class="md:section" id="projects">
+  <SlideFromBottom client:load>
 <div class="sticky top-[0px]">
   <ProjectSection
     marque="OhMyCase"
     presentation="Gestion/Maintenance de la marque"
     description="Ohmycase est une marque de coques de téléphone personnalisées. J’ai accompagné la marque pendant plusieurs années, que ce soit dans sa communication en ligne, dans le développement de son site Shopify, dans l’optimisation de son SEO, ou encore dans la gestion de projets tels que le Black Friday, Noël, etc."
-    tags={["Dev Shopify", "Web-Design", "Web-marketing", "Influence"]}
+    tags={["#DevShopify", "#Web-Design", "#Web-Marketing", "#Influence"]}
     images={[
       "/images/omc-bento-website.webp"
     ]}
+    chiffre1="+250"
+    stat1="Coques Designs"
+    chiffre2="+50"
+    stat2="Sections Shopify Dev"
+    chiffre3="+40k"
+    stat3="Visiteurs Mensuels"
   />
 </div>
 <div class="sticky top-[0px] md:top-[70px]">
@@ -19,10 +27,16 @@ import ProjectSection from "./ProjectSection.astro";
     marque="Energie Fruit"
     presentation="Gestion/maintenance du site Shopify"
     description="Énergie Fruit est une marque de cosmétiques pour femmes. J’accompagne la marque depuis plusieurs mois dans son lancement en e-commerce, que ce soit dans le conseil ou dans le développement de nouvelles fonctionnalités sur leur Shopify."
-    tags={["Dev Shopify", "Web-design", "Audit"]}
+    tags={["#DevShopify", "#Web-design", "#Audit"]}
     images={[
       "/images/energie-fruit-site.webp"
     ]}
+    chiffre1="+10"
+    stat1="Sections Shopify Dev"
+    chiffre2="+25%"
+    stat2="Taux de conversions"
+    chiffre3="+5k"
+    stat3="Visiteurs/mois"
   />
 </div>
 <div class="sticky md:top-[0px] top-[140px]">
@@ -30,10 +44,17 @@ import ProjectSection from "./ProjectSection.astro";
     marque="ID Postur"
     presentation="Création du site internet"
     description="ID Postur est un cabinet d’étude posturale pour cyclistes. Installés depuis 2022, ils ont fait appel à moi pour développer toute leur notoriété sur les moteurs de recherche. Je me suis occupé de créer leur site, de l’optimiser pour le SEO et de mettre en place leur fiche Google My Business. Aujourd’hui, ID Postur, c’est plus de 800 études réalisées !"
-    tags={["Dev Web", "SEO", "Web-Design"]}
+    tags={["#DevWeb", "#SEO", "#Figma", "#Tailwind"]}
     images={[
       "/images/id-postur-site.webp"
     ]}
+    chiffre1="+800"
+    stat1="Prises de rendez-vous"
+    chiffre2="+10k"
+    stat2="Visiteurs"
+    chiffre3="N°1"
+    stat3="en SEO"
   />
 </div>
+</SlideFromBottom>
 </main>

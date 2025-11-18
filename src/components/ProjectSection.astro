@@ -6,7 +6,13 @@ const {
   presentation,
   description,
   tags = [],
-  images = []
+  images = [],
+  chiffre1,
+  chiffre2,
+  chiffre3,
+  stat1,
+  stat2,
+  stat3
 } = Astro.props;
 ---
 
@@ -17,20 +23,41 @@ const {
       <!-- Titre -->
       <div class="md:flex justify-between items-center mb-6 relative">
 
-        <h2 class="text-2xl font-serif mb-6">
-          {marque} • <span class="font-title text-lg">{presentation}</span>
+        <h2 class="text-4xl font-serif mb-6">
+          {marque} • <span class="font-title text-2xl">{presentation}</span>
         </h2>
 
-        <a href="https://tonsite.com"
-   class="group relative inline-block font-title font-medium cursor-pointer p-[2px] rounded-2xl transition-all duration-300 active:scale-95 focus:outline-none">
-  <span class="absolute inset-0 rounded-2xl bg-gradient-to-t from-[#041E18] to-[#264C43] opacity-80 group-hover:opacity-100 transition-opacity duration-300"></span>
-  <span class="absolute inset-0 rounded-2xl blur-md bg-gradient-to-t from-[#041E18] to-[#264C43] opacity-40 group-hover:opacity-70 transition-opacity duration-300"></span>
-  <span class="relative flex items-center justify-center gap-2 px-8 py-3 text-white text-lg rounded-xl bg-gradient-to-t from-[#264C43] to-[#041E18] shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)] group-hover:translate-y-[-2px] transition-transform duration-300">
-    Visiter
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-    </svg>
-  </span>
+        
+        <a
+  href="https://tonsite.com"
+  class="inline-flex items-center justify-center px-4 py-2 font-medium 
+         rounded-lg text-white select-none relative antialiased text-xl
+
+         /* Fond */
+         bg-[#041E18] 
+         bg-gradient-to-b from-[#041E18]/30 to-[#041E18]/90
+
+         /* Bordure */
+         border border-[#284F46]/80
+         hover:border-[#36F4A4]/70
+
+         /* Ombres douces */
+         shadow-sm hover:shadow-md
+         duration-300 ease-in
+
+         /* Effets disabled */
+         disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none
+
+         /* Overlay glossy */
+         after:absolute after:inset-0 after:rounded-[inherit] 
+         after:pointer-events-none
+         after:shadow-[inset_0_1px_0_rgba(255,255,255,0.22),inset_0_-2px_0_rgba(4,30,24,0.55)]
+
+         /* Hover */
+         hover:bg-gradient-to-b hover:from-[#284F46] hover:to-[#041E18]/80
+  "
+>
+  Visiter le site
 </a>
 
 
@@ -45,16 +72,44 @@ const {
           <!-- Tags -->
           <div class="flex flex-wrap gap-4 mb-6">
             {tags.map(tag => (
-              <span class="bg-green-max rounded-2xl py-2 px-4 text-sm">
+              <span class="inline-flex items-center px-3 py-1 text-xs font-medium text-white 
+         rounded-md bg-[#041E18] select-none
+         bg-gradient-to-b from-[#041E18]/40 to-[#041E18]/90
+
+         border border-[#284F46]/70
+         shadow-sm
+
+         after:absolute after:inset-0 after:rounded-[inherit]
+         after:pointer-events-none
+         after:shadow-[inset_0_1px_0_rgba(255,255,255,0.18)]
+
+         relative antialiased">
                 {tag}
               </span>
             ))}
           </div>
 
           <!-- Description -->
-          <p class="font-title text-left justify-center">
+          <p class="font-title text-left justify-center leading-relaxed">
             {description}
           </p>
+          <div class="grid grid-cols-3 my-12 rounded-2xl border border-[#284F46]/30 backdrop-blur-sm">
+  <div class="flex flex-col items-center justify-center py-6 border-r border-[#284F46]/30">
+    <p class="text-3xl font-extrabold">{chiffre1}</p>
+    <p class="text-sm">{stat1}</p>
+  </div>
+
+  <div class="flex flex-col items-center justify-center py-6 border-r border-[#284F46]/30">
+    <p class="text-3xl font-extrabold">{chiffre2}</p>
+    <p class="text-sm">{stat2}</p>
+  </div>
+
+  <div class="flex flex-col items-center justify-center py-6">
+    <p class="text-3xl font-extrabold">{chiffre3}</p>
+    <p class="text-sm">{stat3}</p>
+  </div>
+</div>
+
         </div>
 
         <!-- Droite : Images -->

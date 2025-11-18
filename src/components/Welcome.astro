@@ -1,8 +1,9 @@
 ---
 import "../styles/global.css";
 import { Icon } from "astro-icon/components";
+import SlideFromLeft from "../components/SlideFromLeft.tsx";
 ---
-
+<SlideFromLeft client:load>
 <section class="relative flex flex-col justify-center items-center text-center min-h-screen overflow-hidden bg-[#041E18] text-white grain">
 
   <!-- Glow / gradient background -->
@@ -22,7 +23,6 @@ import { Icon } from "astro-icon/components";
         class="relative h-44 w-44 object-cover rounded-full mx-auto shadow-[0_0_40px_10px_rgba(54,244,164,0.4)] border-4 border-[#36f4a4]/70 transition-transform duration-700 group-hover:scale-105"
       />
     </div>
-
     <!-- Texte principal -->
     <div class="space-y-6 px-4">
       <h1 class="text-4xl md:text-6xl font-title font-bold leading-tight">
@@ -82,3 +82,4 @@ import { Icon } from "astro-icon/components";
 
 </section>
 <hr class="border-white border-4">
+</SlideFromLeft>
