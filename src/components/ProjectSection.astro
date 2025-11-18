@@ -12,7 +12,8 @@ const {
   chiffre3,
   stat1,
   stat2,
-  stat3
+  stat3,
+  link
 } = Astro.props;
 ---
 
@@ -29,7 +30,9 @@ const {
 
         
         <a
-  href="https://tonsite.com"
+  href={link}
+  rel="nofollow"
+  target="_blank"
   class="inline-flex items-center justify-center px-4 py-2 font-medium 
          rounded-lg text-white select-none relative antialiased text-xl
 
@@ -95,18 +98,18 @@ const {
           </p>
           <div class="grid grid-cols-3 my-12 rounded-2xl border border-[#284F46]/30 backdrop-blur-sm">
   <div class="flex flex-col items-center justify-center py-6 border-r border-[#284F46]/30">
-    <p class="text-3xl font-extrabold">{chiffre1}</p>
-    <p class="text-sm">{stat1}</p>
+    <p class="text-3xl font-extrabold text-center">{chiffre1}</p>
+    <p class="text-sm text-center">{stat1}</p>
   </div>
 
   <div class="flex flex-col items-center justify-center py-6 border-r border-[#284F46]/30">
-    <p class="text-3xl font-extrabold">{chiffre2}</p>
-    <p class="text-sm">{stat2}</p>
+    <p class="text-3xl font-extrabold text-center">{chiffre2}</p>
+    <p class="text-sm text-center">{stat2}</p>
   </div>
 
   <div class="flex flex-col items-center justify-center py-6">
-    <p class="text-3xl font-extrabold">{chiffre3}</p>
-    <p class="text-sm">{stat3}</p>
+    <p class="text-3xl font-extrabold text-center">{chiffre3}</p>
+    <p class="text-sm text-center">{stat3}</p>
   </div>
 </div>
 
