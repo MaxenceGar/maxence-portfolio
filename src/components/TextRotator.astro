@@ -1,0 +1,55 @@
+---
+const { phrases = [], interval = 2000 } = Astro.props;
+const phraseString = Array.isArray(phrases) ? phrases.join("||") : "";
+---
+
+<div id="rotator-window" class="relative overflow-hidden inline-block align-middle">
+  <span
+    id="rotator"
+    class="block will-change-transform text-green-max"
+    data-phrases={phraseString}
+    data-interval={interval}
+  ></span>
+</div>
+
+<script is:inline>
+  function initSlotMachineRotator() {
+    const el = document.getElementById("rotator");
+    const win = document.getElementById("rotator-window");
+    if (!el || !win) return false;
+
+    const phrases = (el.dataset.phrases || "")
+      .split("||")
+      .filter(Boolean);
+
+    const interval = Number(el.dataset.interval) || 2000;
+    if (phrases.length === 0) return true;
+
+    // 🧩 Mesure automatique de la hauteur réelle du texte
+    const lineHeight = win.parentElement.clientHeight; 
+
+    // Applique la hauteur au conteneur
+    win.style.height = lineHeight + "px";
+
+    // Génère la pile de texte
+    el.innerHTML = phrases
+      .map(p => `<div style="height:${lineHeight}px" class="flex items-center">${p}</div>`)
+      .join("");
+
+    let index = 0;
+
+    function showNext() {
+      index = (index + 1) % phrases.length;
+      el.style.transform = `translateY(-${index * lineHeight}px)`;
+    }
+
+    el.style.transition = "transform 0.45s cubic-bezier(.25,.46,.45,.94)";
+
+    setInterval(showNext, interval);
+    return true;
+  }
+
+  if (!initSlotMachineRotator()) {
+    window.addEventListener("DOMContentLoaded", initSlotMachineRotator, { once: true });
+  }
+</script>

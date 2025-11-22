@@ -16,117 +16,129 @@ const {
   link
 } = Astro.props;
 ---
-
+ 
 <main class="md:pt-10">
-  <section class="text-black md:pl-6 md:pr-6 relative">
-    <div class="bg-white border-2 border-green-max rounded-2xl p-4 md:p-10 mx-auto top-0 relative">
-      
-      <!-- Titre -->
-      <div class="md:flex justify-between items-center mb-6 relative">
+  <section class="text-black md:px-6 relative">
+    <div class="bg-white border-2 border-green-max rounded-2xl p-6 md:p-10 mx-auto relative">
 
-        <h2 class="text-4xl font-serif mb-6">
-          {marque} • <span class="font-title text-2xl">{presentation}</span>
+      <!-- Header -->
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-6">
+
+        <h2 class="text-3xl md:text-4xl font-serif">
+          {marque}
         </h2>
 
-        
         <a
-  href={link}
-  rel="nofollow"
-  target="_blank"
-  class="inline-flex items-center justify-center px-4 py-2 font-medium 
-         rounded-lg text-white select-none relative antialiased text-xl
+          href={link}
+          rel="nofollow"
+          target="_blank"
+          class="
+            inline-flex items-center justify-center px-4 py-2 text-lg md:text-xl font-medium text-white 
+            rounded-lg select-none relative antialiased
 
-         /* Fond */
-         bg-[#041E18] 
-         bg-gradient-to-b from-[#041E18]/30 to-[#041E18]/90
+            bg-[#041E18]
+            bg-gradient-to-b from-[#041E18]/30 to-[#041E18]/90
 
-         /* Bordure */
-         border border-[#284F46]/80
-         hover:border-[#36F4A4]/70
+            border border-[#284F46]/80
+            hover:border-[#36F4A4]/70
 
-         /* Ombres douces */
-         shadow-sm hover:shadow-md
-         duration-300 ease-in
+            shadow-sm hover:shadow-md
+            duration-300 ease-in
 
-         /* Effets disabled */
-         disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none
-
-         /* Overlay glossy */
-         after:absolute after:inset-0 after:rounded-[inherit] 
-         after:pointer-events-none
-         after:shadow-[inset_0_1px_0_rgba(255,255,255,0.22),inset_0_-2px_0_rgba(4,30,24,0.55)]
-
-         /* Hover */
-         hover:bg-gradient-to-b hover:from-[#284F46] hover:to-[#041E18]/80
-  "
->
-  Visiter le site
-</a>
-
+            after:absolute after:inset-0 after:rounded-[inherit]
+            after:pointer-events-none
+            after:shadow-[inset_0_1px_0_rgba(255,255,255,0.22),inset_0_-2px_0_rgba(4,30,24,0.55)]
+          "
+        >
+          Visiter le site
+        </a>
 
       </div>
 
-      <!-- Contenu principal -->
-      <div class="md:grid md:grid-cols-2 gap-8 relative">
+      <!-- Sous-titre -->
+      <div class="mb-6">
+        <span class="font-title text-xl md:text-2xl bg-green-max px-2 py-1 rounded-md">
+          {presentation}
+        </span>
+      </div>
 
-        <!-- Gauche -->
-        <div class="flex flex-col">
-          
+      <!-- Layout principal -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+        <!-- Colonne gauche -->
+        <div class="flex flex-col justify-between">
+
           <!-- Tags -->
-          <div class="flex flex-wrap gap-4 mb-6">
+          <div class="flex flex-wrap gap-2 md:gap-3 mb-4">
             {tags.map(tag => (
-              <span class="inline-flex items-center px-3 py-1 text-xs font-medium text-white 
-         rounded-md bg-[#041E18] select-none
-         bg-gradient-to-b from-[#041E18]/40 to-[#041E18]/90
+              <span
+                class="
+                  inline-flex items-center px-3 py-1 text-xs md:text-sm font-medium text-white 
+                  rounded-md antialiased relative select-none
 
-         border border-[#284F46]/70
-         shadow-sm
+                  bg-[#041E18]
+                  bg-gradient-to-b from-[#041E18]/40 to-[#041E18]/90
 
-         after:absolute after:inset-0 after:rounded-[inherit]
-         after:pointer-events-none
-         after:shadow-[inset_0_1px_0_rgba(255,255,255,0.18)]
+                  border border-[#284F46]/70
+                  shadow-sm
 
-         relative antialiased">
+                  after:absolute after:inset-0 after:rounded-[inherit]
+                  after:pointer-events-none
+                  after:shadow-[inset_0_1px_0_rgba(255,255,255,0.18)]
+                "
+              >
                 {tag}
               </span>
             ))}
           </div>
 
           <!-- Description -->
-          <p class="font-title text-left justify-center leading-relaxed">
+          <p class="font-title text-left leading-relaxed text-base md:text-lg mb-6">
             {description}
           </p>
-          <div class="grid grid-cols-3 my-12 rounded-2xl border border-[#284F46]/30 backdrop-blur-sm">
-  <div class="flex flex-col items-center justify-center py-6 border-r border-[#284F46]/30">
-    <p class="text-3xl font-extrabold text-center">{chiffre1}</p>
-    <p class="text-sm text-center">{stat1}</p>
-  </div>
 
-  <div class="flex flex-col items-center justify-center py-6 border-r border-[#284F46]/30">
-    <p class="text-3xl font-extrabold text-center">{chiffre2}</p>
-    <p class="text-sm text-center">{stat2}</p>
-  </div>
+          <!-- Stats -->
+          <div class="
+            grid grid-cols-3 
+            rounded-2xl border border-[#284F46]/30 backdrop-blur-sm
+            text-center overflow-hidden
+          ">
 
-  <div class="flex flex-col items-center justify-center py-6">
-    <p class="text-3xl font-extrabold text-center">{chiffre3}</p>
-    <p class="text-sm text-center">{stat3}</p>
-  </div>
-</div>
+            <div class="py-6 border-r border-[#284F46]/30 flex flex-col">
+              <p class="text-2xl md:text-3xl font-extrabold">{chiffre1}</p>
+              <p class="text-xs md:text-sm">{stat1}</p>
+            </div>
 
+            <div class="py-6 border-r border-[#284F46]/30 flex flex-col">
+              <p class="text-2xl md:text-3xl font-extrabold">{chiffre2}</p>
+              <p class="text-xs md:text-sm">{stat2}</p>
+            </div>
+
+            <div class="py-6 flex flex-col">
+              <p class="text-2xl md:text-3xl font-extrabold">{chiffre3}</p>
+              <p class="text-xs md:text-sm">{stat3}</p>
+            </div>
+
+          </div>
         </div>
 
-        <!-- Droite : Images -->
+        <!-- Colonne droite : images -->
         {images.length > 0 && (
           <div class="grid gap-4">
             {images.map(img => (
               <img
                 src={img}
                 alt={marque}
-                class="mt-10 md:mt-0 object-cover object-top w-full h-96 rounded-xl border-2 border-gray-400/50"
+                class="
+                  object-cover object-top w-full 
+                  h-48 sm:h-64 md:h-80 lg:h-96
+                  rounded-xl border-2 border-gray-400/50
+                "
               />
             ))}
           </div>
         )}
+
       </div>
     </div>
   </section>

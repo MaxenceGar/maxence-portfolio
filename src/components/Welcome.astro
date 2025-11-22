@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import { Icon } from "astro-icon/components";
 import SlideFromLeft from "../components/SlideFromLeft.tsx";
+import TextRotator from "../components/TextRotator.astro";
 ---
 <SlideFromLeft client:load>
 <section class="relative flex flex-col justify-center items-center text-center min-h-screen overflow-hidden bg-[#041E18] text-white grain">
@@ -27,6 +28,14 @@ import SlideFromLeft from "../components/SlideFromLeft.tsx";
     <div class="space-y-6 px-4">
       <h1 class="text-4xl md:text-6xl font-title font-bold leading-tight">
         Hello ! C’est <span class="font-serif text-6xl md:text-7xl text-green-max">Maxence 👋</span>
+      </h1>
+
+      <h1 class="text-5xl font-title justify-center">
+        Je développe votre
+        <TextRotator client:load
+          phrases={["e-commerce", "site vitrine", "section Shopify"]}
+          interval={2800}
+        />
       </h1>
 
       <p class="text-lg md:text-xl max-w-2xl mx-auto text-white/80 font-body leading-relaxed">
