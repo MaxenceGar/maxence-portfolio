@@ -93,33 +93,34 @@ const {
           </div>
 
           <!-- Description -->
-          <p class="font-title text-left leading-relaxed text-base md:text-lg mb-6">
+          <p class="font-title text-left leading-relaxed text-sm md:text-lg mb-6 hidden md:block">
             {description}
           </p>
 
-          <!-- Stats -->
-          <div class="
-            grid grid-cols-3 
-            rounded-2xl border border-[#284F46]/30 backdrop-blur-sm
-            text-center overflow-hidden
-          ">
-
+          <!-- Stats (desktop seulement) -->
+          <div
+            class="
+              hidden md:grid md:grid-cols-3 
+              rounded-2xl border border-[#284F46]/30 backdrop-blur-sm
+              text-center overflow-hidden
+            "
+          >
             <div class="py-6 border-r border-[#284F46]/30 flex flex-col">
-              <p class="text-2xl md:text-3xl font-extrabold">{chiffre1}</p>
-              <p class="text-xs md:text-sm">{stat1}</p>
+              <p class="text-3xl font-extrabold">{chiffre1}</p>
+              <p class="text-sm">{stat1}</p>
             </div>
 
             <div class="py-6 border-r border-[#284F46]/30 flex flex-col">
-              <p class="text-2xl md:text-3xl font-extrabold">{chiffre2}</p>
-              <p class="text-xs md:text-sm">{stat2}</p>
+              <p class="text-3xl font-extrabold">{chiffre2}</p>
+              <p class="text-sm">{stat2}</p>
             </div>
 
             <div class="py-6 flex flex-col">
-              <p class="text-2xl md:text-3xl font-extrabold">{chiffre3}</p>
-              <p class="text-xs md:text-sm">{stat3}</p>
+              <p class="text-3xl font-extrabold">{chiffre3}</p>
+              <p class="text-sm">{stat3}</p>
             </div>
-
           </div>
+
         </div>
 
         <!-- Colonne droite : images -->
