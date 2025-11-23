@@ -8,6 +8,7 @@ import Presentation from '@/components/presentation.astro';
 import Project from '../components/project.astro';
 import SmoothFollower from "../components/SmoothFollower.tsx";
 import Cv from '../components/Cv.astro';
+import Marquee from '../components/Marquee.astro'
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
@@ -16,6 +17,7 @@ import Cv from '../components/Cv.astro';
 	<Header />
 	<SmoothFollower client:only="react" />  <!-- 👈 c’est ici que la magie opère -->
 	<Welcome />
+	<Marquee />
 	<Presentation />
 	<Project />
 	<Cv />

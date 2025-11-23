@@ -47,15 +47,10 @@ html {
 }
 
 @keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
 }
 
 .marquee-track {
-  width: fit-content;
-  animation: marquee 35s linear infinite;
+  animation: marquee 15s linear infinite;
 }
