@@ -17,9 +17,9 @@ const {
 } = Astro.props;
 ---
  
-<main class="md:pt-10">
-  <section class="text-black md:px-6 relative">
-    <div class="bg-white border-2 border-green-max rounded-2xl p-6 md:p-10 mx-auto relative">
+<main class="md:pt-10 w-full md:w-[50vw] mx-auto px-2 md:px-0">
+  <section class="text-black md:px-6">
+    <div class="bg-white border-2 border-green-max rounded-2xl p-6 md:p-10 mx-auto">
 
       <!-- Header -->
       <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-6">
@@ -34,7 +34,7 @@ const {
           target="_blank"
           class="
             inline-flex items-center justify-center px-4 py-2 text-lg md:text-xl font-medium text-white 
-            rounded-lg select-none relative antialiased
+            rounded-lg select-none antialiased
 
             bg-[#041E18]
             bg-gradient-to-b from-[#041E18]/30 to-[#041E18]/90
@@ -63,13 +63,13 @@ const {
       </div>
 
       <!-- Layout principal -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+      <div class="grid grid-cols-1 gap-10">
 
         <!-- Colonne gauche -->
         <div class="flex flex-col justify-between">
 
           <!-- Tags -->
-          <div class="flex flex-wrap gap-2 md:gap-3 mb-4">
+          <div class="flex flex-wrap gap-2 md:gap-3 md:mb-4 mb-0">
             {tags.map(tag => (
               <span
                 class="
@@ -93,7 +93,7 @@ const {
           </div>
 
           <!-- Description -->
-          <p class="font-title text-left leading-relaxed text-sm md:text-lg mb-6 hidden md:block">
+          <p class="font-title text-left leading-relaxed text-sm md:text-lg md:mb-6 hidden md:block">
             {description}
           </p>
 
@@ -125,16 +125,22 @@ const {
 
         <!-- Colonne droite : images -->
         {images.length > 0 && (
-          <div class="grid gap-4">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             {images.map(img => (
               <img
                 src={img}
                 alt={marque}
-                class="
-                  object-cover object-top w-full 
-                  h-48 sm:h-64 md:h-80 lg:h-96
-                  rounded-xl border-2 border-gray-400/50
-                "
+                class="object-cover aspect-square w-96 h-52 rounded-xl border-2 border-gray-400/50 shadow-2xl shadow-green-max-dark"
+              />
+              <img
+                src={img}
+                alt={marque}
+                class="hidden md:block object-cover aspect-square w-96 h-52 rounded-xl border-2 border-gray-400/50 shadow-2xl shadow-green-max-dark"
+              />
+              <img
+                src={img}
+                alt={marque}
+                class="hidden md:block object-cover aspect-square w-96 h-52 rounded-xl border-2 border-gray-400/50 shadow-2xl shadow-green-max-dark"
               />
             ))}
           </div>
