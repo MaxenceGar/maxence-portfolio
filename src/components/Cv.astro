@@ -5,8 +5,8 @@ import { Icon } from "astro-icon/components";
 
 ---
 
-<section class="relative py-24 text-white rounded-tr-4xl rounded-tl-4xl bg-gradient-to-b from-green-max-dark to-white">
-<div class="relative grid md:grid-cols-2 grid-cols-1 md:w-3/4 w-11/12 mx-auto gap-14 text-shadow-lg/30">
+<section class="py-24 text-white rounded-tr-4xl rounded-tl-4xl bg-green-max-dark">
+<div class="grid md:grid-cols-2 grid-cols-1 px-6 py-12 md:px-24 md:py-24 mx-auto gap-14 text-shadow-lg/30">
     <div>
     <div class="tracking-widest">
         <h2 class="font-serif uppercase text-6xl md:text-7xl mb-10 italic text-center md:text-left">éducation</h2>
@@ -16,7 +16,43 @@ import { Icon } from "astro-icon/components";
             <p class="text-2xs md:text-2xl grid w-full"><span class="font-serif text-3xl mr-3">2015 - 2018</span>BAC STMG - Lannion (22)</p>
         </div>
     </div>
-    <div class="bg-[#284F46] rounded-4xl px-6 py-6 mt-24 border-dashed border-4">
+    </div>
+    <div>
+        <div class="mb-16">
+        <h2 class="font-serif uppercase text-6xl md:text-7xl mb-10 italic text-center md:text-left">compétences</h2>
+        <div class="flex gap-6 justify-center md:justify-start">
+        <Icon 
+        name="figma"
+        class="w-10 md:w-14 h-full text-green-max" />
+        <Icon 
+        name="adobe"
+        class="w-10 md:w-14 h-full text-green-max" />
+        <Icon 
+        name="shopify"
+        class="w-10 md:w-14 h-full text-green-max" />
+        <Icon 
+        name="wordpress"
+        class="w-10 md:w-14 h-full text-green-max" />
+        <Icon 
+        name="openai"
+        class="w-10 md:w-14 h-full text-green-max" />
+        </div>
+        <h2 class="font-serif uppercase text-6xl md:text-7xl mb-6 mt-10 italic text-center md:text-left">intérêt</h2>
+        <div class="flex gap-6 justify-center md:justify-start">
+        <Icon 
+        name="run"
+        class="w-10 md:w-14 h-full text-green-max" />
+        <Icon 
+        name="music"
+        class="w-10 md:w-14 h-full text-green-max" />
+        <Icon 
+        name="computer"
+        class="w-10 md:w-14 h-full text-green-max" />
+        </div>
+        </div>
+    </div>
+</div>
+    <div class="bg-[#284F46] rounded-4xl mt-24 border-dashed border-4 px-6 my-12 md:px-24 md:py-24 mx-auto max-w-7xl">
         <h2 class="font-serif uppercase text-6xl md:text-7xl mb-10 italic text-center md:text-left">expériences</h2>
         <div>
             <div class="flex justify-between items-center">
@@ -82,40 +118,4 @@ import { Icon } from "astro-icon/components";
             </div>
         </div>
     </div>
-    </div>
-    <div>
-        <div class="mb-16">
-        <h2 class="font-serif uppercase text-6xl md:text-7xl mb-10 italic text-center md:text-left">compétences</h2>
-        <div class="flex gap-6 justify-center md:justify-start">
-        <Icon 
-        name="figma"
-        class="w-10 md:w-14 h-full text-green-max" />
-        <Icon 
-        name="adobe"
-        class="w-10 md:w-14 h-full text-green-max" />
-        <Icon 
-        name="shopify"
-        class="w-10 md:w-14 h-full text-green-max" />
-        <Icon 
-        name="wordpress"
-        class="w-10 md:w-14 h-full text-green-max" />
-        <Icon 
-        name="openai"
-        class="w-10 md:w-14 h-full text-green-max" />
-        </div>
-        <h2 class="font-serif uppercase text-6xl md:text-7xl mb-6 mt-10 italic text-center md:text-left">intérêt</h2>
-        <div class="flex gap-6 justify-center md:justify-start">
-        <Icon 
-        name="run"
-        class="w-10 md:w-14 h-full text-green-max" />
-        <Icon 
-        name="music"
-        class="w-10 md:w-14 h-full text-green-max" />
-        <Icon 
-        name="computer"
-        class="w-10 md:w-14 h-full text-green-max" />
-        </div>
-        </div>
-    </div>
-</div>
 </section>
