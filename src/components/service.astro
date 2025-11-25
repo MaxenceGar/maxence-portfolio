@@ -1,0 +1,65 @@
+---
+const services = [
+  {
+    title: "Développement Shopify",
+    description:
+      "Création de boutiques sur mesure, migration, optimisation de thème et développement d'applications.",
+    icon: "🛍️",
+    features: ["Thèmes 2.0", "Liquid", "Section Custom", "Optimisation SEO"],
+  },
+  {
+    title: "Sites Vitrines Astro",
+    description:
+      "Sites ultra-rapides, éco-conçus et optimisés pour le SEO avec Astro et Tailwind CSS.",
+    icon: "🚀",
+    features: [
+      "Performance 100/100",
+      "SEO Friendly",
+      "Design Responsive",
+      "Animations fluides",
+    ],
+  },
+];
+---
+
+<section class="py-24 bg-green-max-dark relative font-title w-full">
+  <div class="container mx-auto">
+    <div class="text-left mb-16">
+      <h2 class="text-3xl md:text-5xl font-bold text-shopify-black mb-4">
+        Mes Expertises
+      </h2>
+      <p class="text-white-max max-w-2xl">
+        Des solutions techniques adaptées à vos besoins, que ce soit pour vendre
+        en ligne ou présenter votre activité.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      {
+        services.map((service) => (
+          <div class="group p-8 rounded-2xl border border-gray-100 bg-white-max hover:bg-white hover:shadow-2xl hover:border-green-max/20 transition-all duration-300">
+            <div class="text-4xl mb-6 bg-white w-16 h-16 flex items-center justify-center rounded-xl shadow-sm group-hover:scale-110 transition-transform">
+              {service.icon}
+            </div>
+            <h3 class="text-2xl font-bold text-green-max-dark mb-4">
+              {service.title}
+            </h3>
+            <p class="text-gray-600 mb-8 leading-relaxed">
+              {service.description}
+            </p>
+            <ul class="space-y-3">
+              {service.features.map((feature) => (
+                <li class="flex items-center gap-3 text-gray-700">
+                  <span class="w-5 h-5 rounded-full bg-green-max/10 flex items-center justify-center text-shopify-green text-xs">
+                    ✓
+                  </span>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

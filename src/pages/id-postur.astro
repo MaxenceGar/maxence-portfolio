@@ -1,12 +1,160 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
-import IDPostur from '../components/IDPostur.astro'
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
 ---
 
-<Layout >
-    <Header />
-    <IDPostur />
-    <Footer />
+<Layout>
+  <section class="py-16 px-4 md:px-12">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <div class="mb-8 font-title">
+          <div
+            class="inline-block px-4 py-1.5 rounded-full bg-green-max/20 text-shopify-green font-medium text-sm mb-4"
+          >
+            Site Vitrine
+          </div>
+          <h1 class="text-4xl font-extrabold mb-2">ID Postur</h1>
+          <p class="mb-2 text-lg">
+            Conception et développement d'un site vitrine performant pour un
+            spécialiste de l'ergonomie au travail. L'objectif était de présenter
+            les services et produits avec une identité visuelle professionnelle
+            et rassurante.
+          </p>
+          <div class="flex flex-wrap gap-3 mb-8">
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-700 font-medium text-sm"
+              >Astro</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-700 font-medium text-sm"
+              >Tailwind CSS</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-700 font-medium text-sm"
+              >Vercel</span
+            >
+          </div>
+          <div>
+            <div
+              class="bg-green-max text-green-max-dark inline-block p-3 rounded-full"
+            >
+              Visiter le site
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="aspect-video bg-gray-200 rounded-2xl shadow-2xl overflow-hidden relative group"
+          >
+            <img
+              src="images/id-postur-home.png"
+              alt="Aperçu du site ID Postur"
+              class="w-full h-full object-cover object-top"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-4 md:px-12 bg-white-max font-title">
+    <div class="max-w-7xl mx-auto">
+      <div
+        class="grid grid-cols-2 md:grid-cols-3 gap-8 border-y border-green-max-dark py-12"
+      >
+        <div class="text-center">
+          <div class="text-3xl md:text-4xl font-bold text-green-max-dark mb-2">
+            30 jours
+          </div>
+          <div
+            class="text-green-max-dark uppercase tracking-wider text-sm font-medium"
+          >
+            De réalisation
+          </div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl md:text-4xl font-bold text-green-max-dark mb-2">
+            SEO
+          </div>
+          <div
+            class="text-green-max-dark uppercase tracking-wider text-sm font-medium"
+          >
+            Optimisé
+          </div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl md:text-4xl font-bold text-green-max-dark mb-2">
+            Sur mesure
+          </div>
+          <div
+            class="text-green-max-dark uppercase tracking-wider text-sm font-medium"
+          >
+            Design
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content / Gallery -->
+  <section class="py-16 px-4 md:px-12">
+    <div class="container mx-auto space-y-20">
+      <!-- Challenge -->
+      <div class="space-y-6">
+        <h2 class="text-4xl font-bold font-serif">Le Challenge</h2>
+        <p class="text-lg text-white leading-relaxed font-title">
+          ID Postur avait besoin d'une présence en ligne qui reflète leur
+          expertise en étude posturale pour les cycliste. Le défi principal
+          était de créer un site à la fois esthétique et extrêmement performant
+          pour assurer un bon référencement naturel dès le lancement.
+        </p>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="grid gap-8">
+        <div
+          class="aspect-[16/9] rounded-2xl overflow-hidden shadow-lg relative border-4 border-white/70 hover:scale-105 transition duration-300 ease-in-out"
+        >
+          <img
+            src="images/id-postur-ordinateur.webp"
+            alt="Page d'accueil ID Postur"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div
+            class="aspect-square rounded-2xl overflow-hidden flex items-center justify-center border-4 border-white/70 hover:scale-105 transition duration-300 ease-in-out"
+          >
+            <img
+              src="images/id-postur-mobile.webp"
+              alt="Page d'accueil ID Postur"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div
+            class="aspect-square rounded-2xl overflow-hidden flex items-center justify-center border-4 border-white/70 hover:scale-105 transition duration-300 ease-in-out"
+          >
+            <img
+              src="images/id-postur-perf.webp"
+              alt="Page d'accueil ID Postur"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Solution -->
+      <div class="space-y-6">
+        <h2 class="text-4xl font-bold font-serif">La Solution</h2>
+        <p class="text-lg text-white leading-relaxed font-title">
+          J'ai opté pour <strong>Astro</strong> couplé à <strong
+            >Tailwind CSS</strong
+          >. Cette stack technique permet de générer un site statique
+          ultra-léger (zéro JavaScript inutile côté client). Le résultat est un
+          site qui charge instantanément, offrant une expérience utilisateur
+          fluide et un score Lighthouse parfait.
+        </p>
+      </div>
+    </div>
+  </section>
 </Layout>

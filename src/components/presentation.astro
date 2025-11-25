@@ -1,18 +1,24 @@
 ---
 import "../styles/global.css";
-import SlideFromLeft from "../components/SlideFromLeft.tsx";
-import SlideFromRight from "../components/SlideFromRight.tsx";
 ---
 
 <section class="relative py-24 overflow-hidden">
   <!-- Accent background shape -->
 
-  <div class="relative grid md:grid-cols-2 grid-cols-1 mx-auto items-center container justify-between px-2">
+  <div
+    class="relative grid md:grid-cols-2 grid-cols-1 mx-auto items-center container justify-between px-2"
+  >
     <!-- Image -->
-     <SlideFromLeft client:load>
-    <div class="flex justify-center md:justify-start order-2 md:order-1 mb-12 md:mb-0">
-      <div class="relative group rotate-1 hover:rotate-0 transition-transform duration-500">
-        <div class="absolute -inset-3 bg-green-max rounded-xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity"></div>
+    <div
+      class="flex justify-center md:justify-start order-2 md:order-1 mb-12 md:mb-0"
+    >
+      <div
+        class="relative group hover:rotate-0 transition-transform duration-500"
+      >
+        <div
+          class="absolute bg-green-max rounded-xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity"
+        >
+        </div>
         <img
           src="/images/description-moi.webp"
           alt="Photo de Maxence"
@@ -20,41 +26,49 @@ import SlideFromRight from "../components/SlideFromRight.tsx";
         />
       </div>
     </div>
-    </SlideFromLeft>
 
     <!-- Texte -->
-     <SlideFromRight client:load>
-    <div class="order-1 md:order-2 text-[#041E18] font-body leading-relaxed space-y-6 md:pl-8 text-white">
-      <h2 class="font-title text-3xl md:text-4xl font-semibold mb-6 border-l-4 border-green-max pl-4">
+    <div
+      class="order-1 md:order-2 font-body leading-relaxed space-y-6 md:pl-8 font-title"
+    >
+      <h2
+        class="font-title text-3xl md:text-4xl font-semibold mb-6 border-l-4 border-green-max pl-4"
+      >
         Enchanté, moi c’est <span class="text-green-max">Maxence</span> 👋
       </h2>
 
       <p class="text-lg opacity-90">
-        Bienvenue sur mon site internet — ici, je vous partages mes projets, mon parcours, les outils que j’utilise et les idées qui m’inspirent.
+        Bienvenue sur mon site portfolio — ici, je vous partages mes projets,
+        mon parcours, les outils que j’utilise et les idées qui m’inspirent.
       </p>
 
       <p>
-        J’ai <span class="bg-green-max text-[#041E18] px-2 rounded-md font-semibold">26 ans</span> et je vis à <span class="bg-green-max text-[#041E18] px-2 rounded-md font-semibold">Rennes</span>. Passionné par la création de site internet vitrine ou e-commerce, j'aime concevoir des sites efficaces et performants.
+        J’ai <span
+          class="bg-green-max text-green-max-dark px-2 rounded-md font-semibold"
+          >26 ans</span
+        > et je vis à <span
+          class="bg-green-max text-green-max-dark px-2 rounded-md font-semibold"
+          >Rennes</span
+        >. Passionné par la création de site internet vitrine ou e-commerce,
+        j'aime concevoir des sites efficaces et performants.
       </p>
 
       <p>
-        Explorer ce qu’il se passe <span class="font-semibold text-green-max">derrière les pages</span> nourrit ma curiosité et ma créativité, tant sur le plan technique que stratégique.
+        Explorer ce qu’il se passe <span class="font-semibold text-green-max"
+          >derrière les pages</span
+        > nourrit ma curiosité et ma créativité, tant sur le plan technique que stratégique.
       </p>
 
       <p>
-        Ce site est d’ailleurs entièrement conçu par mes soins avec <span class="bg-green-max text-[#041E18] px-2 rounded-md font-semibold">Astro</span> & <span class="bg-green-max text-[#041E18] px-2 rounded-md font-semibold">Tailwind CSS</span> — épaulé par ChatGPT, mais pas assisté ! Un trio moderne et efficace pour développer un site moderne et esthétique 🌿
+        Ce site est d’ailleurs entièrement conçu par mes soins avec <span
+          class="bg-green-max text-green-max-dark px-2 rounded-md font-semibold"
+          >Astro</span
+        > & <span
+          class="bg-green-max text-green-max-dark px-2 rounded-md font-semibold"
+          >Tailwind CSS</span
+        > — épaulé par ChatGPT, mais pas assisté ! Un trio moderne et efficace pour
+        développer un site moderne et esthétique 🌿
       </p>
     </div>
-    </SlideFromRight>
   </div>
 </section>
-
-<style>
-@keyframes fade-in {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.animate-fade-in {
-  animation: fade-in 0.8s ease-out both;
-}
-</style>

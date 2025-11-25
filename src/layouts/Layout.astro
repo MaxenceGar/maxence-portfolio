@@ -1,77 +1,99 @@
+---
+import "../styles/global.css";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+---
+
 <!doctype html>
-<html lang="en">
-	<head>
+<html lang="fr">
+  <head>
+    <!-- 🔒 Encodage toujours en premier -->
+    <meta charset="UTF-8" />
 
-	<!-- Google Tag Manager -->
-	<script>
-		(function(w,d,s,l,i){
-			w[l]=w[l]||[];
-			w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-			var f=d.getElementsByTagName(s)[0],
-			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-			j.async=true;
-			j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-			f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','GTM-PZB5ZT24');
-	</script>
-	<!-- End Google Tag Manager -->
+    <!-- Responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCSNXP0LNN"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', 'G-ZCSNXP0LNN');
-	</script>
+    <!-- SEO -->
+    <title>Maxence Garandel — Assistant Shopify & Développeur Web</title>
+    <meta
+      name="description"
+      content="Portfolio de Maxence Garandel : Assistant e-commerce spécialisé Shopify et développeur de sites internet (Astro, Tailwind, Liquid). Basé à Rennes."
+    />
 
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width" />
-	<link rel="icon" type="image/svg+xml" href="/FAVICON.png" />
-	<meta name="generator" content={Astro.generator} />
-	<meta name="google-site-verification" content="YLdxamp0EqdZeqQyNIxeYvtPNbQ8trAidkZj9YjlhOY" />
-	<title>Maxence Garandel</title>
-	<meta name="description" content="Découvrez mon portfolio dès maintenant, mes projets, mon parcours, mes contacts,... Tout ce qu'il faut s'avoir sur moi. Assistant Shopify et developpeur de site internet à Rennes." />
-	<meta property="og:image" content="/images/website-link.png" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/FAVICON.png" />
 
-	<script type="application/ld+json">
-		{
-		"@context": "https://schema.org",
-		"@type": "LocalBusiness",
-		"name": "Maxence Garandel",
-		"description": "Portfolio de Maxence Garandel, Assitant Shopify et Dev Web.",
-		"address": {
-			"@type": "PostalAddress",
-			"addressLocality": "Rennes",
-			"addressCountry": "FR"
-		},
-		"url": "https://maxence-garandel.vercel.app/",
-		"telephone": "06 73 55 11 50"
-		}
-	</script>
+    <!-- Open Graph -->
+    <meta property="og:title" content="Maxence Garandel — Portfolio" />
+    <meta
+      property="og:description"
+      content="Découvrez mes projets e-commerce, mes compétences et mon parcours."
+    />
+    <meta property="og:image" content="/images/website-link.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://maxence-garandel.vercel.app" />
 
-	</head>
+    <!-- JSON-LD SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Maxence Garandel",
+        "description": "Assistant Shopify et Développeur Web.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Rennes",
+          "addressCountry": "FR"
+        },
+        "url": "https://maxence-garandel.vercel.app",
+        "telephone": "06 73 55 11 50"
+      }
+    </script>
 
-	<body>
+    <!-- 🔵 Google Tag (Analytics) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCSNXP0LNN"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-ZCSNXP0LNN");
+    </script>
 
-		<!-- Google Tag Manager (noscript) -->
-		<noscript>
-			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZB5ZT24"
-			height="0" width="0" style="display:none;visibility:hidden"></iframe>
-		</noscript>
-		<!-- End Google Tag Manager (noscript) -->
+    <!-- 🟢 Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-PZB5ZT24");
+    </script>
+  </head>
 
-		<slot />
+  <body class="bg-[#041E17] text-white">
+    <Header />
 
-	</body>
+    <!-- GTM (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-PZB5ZT24"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+    <!-- Page Content -->
+    <!-- Ici, le contenu de chaque page sera injecté -->
+    <main class="flex-grow">
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-		background-color: #041E17;
-	}
-</style>

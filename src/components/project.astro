@@ -1,65 +1,88 @@
 ---
-import ProjectSection from "./ProjectSection.astro";
+const projects = [
+  {
+    title: "Site Vitrine",
+    category: "ID Postur",
+    image: "/images/id-postur-website.webp", // Placeholder color
+    tags: ["Tailwind", "Astro", "SEO"],
+    link: "/id-postur.astro",
+  },
+  {
+    title: "E-commerce",
+    category: "Énergie Fruit",
+    image: "/images/energiefruit-website.webp", // Placeholder color
+    tags: ["Liquid", "Custom Section", "Shopify", "SEO"],
+    link: "#",
+  },
+  {
+    title: "E-commerce",
+    category: "Ohmycase",
+    image: "/images/ohmycase-website.webp", // Placeholder color
+    tags: ["Liquid", "Metafields", "SEO", "Design"],
+    link: "#",
+  },
+];
 ---
 
-<main id="projects" class="mx-auto container">
-
-      <!-- Séquence 1 -->
-       <div class="w-full mb-12">
-      <ProjectSection
-        marque="OhMyCase"
-        presentation="Gestion/Maintenance de la marque"
-        description="Ohmycase est une marque de coques de téléphone personnalisées. J’ai accompagné la marque pendant plusieurs années, que ce soit dans sa communication en ligne, dans le développement de son site Shopify, dans l’optimisation de son SEO, ou encore dans la gestion de projets tels que le Black Friday, Noël, etc."
-        tags={["#DevShopify", "#WebDesign", "#WebMarketing", "#Influence"]}
-        images={[
-          "/images/test.png"
-        ]}
-        chiffre1="+250"
-        stat1="Coques Designs"
-        chiffre2="+50"
-        stat2="Sections Shopify Dev"
-        chiffre3="+40k"
-        stat3="Visiteurs Mensuels"
-        link="https://ohmycase.com"
-      />
+<section id="projects" class="py-24 px-4 md:px-12 bg-green-max-dark font-title">
+  <div class="container mx-auto">
+    <div
+      class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 text-white"
+    >
+      <div>
+        <h2 class="text-3xl md:text-5xl font-bold mb-4">Projets Récents</h2>
+        <p class="max-w-xl">
+          Une sélection de mes dernières réalisations en e-commerce et sites
+          vitrines.
+        </p>
       </div>
+    </div>
 
-       <div class="w-full mb-12">
-      <ProjectSection
-        marque="Energie Fruit"
-        presentation="Gestion/maintenance du site Shopify"
-        description="Énergie Fruit est une marque de cosmétiques pour femmes. J’accompagne la marque depuis plusieurs mois dans son lancement en e-commerce, que ce soit dans le conseil ou dans le développement de nouvelles fonctionnalités sur leur Shopify."
-        tags={["#DevShopify", "#WebDesign", "#Audit"]}
-        images={[
-          "/images/energie-fruit-site.png"
-        ]}
-        chiffre1="+10"
-        stat1="Sections Shopify Dev"
-        chiffre2="+25%"
-        stat2="Taux de conversions"
-        chiffre3="+5k"
-        stat3="Visiteurs/mois"
-        link="https://www.energie-fruit.com/"
-      />
-      </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      {
+        projects.map((project) => (
+          <a href="/id-postur" class="group block cursor-pointer">
+            <div class="group cursor-pointer bg-white rounded-2xl p-4">
+              <div
+                class={`aspect-[4/3] rounded-2xl mb-4 overflow-hidden relative 
+                        ${project.image.startsWith("/") || project.image.startsWith("http") ? "" : project.image}
+                      `}
+              >
+                <div class="absolute inset-0 bg-shopify-dark/0 group-hover:bg-shopify-dark/10 transition-colors duration-300" />
 
-       <div class="w-full mb-12">
-      <ProjectSection
-        marque="ID Postur"
-        presentation="Création du site internet"
-        description="ID Postur est un cabinet d’étude posturale pour cyclistes. Installés depuis 2022, ils ont fait appel à moi pour développer toute leur notoriété sur les moteurs de recherche. Je me suis occupé de créer leur site, de l’optimiser pour le SEO et de mettre en place leur fiche Google My Business. Aujourd’hui, ID Postur, c’est plus de 800 études réalisées !"
-        tags={["#DevWeb", "#SEO", "#Figma", "#Tailwind", "#Astro"]}
-        images={[
-          "/images/id-postur-site.png"
-        ]}
-        chiffre1="+800"
-        stat1="Prises de rendez-vous"
-        chiffre2="+10k"
-        stat2="Visiteurs"
-        chiffre3="N°1"
-        stat3="en SEO"
-        link="https://id-postur.fr/"
-      />
-       </div>
+                {project.image.startsWith("/") ||
+                project.image.startsWith("http") ? (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    class="absolute inset-0 w-full h-full object-cover"
+                  />
+                ) : (
+                  <div class="absolute inset-0 flex items-center justify-center text-shopify-dark/20 font-bold text-4xl">
+                    {project.title}
+                  </div>
+                )}
+              </div>
 
-</main>
+              <div class="flex items-center gap-3 mb-2">
+                <span class="text-xs font-light tracking-wider uppercase text-green-max-dark">
+                  {project.category}
+                </span>
+              </div>
+              <h3 class="text-xl font-bold text-green-max-dark group-hover:text-shopify-green transition-colors">
+                {project.title}
+              </h3>
+              <div class="flex gap-2 mt-3">
+                {project.tags.map((tag) => (
+                  <span class="text-xs text-gray-500 bg-linear-to-t from-gray-50 to-white-max/50 px-2 py-1 rounded border border-gray-100">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

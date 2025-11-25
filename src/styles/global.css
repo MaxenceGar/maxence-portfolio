@@ -16,6 +16,7 @@
   --color-green-max: #36f4a4;
   --color-green-max-dark: #041E18;
   --color-green-secondaire: #284F46;
+  --color-white-max: #F4F9F8;
 }
 
 @layer utilities {
@@ -46,11 +47,15 @@ html {
     background-size: auto, auto 40px;
 }
 
+/* Assurez-vous d'avoir ce CSS dans un fichier accessible (e.g., global.css) */
 @keyframes marquee {
   0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+  /* Défile de 50% de la largeur totale (ce qui est la taille du premier bloc de logos) */
+  100% { transform: translateX(-50%); } 
 }
 
 .marquee-track {
-  animation: marquee 15s linear infinite;
+  /* Assurez que l'animation est appliquée ici */
+  animation: marquee 25s linear infinite; 
+  /* J'ai augmenté le temps à 25s pour un défilement plus lent et professionnel */
 }
