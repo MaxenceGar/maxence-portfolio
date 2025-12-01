@@ -5,14 +5,14 @@ const projects = [
     category: "ID Postur",
     image: "/images/id-postur-website.webp", // Placeholder color
     tags: ["Tailwind", "Astro", "SEO"],
-    link: "/id-postur.astro",
+    link: "/id-postur",
   },
   {
     title: "E-commerce",
     category: "Énergie Fruit",
     image: "/images/energiefruit-website.webp", // Placeholder color
     tags: ["Liquid", "Custom Section", "Shopify", "SEO"],
-    link: "#",
+    link: "/energie-fruit",
   },
   {
     title: "E-commerce",
@@ -41,7 +41,7 @@ const projects = [
     <div class="grid md:grid-cols-3 gap-8">
       {
         projects.map((project) => (
-          <a href="/id-postur" class="group block cursor-pointer">
+          <a href={project.link} class="group block cursor-pointer">
             <div class="group cursor-pointer bg-white rounded-2xl p-4">
               <div
                 class={`aspect-[4/3] rounded-2xl mb-4 overflow-hidden relative 
