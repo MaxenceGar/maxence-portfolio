@@ -59,3 +59,28 @@ html {
   animation: marquee 25s linear infinite; 
   /* J'ai augmenté le temps à 25s pour un défilement plus lent et professionnel */
 }
+
+@keyframes float {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    .animate-float-slow {
+      animation: float 6s ease-in-out infinite;
+    }
+    .animate-float-delayed {
+      animation: float 6s ease-in-out 3s infinite;
+    }
+
+.bg-btn-max {
+  box-shadow:
+    /* Effet gloss haut (reflet subtil) */
+    inset 0 2px 0 rgba(255, 255, 255, 0.45),
+
+    /* Contraste bas léger pour donner du relief */
+    inset 0 -2px 0 rgba(0, 0, 0, 0.12);
+}
