@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import MarqueeBrand from "../components/MarqueeBrand.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <Layout>
@@ -145,5 +146,69 @@ import MarqueeBrand from "../components/MarqueeBrand.astro";
         </a>
       </div>
     </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto py-12 md:py-24 font-title px-4 md:px-0">
+    <h2
+      class="text-4xl sm:text-6xl font-bold text-center text-white/90 pb-12 md:pb-24"
+    >
+      Un Accompagnement sur Mesure
+    </h2>
+
+    <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+      <div class="text-center space-y-4 mx-auto max-w-sm">
+        <Icon
+          name="cible"
+          class="h-16 md:h-24 w-auto text-green-max/70 hover:text-white transition-colors cursor-pointer mx-auto"
+        />
+        <p class="text-xl font-semibold">1. Diagnostic & Stratégie</p>
+        <p class="text-white/80">
+          Lors d'un appel de découverte approfondi, nous analysons vos
+          objectifs, votre marché et vos besoins spécifiques pour définir une
+          feuille de route claire et efficace.
+        </p>
+      </div>
+
+      <div class="text-center space-y-4 mx-auto max-w-sm">
+        <Icon
+          name="liquid"
+          class="h-16 md:h-24 w-auto text-green-max/70 hover:text-white transition-colors cursor-pointer mx-auto"
+        />
+        <p class="text-xl font-semibold">2. Conception & Implémentation</p>
+        <p class="text-white/80">
+          Je procède au développement et à la personnalisation complète de votre
+          boutique Shopify. Chaque élément est conçu pour respecter votre image
+          de marque et optimiser la conversion.
+        </p>
+      </div>
+
+      <div class="text-center space-y-4 mx-auto max-w-sm">
+        <Icon
+          name="truck"
+          class="h-16 md:h-24 w-auto text-green-max/70 hover:text-white transition-colors cursor-pointer mx-auto"
+        />
+        <p class="text-xl font-semibold">3. Mise en Ligne & Optimisation</p>
+        <p class="text-white/80">
+          Après des tests rigoureux, votre boutique est lancée. Je vous offre un
+          suivi post-livraison pour assurer le bon fonctionnement et réaliser
+          les premières optimisations basées sur les données.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <!-- Début de widget en ligne Calendly -->
+    <div
+      class="calendly-inline-widget"
+      data-url="https://calendly.com/maxgarandel-pro/30min"
+      style="min-width:320px;height:700px;"
+    >
+    </div>
+    <script
+      type="text/javascript"
+      src="https://assets.calendly.com/assets/external/widget.js"
+      async></script>
+    <!-- Fin de widget en ligne Calendly -->
   </section>
 </Layout>
