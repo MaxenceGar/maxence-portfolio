@@ -84,3 +84,21 @@ html {
     /* Contraste bas léger pour donner du relief */
     inset 0 -2px 0 rgba(0, 0, 0, 0.12);
 }
+
+button {
+  box-shadow:
+    /* Effet gloss haut (reflet subtil) */
+    inset 0 2px 0 rgba(255, 255, 255, 0.45),
+
+    /* Contraste bas léger pour donner du relief */
+    inset 0 -2px 0 rgba(0, 0, 0, 0.12);
+}
+
+.badge {
+  background-color: #284F46;
+  color: white;
+  padding: 10px 10px 5px 5px;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+}
