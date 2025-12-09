@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import MarqueeBrand from "../components/MarqueeBrand.astro";
 import { Icon } from "astro-icon/components";
+import SlideProjet from "../components/SlideProjet.astro";
 ---
 
 <Layout>
@@ -12,7 +13,10 @@ import { Icon } from "astro-icon/components";
     >
       <div class="space-y-6 md:space-y-10 grid grid-cols-1">
         <p class="leading-snug text-3xl sm:text-4xl lg:text-5xl font-bold">
-          Prêt à optimiser la croissance de votre e-commerce Shopify ?
+          Prêt à optimiser la croissance de votre <br />
+          <span class="bg-green-max text-green-max-dark"
+            >e-commerce Shopify</span
+          > ?
         </p>
         <p class="text-base/7 text-gray-100">
           Avec plus de 5 ans d'expérience sur Shopify, à développer, optimiser
@@ -22,12 +26,20 @@ import { Icon } from "astro-icon/components";
           <div
             class="grid grid-cols-1 space-y-4 md:flex md:space-x-4 md:space-y-0 justify-start mt-4"
           >
-            <span class="badge bg-btn-max">Expertise Confirmée</span>
-            <span class="badge bg-btn-max">Approche Personnalisée</span>
-            <span class="badge bg-btn-max">Résultats Durables</span>
+            <span class="badge bg-btn-max py-3 px-6 text-base"
+              >#Transparence</span
+            >
+            <span class="badge bg-btn-max py-3 px-6 text-base">#Fiabilité</span>
+            <span class="badge bg-btn-max py-3 px-6 text-base"
+              >#Performance</span
+            >
           </div>
         </p>
-        <a href="https://calendly.com/">
+        <a
+          href="https://calendly.com/maxgarandel-pro/30min"
+          target="_blank"
+          rel="nofllow"
+        >
           <button
             class="bg-green-max/80 text-green-max-dark px-4 py-2 rounded-lg cursor-pointer w-full md:w-auto font-semibold"
             >On en disctute</button
@@ -65,28 +77,32 @@ import { Icon } from "astro-icon/components";
     >
       <div class="space-y-6 md:space-y-10 order-2 md:order-1">
         <p
-          class="leading-snug text-4xl sm:text-5xl lg:text-7xl font-bold text-white/90"
+          class="leading-snug text-4xl sm:text-5xl lg:text-6xl font-bold text-white/90"
         >
-          Votre projet de boutique prend vie.
+          Pas encore sur Shopify ?
         </p>
         <p class="text-base/7 text-white/60">
-          Lancer un e-commerce sur Shopify peut sembler complexe. Ensemble,
-          simplifions le processus. Je vous accompagne de l'idée à la mise en
-          ligne, en vous assurant une base technique saine pour vendre vos
-          produits en toute sérénité.
+          Lancer un e-commerce sur Shopify n'a pas à être compliqué. Ensemble,
+          nous simplifions l'intégralité du processus, de l'idée initiale à la
+          mise en ligne. Mon rôle est de garantir une fondation technique saine
+          et performante pour que vous vendiez vos produits en toute sérénité.
         </p>
         <div class="flex flex-wrap gap-2 md:space-x-4">
           <span class="bg-green-max/20 px-4 py-2 rounded-lg bg-btn-max"
-            >#AuditTechnique</span
+            >#Accompagnement</span
           >
           <span class="bg-green-max/20 px-4 py-2 rounded-lg bg-btn-max"
-            >#RefonteUX</span
+            >#Optimisation</span
           >
           <span class="bg-green-max/20 px-4 py-2 rounded-lg bg-btn-max"
-            >#PerformanceWeb</span
+            >#Performance</span
           >
         </div>
-        <a href="https://calendly.com/">
+        <a
+          href="https://calendly.com/maxgarandel-pro/30min"
+          target="_blank"
+          rel="nofllow"
+        >
           <button
             class="bg-green-max text-green-max-dark px-4 py-2 rounded-lg cursor-pointer bg-btn-max w-full md:w-auto"
             >On en disctute</button
@@ -116,16 +132,15 @@ import { Icon } from "astro-icon/components";
       />
       <div class="space-y-6 md:space-y-10">
         <p
-          class="leading-snug text-4xl sm:text-5xl lg:text-7xl font-bold text-white/90 text-wrap"
+          class="leading-snug text-4xl sm:text-5xl lg:text-6xl font-bold text-white/90 text-wrap"
         >
-          Déjà sur Shopify ? Auditons vos performances.
+          Déjà sur Shopify ?
         </p>
         <p class="text-base/7 text-white/60">
-          Si votre boutique existe déjà, concentrons-nous sur ce qui peut être
-          amélioré. Que vous envisagiez une modernisation (refonte), une
-          amélioration de la vitesse (optimisation) ou le développement de
-          nouvelles fonctionnalités (évolution), je suis votre partenaire pour
-          atteindre de nouveaux objectifs de vente.
+          Votre boutique est déjà en ligne ? Optimisons-la ! Que ce soit pour
+          intégrer des sections personnalisées, simplifier vos processus
+          internes, mettre en place des automatisations ou booster votre SEO,
+          faisons équipe.
         </p>
         <div class="flex flex-wrap gap-2 md:space-x-4">
           <span class="bg-green-max/20 px-4 py-2 rounded-lg bg-btn-max"
@@ -138,7 +153,11 @@ import { Icon } from "astro-icon/components";
             >#PerformanceWeb</span
           >
         </div>
-        <a href="https://calendly.com/">
+        <a
+          href="https://calendly.com/maxgarandel-pro/30min"
+          target="_blank"
+          rel="nofllow"
+        >
           <button
             class="bg-green-max text-green-max-dark px-4 py-2 rounded-lg cursor-pointer bg-btn-max w-full md:w-auto"
             >On en disctute</button
@@ -185,7 +204,7 @@ import { Icon } from "astro-icon/components";
       <div class="text-center space-y-4 mx-auto max-w-sm">
         <Icon
           name="truck"
-          class="h-16 md:h-24 w-auto text-green-max/70 hover:text-white transition-colors cursor-pointer mx-auto"
+          class="h-16 md:h-24 w-auto text-white transition-colors cursor-pointer mx-auto"
         />
         <p class="text-xl font-semibold">3. Mise en Ligne & Optimisation</p>
         <p class="text-white/80">
@@ -194,6 +213,34 @@ import { Icon } from "astro-icon/components";
           les premières optimisations basées sur les données.
         </p>
       </div>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto py-12 md:py-24 font-title px-4 md:px-0">
+    <SlideProjet />
+  </section>
+
+  <section class="max-w-7xl mx-auto py-12 md:py-24 font-title px-4 md:px-0">
+    <h2
+      class="text-4xl sm:text-6xl font-bold text-center text-white/90 pb-2 md:pb-4"
+    >
+      Un projet sur mesure
+    </h2>
+    <p class="text-center text-lg pb-12 md:pb-24">
+      Chaque éléments construit par moi seront personnalisable comme vous le
+      souhaitez pour une multi utilisation
+    </p>
+    <div class="grid grid-cols-2 mx-auto">
+      <img
+        src="/images/section-custom.webp"
+        class="w-auto h-4xl mx-auto"
+        alt=""
+      />
+      <img
+        src="/images/custom-block.webp"
+        class="w-auto h-4xl mx-auto"
+        alt=""
+      />
     </div>
   </section>
 
@@ -210,5 +257,40 @@ import { Icon } from "astro-icon/components";
       src="https://assets.calendly.com/assets/external/widget.js"
       async></script>
     <!-- Fin de widget en ligne Calendly -->
+  </section>
+
+  <section class="bg-green-secondaire">
+    <div class="max-w-9xl mx-auto py-12 md:py-24 font-title px-4 md:px-">
+      <div class="grid grid-cols-4">
+        <div>
+          <Icon
+            name="conseil"
+            class="h-16 md:h-12 w-auto text-white transition-colors cursor-pointer mx-auto mb-4"
+          />
+          <p class="text-center font-light text-lg">Conseil</p>
+        </div>
+        <div>
+          <Icon
+            name="accompagnement"
+            class="h-16 md:h-12 w-auto text-white transition-colors cursor-pointer mx-auto mb-4"
+          />
+          <p class="text-center font-light text-lg">Accompagnement</p>
+        </div>
+        <div>
+          <Icon
+            name="developpement"
+            class="h-16 md:h-12 w-auto text-white transition-colors cursor-pointer mx-auto mb-4"
+          />
+          <p class="text-center font-light text-lg">Développement</p>
+        </div>
+        <div>
+          <Icon
+            name="optimisation-ux"
+            class="h-16 md:h-12 w-auto text-white transition-colors cursor-pointer mx-auto mb-4"
+          />
+          <p class="text-center font-light text-lg">Optimisation UX</p>
+        </div>
+      </div>
+    </div>
   </section>
 </Layout>
