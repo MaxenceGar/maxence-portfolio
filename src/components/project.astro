@@ -1,4 +1,6 @@
 ---
+import { motion } from "framer-motion";
+
 const projects = [
   {
     title: "Site Vitrine",
@@ -38,7 +40,18 @@ const projects = [
       </div>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8">
+    <motion.div
+      className="grid md:grid-cols-3 gap-8"
+      client:visible
+      animate={{ scale: 1, opacity: 1 }}
+      initial={{ scale: 0.8, opacity: 0 }}
+      transition={{
+        type: "spring",
+        stiffness: 50, // Moins rigide
+        damping: 20, // Amorti rapidement
+        delay: 0.1, // Petit délai au chargement
+      }}
+    >
       {
         projects.map((project) => (
           <a href={project.link} class="group block cursor-pointer">
@@ -83,6 +96,6 @@ const projects = [
           </a>
         ))
       }
-    </div>
+    </motion.div>
   </div>
 </section>
