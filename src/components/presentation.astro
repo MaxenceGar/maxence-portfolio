@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { motion } from "framer-motion";
 ---
 
 <section class="relative py-24 overflow-hidden">
@@ -19,17 +20,35 @@ import "../styles/global.css";
           class="absolute bg-green-max rounded-xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity"
         >
         </div>
-        <img
+        <motion.img
+          client:load
+          initial={{ x: -100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{
+            type: "spring",
+            stiffness: 50, // Moins rigide
+            damping: 20, // Amorti rapidement
+            delay: 0.3, // Petit délai au chargement
+          }}
           src="/images/description-moi.webp"
           alt="Photo de Maxence"
-          class="relative z-10 w-full max-w-sm md:max-w-xl border-[3px] border-green-max rounded-xl shadow-lg hover:shadow-[10px_10px_0_#36f4a4] transition-shadow duration-300"
+          className="relative z-10 w-full max-w-sm md:max-w-xl border-[3px] border-green-max rounded-xl shadow-lg hover:shadow-[10px_10px_0_#36f4a4] transition-shadow duration-300"
         />
       </div>
     </div>
 
     <!-- Texte -->
-    <div
-      class="order-1 md:order-2 font-body leading-relaxed space-y-6 md:pl-8 font-title"
+    <motion.div
+      client:load
+      initial={{ x: 100, opacity: 0 }}
+      animate={{ x: -100, opacity: 1 }}
+      transition={{
+        type: "spring",
+        stiffness: 50, // Moins rigide
+        damping: 20, // Amorti rapidement
+        delay: 0.3, // Petit délai au chargement
+      }}
+      className="order-1 md:order-2 font-body leading-relaxed space-y-6 md:pl-8 font-title"
     >
       <h2
         class="font-title text-3xl md:text-4xl font-semibold mb-6 border-l-4 border-green-max pl-4"
@@ -69,6 +88,6 @@ import "../styles/global.css";
         > — épaulé par ChatGPT, mais pas assisté ! Un trio moderne et efficace pour
         développer un site moderne et esthétique 🌿
       </p>
-    </div>
+    </motion.div>
   </div>
 </section>
