@@ -21,7 +21,7 @@ import { motion } from "framer-motion";
         >
         </div>
         <motion.img
-          client:load
+          client:visible
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{
@@ -39,7 +39,7 @@ import { motion } from "framer-motion";
 
     <!-- Texte -->
     <motion.div
-      client:load
+      client:visible
       initial={{ x: 100, opacity: 0 }}
       animate={{ x: -100, opacity: 1 }}
       transition={{

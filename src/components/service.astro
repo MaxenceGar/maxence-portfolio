@@ -20,6 +20,9 @@ const services = [
     ],
   },
 ];
+
+import type { init } from "astro/virtual-modules/prefetch.js";
+import { motion } from "framer-motion";
 ---
 
 <section class="py-24 bg-green-max-dark relative font-title w-full">
@@ -34,7 +37,18 @@ const services = [
       </p>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-8">
+    <motion.div
+      client:visible
+      initial={{ scale: 0.8, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{
+        type: "spring",
+        stiffness: 50, // Moins rigide
+        damping: 20, // Amorti rapidement
+        delay: 0.1, // Petit délai au chargement
+      }}
+      className="grid md:grid-cols-2 gap-8"
+    >
       {
         services.map((service) => (
           <div class="group p-8 rounded-2xl border border-gray-100 bg-white-max hover:bg-white hover:shadow-2xl hover:border-green-max/20 transition-all duration-300">
@@ -60,6 +74,6 @@ const services = [
           </div>
         ))
       }
-    </div>
+    </motion.div>
   </div>
 </section>
