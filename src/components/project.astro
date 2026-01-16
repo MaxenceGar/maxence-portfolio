@@ -26,14 +26,14 @@ const projects = [
 ];
 ---
 
-<section id="projects" class="py-24 px-4 md:px-12 bg-green-max-dark font-title">
+<section id="projects" class="py-24 px-4 md:px-12 bg-white font-title">
   <div class="container mx-auto">
     <div
-      class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 text-white"
+      class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 text-black"
     >
       <div>
         <h2 class="text-3xl md:text-5xl font-bold mb-4">Projets Récents</h2>
-        <p class="max-w-xl">
+        <p class="max-w-xl text-gray-700">
           Une sélection de mes dernières réalisations en e-commerce et sites
           vitrines.
         </p>
@@ -55,13 +55,13 @@ const projects = [
       {
         projects.map((project) => (
           <a href={project.link} class="group block cursor-pointer">
-            <div class="group cursor-pointer bg-white rounded-2xl p-4">
+            <div class="group cursor-pointer bg-white rounded-2xl p-4 border border-[#FC5A0A]/30 hover:shadow-xl hover:shadow-[#FC5A0A]/20 hover:border-[#FC5A0A] transition-all duration-300">
               <div
-                class={`aspect-[4/3] rounded-2xl mb-4 overflow-hidden relative 
+                class={`aspect-[4/3] rounded-2xl mb-4 overflow-hidden relative
                         ${project.image.startsWith("/") || project.image.startsWith("http") ? "" : project.image}
                       `}
               >
-                <div class="absolute inset-0 bg-shopify-dark/0 group-hover:bg-shopify-dark/10 transition-colors duration-300" />
+                <div class="absolute inset-0 bg-[#FC5A0A]/0 group-hover:bg-[#FC5A0A]/10 transition-colors duration-300" />
 
                 {project.image.startsWith("/") ||
                 project.image.startsWith("http") ? (
@@ -71,23 +71,23 @@ const projects = [
                     class="absolute inset-0 w-full h-full object-cover"
                   />
                 ) : (
-                  <div class="absolute inset-0 flex items-center justify-center text-shopify-dark/20 font-bold text-4xl">
+                  <div class="absolute inset-0 flex items-center justify-center text-gray-300 font-bold text-4xl">
                     {project.title}
                   </div>
                 )}
               </div>
 
               <div class="flex items-center gap-3 mb-2">
-                <span class="text-xs font-light tracking-wider uppercase text-green-max-dark">
+                <span class="text-xs font-light tracking-wider uppercase text-[#FC5A0A]">
                   {project.category}
                 </span>
               </div>
-              <h3 class="text-xl font-bold text-green-max-dark group-hover:text-shopify-green transition-colors">
+              <h3 class="text-xl font-bold text-black group-hover:text-[#FC5A0A] transition-colors">
                 {project.title}
               </h3>
               <div class="flex gap-2 mt-3">
                 {project.tags.map((tag) => (
-                  <span class="text-xs text-gray-500 bg-linear-to-t from-gray-50 to-white-max/50 px-2 py-1 rounded border border-gray-100">
+                  <span class="text-xs text-gray-600 bg-[#FC5A0A]/10 px-2 py-1 rounded border border-[#FC5A0A]/30">
                     {tag}
                   </span>
                 ))}

@@ -1,102 +1,31 @@
----
-const services = [
-  {
-    title: "E-commerce & Shopify",
-    description:
-      "Création et optimisation de boutiques en ligne performantes avec une stratégie digitale adaptée.",
-    icon: "🛍️",
-    features: ["Développement Shopify", "Stratégie de vente", "Optimisation des conversions", "Analytics & Tracking"],
-  },
-  {
-    title: "Web-Marketing Digital",
-    description:
-      "Stratégies digitales sur mesure pour développer votre visibilité et générer des résultats mesurables.",
-    icon: "📈",
-    features: [
-      "SEO & Référencement",
-      "Google Ads & Meta Ads",
-      "Email Marketing",
-      "Analytics & Reporting",
-    ],
-  },
-  {
-    title: "Communication & Contenu",
-    description:
-      "Création de contenu engageant et stratégie de communication pour renforcer votre image de marque.",
-    icon: "✍️",
-    features: [
-      "Rédaction web & SEO",
-      "Gestion réseaux sociaux",
-      "Stratégie de contenu",
-      "Storytelling de marque",
-    ],
-  },
-  {
-    title: "Sites Web Performants",
-    description:
-      "Conception de sites vitrines et e-commerce optimisés pour la performance et l'expérience utilisateur.",
-    icon: "🚀",
-    features: [
-      "Design moderne & responsive",
-      "Performance & rapidité",
-      "UX/UI optimisée",
-      "Maintenance & évolution",
-    ],
-  },
-];
-
-import type { init } from "astro/virtual-modules/prefetch.js";
-import { motion } from "framer-motion";
----
-
-<section class="py-24 bg-green-max-dark relative font-title w-full">
-  <div class="container mx-auto">
-    <div class="text-left mb-16">
-      <h2 class="text-3xl md:text-5xl font-bold text-shopify-black mb-4">
-        Mes Expertises
-      </h2>
-      <p class="text-white-max max-w-2xl">
-        De la stratégie digitale au développement technique, je vous accompagne pour créer une présence en ligne performante et cohérente.
-      </p>
-    </div>
-
-    <motion.div
-      client:visible
-      initial={{ scale: 0.8, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{
-        type: "spring",
-        stiffness: 50, // Moins rigide
-        damping: 20, // Amorti rapidement
-        delay: 0.1, // Petit délai au chargement
-      }}
-      className="grid md:grid-cols-2 gap-8"
-    >
-      {
-        services.map((service) => (
-          <div class="group p-8 rounded-2xl border border-gray-100 bg-white-max hover:bg-white hover:shadow-2xl hover:border-green-max/20 transition-all duration-300">
-            <div class="text-4xl mb-6 bg-white w-16 h-16 flex items-center justify-center rounded-xl shadow-sm group-hover:scale-110 transition-transform">
-              {service.icon}
-            </div>
-            <h3 class="text-2xl font-bold text-green-max-dark mb-4">
-              {service.title}
-            </h3>
-            <p class="text-gray-600 mb-8 leading-relaxed">
-              {service.description}
-            </p>
-            <ul class="space-y-3">
-              {service.features.map((feature) => (
-                <li class="flex items-center gap-3 text-gray-700">
-                  <span class="w-5 h-5 rounded-full bg-green-max/10 flex items-center justify-center text-shopify-green text-xs">
-                    ✓
-                  </span>
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))
-      }
-    </motion.div>
+<div
+  class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 my-10 text-center px-4 md:px-0 py-12 font-title"
+>
+  <div
+    class="rounded-4xl grid grid-cols-1 bg-[#FAFAFA] px-10 py-10 border border-black/10"
+  >
+    <img src="/images/icon-1.svg" alt="Service 1" class="w-34 h-full mx-auto" />
+    <p class="font-bold text-lg mt-4">Création boutique Shopify</p>
+    <p>
+      Je crée le site e-commerce Shopify qui reflète vos ambitions et vos
+      objectifs.
+    </p>
   </div>
-</section>
+  <div
+    class="rounded-4xl grid grid-cols-1 bg-[#FAFAFA] px-10 py-10 border border-black/10"
+  >
+    <img src="/images/icon-2.svg" alt="Service 1" class="w-34 h-full mx-auto" />
+    <p class="font-bold text-lg mt-4">Refonte boutique Shopify</p>
+    <p>Je réalise la refonte globale de votre boutique Shopify.</p>
+  </div>
+  <div
+    class="rounded-4xl grid grid-cols-1 bg-[#FAFAFA] px-10 py-10 border border-black/10"
+  >
+    <img src="/images/icon-3.svg" alt="Service 1" class="w-34 h-full mx-auto" />
+    <p class="font-bold text-lg mt-4">Mission sur-mesure</p>
+    <p>
+      Création de landing page, nouvelle fonctionnalité, optimisation CRO,
+      SEO,...
+    </p>
+  </div>
+</div>

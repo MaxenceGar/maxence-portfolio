@@ -2,79 +2,122 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<section class="container mx-auto my-12 px-4 md:px-12">
-  <div class="flex justify-center items-center gap-4 md:gap-14">
-    <p
-      class="inline-block text-nowrap text-4xl md:text-6xl font-bold font-title"
-    >
-      Mes tarifs
-    </p>
-    <hr class="border-4 border-green-max w-full rounded-full" />
+<section class="container mx-auto font-title py-32 px-4 md:px-0">
+  <div class="text-left mb-12">
+    <h2 class="text-3xl md:text-7xl font-bold mt-2">
+      Passez au niveau supérieur
+    </h2>
   </div>
-</section>
-
-<section class="container mx-auto font-title px-4 md:px-12">
   <div
-    class="grid grid-cols-1 md:grid-cols-2 gap-4 justify-center space-3 relative"
+    class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 justify-center"
   >
     <div
-      class="border-1 border-green-max px-12 py-12 rounded-xl space-y-6 bg-green-max-dark relative w-full z-1"
+      class="border-2 border-gray-200 grid grid-cols-1 rounded-4xl p-4 md:p-6 bg-linear-to-b from-black/5 to-transparent"
     >
-      <h1 class="font-title text-2xl md:text-6xl font-bold">Projet Web</h1>
-      <p class="italic">Sur Devis</p>
-      <hr class="border-green-max" />
-      <p class="flex items-center gap-4">
-        <Icon name="check" class="w-4 md:w-4 h-full text-green-max" />
-        Adapté à vos besoins
-      </p>
-      <p class="flex items-center gap-4">
-        <Icon name="check" class="w-4 md:w-4 h-full text-green-max" />
-        Accompagnement de A à Z
-      </p>
-      <p class="flex items-center gap-4">
-        <Icon name="check" class="w-4 md:w-4 h-full text-green-max" />
-        Design sur mesure et responsive
-      </p>
-      <p class="flex items-center gap-4">
-        <Icon name="check" class="w-4 md:w-4 h-full text-green-max" />
-        Création d'une landing page
-      </p>
-      <p class="flex items-center gap-4">
-        <Icon name="check" class="w-4 md:w-4 h-full text-green-max" />
-        Création site e-commerce (Shopify)
-      </p>
-      <p class="flex items-center gap-4">
-        <Icon name="check" class="w-4 md:w-4 h-full text-green-max" />
-        Création section et landing page (Shopify)
-      </p>
+      <div class="space-y-2 mb-4">
+        <p class="text-xl md:text-2xl font-medium">Site Complet</p>
+        <p class="text-3xl md:text-4xl font-bold">2000€ <sup>TTC</sup></p>
+      </div>
+      <div class="grid grid-cols-1 gap-4">
+        <a class="btn-primaire-max text-center" href="https://wa.me/0673551150"
+          >Me contacter sur WhatsApp</a
+        >
+        <a
+          class="btn-primaire-max-gris text-center"
+          href="https://calendly.com/maxgarandel-pro/30min"
+          >Réserver un appel découverte (30min)</a
+        >
+      </div>
+      <div
+        class="mb-4 mt-4 text-sm md:text-base lg:text-lg space-y-3 md:space-y-4 border-2 border-gray-200 rounded-3xl p-3 md:p-4 bg-white"
+      >
+        <p class="flex items-center gap-2 md:gap-4">
+          <Icon name="check" class="w-4 h-4 shrink-0 text-orange" />
+          Autant de produit que vous souhaitez
+        </p>
+        <p class="flex items-center gap-2 md:gap-4">
+          <Icon name="check" class="w-4 h-4 shrink-0 text-orange" />
+          Développer sur Shopify
+        </p>
+        <p class="flex items-center gap-2 md:gap-4">
+          <Icon name="check" class="w-4 h-4 shrink-0 text-orange" />
+          Analyse de la concurrence
+        </p>
+        <p class="flex items-center gap-2 md:gap-4">
+          <Icon name="check" class="w-4 h-4 shrink-0 text-orange" />
+          Design adapté pour le mobile
+        </p>
+        <p class="flex items-center gap-2 md:gap-4">
+          <Icon name="check" class="w-4 h-4 shrink-0 text-orange" />
+          Livraison en 14 jours
+        </p>
+        <p class="flex items-center gap-2 md:gap-4">
+          <Icon name="check" class="w-4 h-4 shrink-0 text-orange" />
+          Support client 24h/24 et 7j/7
+        </p>
+        <p class="flex items-center gap-2 md:gap-4">
+          <Icon name="check" class="w-4 h-4 shrink-0 text-orange" />
+          Formation pour prise en main facile
+        </p>
+        <p class="flex items-center gap-2 md:gap-4">
+          <Icon name="check" class="w-4 h-4 shrink-0 text-orange" />
+          Optimisation SEO
+        </p>
+      </div>
     </div>
-
     <div
-      class="border-1 border-green-max px-12 py-12 rounded-xl space-y-6 bg-green-max-dark relative w-full z-1"
+      class="border-2 border-gray-200 grid grid-cols-1 rounded-4xl p-4 md:p-6 bg-[#232323] bg-linear-to-b from-white/5 to-transparent"
     >
-      <h1 class="font-title text-2xl md:text-6xl font-bold">Freelancing</h1>
-      <p class="italic">TJM ~ 200€</p>
-      <hr class="border-green-max" />
-      <p class="flex items-center gap-4">
-        <Icon name="check" class="w-4 md:w-4 h-full text-green-max" />
-        Tailwind CSS
-      </p>
-      <p class="flex items-center gap-4">
-        <Icon name="check" class="w-4 md:w-4 h-full text-green-max" />
-        Liquid
-      </p>
-      <p class="flex items-center gap-4">
-        <Icon name="check" class="w-4 md:w-4 h-full text-green-max" />
-        HTML/CSS
-      </p>
-      <p class="flex items-center gap-4">
-        <Icon name="check" class="w-4 md:w-4 h-full text-green-max" />
-        JaveScript
-      </p>
-      <p class="flex items-center gap-4">
-        <Icon name="check" class="w-4 md:w-4 h-full text-green-max" />
-        Vercel
-      </p>
+      <div class="space-y-2 mb-4 text-white">
+        <p class="text-xl md:text-2xl font-medium">Mission sur-mesure</p>
+        <p class="text-3xl md:text-4xl font-bold">250€/jours</p>
+      </div>
+      <div class="grid grid-cols-1 gap-4">
+        <a class="btn-primaire-max text-center" href="https://wa.me/0673551150"
+          >Me contacter sur WhatsApp</a
+        >
+        <a
+          class="btn-primaire-max-gris text-center"
+          href="https://calendly.com/maxgarandel-pro/30min"
+          >Réserver un appel découverte (30min)</a
+        >
+      </div>
+      <div
+        class="mb-4 mt-4 text-sm md:text-base lg:text-lg space-y-3 md:space-y-4 border-2 border-black/10 rounded-3xl p-3 md:p-4 text-white bg-black/10"
+      >
+        <p class="flex items-center gap-2 md:gap-4">
+          <Icon name="check" class="w-4 h-4 shrink-0 text-orange" />
+          Création sections/blocks sur-mesure
+        </p>
+        <p class="flex items-center gap-2 md:gap-4">
+          <Icon name="check" class="w-4 h-4 shrink-0 text-orange" />
+          Optimisation taux de conversion (CRO)
+        </p>
+        <p class="flex items-center gap-2 md:gap-4">
+          <Icon name="check" class="w-4 h-4 shrink-0 text-orange" />
+          Création d’une Landing Page
+        </p>
+        <p class="flex items-center gap-2 md:gap-4">
+          <Icon name="check" class="w-4 h-4 shrink-0 text-orange" />
+          Optimisation de votre SEO
+        </p>
+        <p class="flex items-center gap-2 md:gap-4">
+          <Icon name="check" class="w-4 h-4 shrink-0 text-orange" />
+          Audit complet de votre boutique
+        </p>
+        <p class="flex items-center gap-2 md:gap-4">
+          <Icon name="check" class="w-4 h-4 shrink-0 text-orange" />
+          Livraison en 14 jours
+        </p>
+        <p class="flex items-center gap-2 md:gap-4">
+          <Icon name="check" class="w-4 h-4 shrink-0 text-orange" />
+          Support client 24h/24 et 7j/7
+        </p>
+        <p class="flex items-center gap-2 md:gap-4">
+          <Icon name="check" class="w-4 h-4 shrink-0 text-orange" />
+          Formation pour prise en main facile
+        </p>
+      </div>
     </div>
   </div>
 </section>

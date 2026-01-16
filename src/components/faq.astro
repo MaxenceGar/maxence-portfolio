@@ -2,34 +2,81 @@
 import "../styles/global.css";
 ---
 
-<div class="mx-auto md:w-2/3 w-full section">
-    <div class="flex justify-center">
-    <h2 class="inline-block text-3xl font-extrabold p-4 bg-[#36f4a4]/10 border-2 border-[#36f4a4] rounded-full -rotate-1 hover:rotate-0 transition-all duration-300">
-        Foire Aux Questions
-    </h2>
+<section class="container mx-auto font-title py-32 px-4">
+  <!-- Titre de section -->
+  <div class="text-left mb-12">
+    <h2 class="text-3xl md:text-7xl font-bold mt-2">Questions fréquentes</h2>
+  </div>
+
+  <!-- Accordéon FAQ -->
+  <div class="mx-auto space-y-4">
+    <div
+      class="collapse collapse-plus rounded-2xl border-2 border-gray-200 bg-white"
+    >
+      <input type="radio" name="my-accordion-3" checked="checked" />
+      <div class="collapse-title font-bold text-lg md:text-xl">
+        Qu'est-ce qui me distingue des autres créateurs de site e-commerce ?
+      </div>
+      <div class="collapse-content text-base text-gray-600">
+        <p>
+          Je ne me contente pas de créer un site e-commerce joli qui va
+          uniquement vous plaire. Je m'assure aussi que votre site soit optimisé
+          pour la conversion et le référencement naturel (SEO). Mon objectif est
+          de vous aider à augmenter vos ventes. Durant toute la durée du projet,
+          je suis transparent et vous informe des avancées.
+        </p>
+      </div>
     </div>
-<div class="grid grid-cols-2 gap-6">
-    <div>
-        <img src="../src/images/pdp.png" alt="Avatar" class="w-full h-auto rounded-full mx-auto mb-4">
+
+    <div
+      class="collapse collapse-plus rounded-2xl border-2 border-gray-200 bg-white"
+    >
+      <input type="radio" name="my-accordion-3" />
+      <div class="collapse-title font-bold text-lg md:text-xl">
+        Combien de temps faut-il pour créer ma boutique Shopify ?
+      </div>
+      <div class="collapse-content text-base text-gray-600">
+        <p>
+          En général, je livre une boutique Shopify complète en 14 jours. Ce
+          délai peut varier selon la complexité du projet et vos besoins
+          spécifiques. Nous définissons ensemble un planning clair dès le début
+          du projet.
+        </p>
+      </div>
     </div>
-    <div class="justify-center flex flex-col">
-        <div class="mb-4 flex gap-4 justify-between font-medium cursor-pointer">
-            <p>Où est-ce que je peux trouver plus d'informations sur vos services ?</p>
-            <span class="leading-none">+</span>
-        </div>
-        <hr class="text-[#36f4a4]">
-        <div class="mb-4 mt-4">
-        Où est-ce que je peux trouver plus d'informations sur vos services ?
-        </div>
-        <div>
-        Où est-ce que je peux trouver plus d'informations sur vos services ?
-        </div>
-        <div>
-        Où est-ce que je peux trouver plus d'informations sur vos services ?
-        </div>
-        <div>
-        Où est-ce que je peux trouver plus d'informations sur vos services ?
-        </div>
+
+    <div
+      class="collapse collapse-plus rounded-2xl border-2 border-gray-200 bg-white"
+    >
+      <input type="radio" name="my-accordion-3" />
+      <div class="collapse-title font-bold text-lg md:text-xl">
+        Proposez-vous un accompagnement après la livraison ?
+      </div>
+      <div class="collapse-content text-base text-gray-600">
+        <p>
+          Oui, je propose un support client 24h/24 et 7j/7 ainsi qu'une
+          formation complète pour que vous puissiez gérer votre boutique en
+          toute autonomie. Je reste disponible pour répondre à vos questions
+          même après la livraison.
+        </p>
+      </div>
     </div>
-</div>
-</div>
+
+    <div
+      class="collapse collapse-plus rounded-2xl border-2 border-gray-200 bg-white"
+    >
+      <input type="radio" name="my-accordion-3" />
+      <div class="collapse-title font-bold text-lg md:text-xl">
+        Quels sont les tarifs pour une boutique Shopify ?
+      </div>
+      <div class="collapse-content text-base text-gray-600">
+        <p>
+          Je propose une offre Site Complet à 2000€ TTC qui inclut la création
+          complète de votre boutique, l'optimisation SEO, le design responsive
+          et la formation. Pour des missions spécifiques, je travaille au tarif
+          journalier de 250€/jour.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

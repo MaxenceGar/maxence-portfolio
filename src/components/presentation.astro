@@ -3,21 +3,19 @@ import "../styles/global.css";
 import { motion } from "framer-motion";
 ---
 
-<section class="relative py-24 overflow-hidden">
+<section class="relative py-16 md:py-32 px-4 md:px-0 overflow-hidden bg-white">
   <!-- Accent background shape -->
 
   <div
-    class="relative grid md:grid-cols-2 grid-cols-1 mx-auto items-center container justify-between px-2"
+    class="relative grid md:grid-cols-2 grid-cols-1 mx-auto items-center container justify-between px-4 py-8 md:px-10 md:py-10 border-2 border-[#C24102] bg-orange rounded-3xl md:rounded-4xl gap-8 md:gap-0"
   >
     <!-- Image -->
-    <div
-      class="flex justify-center md:justify-start order-2 md:order-1 mb-12 md:mb-0"
-    >
+    <div class="flex justify-center md:justify-start order-2 md:order-1">
       <div
-        class="relative group hover:rotate-0 transition-transform duration-500"
+        class="relative group hover:rotate-0 transition-transform duration-500 w-full flex justify-center md:justify-start"
       >
         <div
-          class="absolute bg-green-max rounded-xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity"
+          class="absolute bg-[#FC5A0A] rounded-xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity"
         >
         </div>
         <motion.img
@@ -26,13 +24,13 @@ import { motion } from "framer-motion";
           animate={{ x: 0, opacity: 1 }}
           transition={{
             type: "spring",
-            stiffness: 50, // Moins rigide
-            damping: 20, // Amorti rapidement
-            delay: 0.3, // Petit délai au chargement
+            stiffness: 50,
+            damping: 20,
+            delay: 0.3,
           }}
-          src="/images/description-moi.webp"
+          src="/images/pdp-maxence-garandel.png"
           alt="Photo de Maxence"
-          className="relative z-10 w-full max-w-sm md:max-w-xl border-[3px] border-green-max rounded-xl shadow-lg hover:shadow-[10px_10px_0_#36f4a4] transition-shadow duration-300"
+          className="relative z-10 w-full max-w-[280px] sm:max-w-sm md:max-w-xl border-[3px] border-[#FC5A0A] rounded-3xl md:rounded-4xl shadow-lg hover:shadow-[10px_10px_0_#FC5A0A] transition-shadow duration-300"
         />
       </div>
     </div>
@@ -44,60 +42,51 @@ import { motion } from "framer-motion";
       animate={{ x: 0, opacity: 1 }}
       transition={{
         type: "spring",
-        stiffness: 50, // Moins rigide
-        damping: 20, // Amorti rapidement
-        delay: 0.3, // Petit délai au chargement
+        stiffness: 50,
+        damping: 20,
+        delay: 0.3,
       }}
-      className="order-1 md:order-2 font-body leading-relaxed space-y-6 md:pl-8 font-title"
+      className="order-1 md:order-2 font-body leading-relaxed space-y-4 md:space-y-6 px-2 md:pl-8 md:px-0 font-title text-black"
     >
       <h2
-        class="font-title text-3xl md:text-4xl font-semibold mb-6 border-l-4 border-green-max pl-4"
+        class="font-title text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-2 md:mb-4"
       >
-        Enchanté, moi c’est <span class="text-green-max">Maxence</span> 👋
+        Hello, moi c'est Maxence
       </h2>
 
-      <p>
-        Bienvenue sur mon site portfolio — ici, je vous partage mes projets, mon
-        parcours et mon approche du digital qui allie <span
-          class="font-semibold text-green-max">stratégie marketing</span
-        > et <span class="font-semibold text-green-max"
-          >expertise technique</span
-        >.
+      <p class="text-[#E8E8E8] text-base sm:text-lg/7">
+        Expert e-commerce et web-marketing, spécialisé sur Shopify. Je conçois
+        des expériences qui transforme vos visiteurs en clients fidèles.
+        Développement de votre boutique, refonte ou création de nouvelle
+        fonctionnalité ? Je me tiens prêt à vous accompagner pour que vous
+        puissiez atteindre vos objectifs.
       </p>
-
-      <p>
-        J'ai <span
-          class="bg-green-max text-green-max-dark px-2 rounded-md font-semibold"
-          >26 ans</span
-        > et je vis à <span
-          class="bg-green-max text-green-max-dark px-2 rounded-md font-semibold"
-          >Rennes</span
-        >. Passionné par le <span class="font-semibold"
-          >web-marketing digital</span
-        > et la <span class="font-semibold">communication en ligne</span>,
-        j'accompagne les entreprises dans leur transformation digitale avec une
-        vision à 360°.
+      <p class="text-[#E8E8E8] text-base sm:text-lg font-medium">
+        Prêt à passer à l'action ?
       </p>
-
-      <p>
-        De la <span class="font-semibold text-green-max"
-          >stratégie de contenu</span
-        > à l'<span class="font-semibold text-green-max">optimisation SEO</span
-        >, en passant par la <span class="font-semibold text-green-max"
-          >création de sites performants</span
-        >, j'aime allier créativité et performance pour obtenir des résultats
-        concrets et mesurables.
-      </p>
-
-      <p>
-        Mon approche ? Comprendre vos <span class="font-semibold"
-          >objectifs business</span
-        >, définir une <span class="font-semibold"
-          >stratégie digitale claire</span
-        >, et la mettre en œuvre avec les bons outils — que ce soit pour
-        développer votre visibilité, générer des leads ou augmenter vos
-        conversions.
-      </p>
+      <div
+        class="btn-primaire-max-gris w-full py-3 text-center text-base sm:text-lg rounded-2xl my-4 font-medium"
+      >
+        <a href="https://wa.me/0673551150" rel="nofollow">Réserver un appel</a>
+      </div>
+      <div class="flex flex-wrap justify-start md:justify-start gap-2 md:gap-4">
+        <span
+          class="bg-[#3E3E3E] text-white py-1.5 px-3 md:py-2 md:px-4 rounded-lg text-xs sm:text-sm border border-black"
+          >E-commerce</span
+        >
+        <span
+          class="bg-[#3E3E3E] text-white py-1.5 px-3 md:py-2 md:px-4 rounded-lg text-xs sm:text-sm border border-black"
+          >CRO optimisation</span
+        >
+        <span
+          class="bg-[#3E3E3E] text-white py-1.5 px-3 md:py-2 md:px-4 rounded-lg text-xs sm:text-sm border border-black"
+          >refonte</span
+        >
+        <span
+          class="bg-[#3E3E3E] text-white py-1.5 px-3 md:py-2 md:px-4 rounded-lg text-xs sm:text-sm border border-black"
+          >SEO</span
+        >
+      </div>
     </motion.div>
   </div>
 </section>
