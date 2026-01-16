@@ -1,0 +1,35 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import MarqueeBrand from "../components/MarqueeBrand.astro";
+import { Icon } from "astro-icon/components";
+import SlideProjet from "../components/SlideProjet.astro";
+---
+
+<Layout>
+  <section
+    class="font-title w-full min-h-screen container mx-auto py-16 md:py-32 px-4 md:px-0"
+  >
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-7xl font-bold mt-2 mb-4">
+        Réservez votre appel découverte gratuit
+      </h2>
+      <p class="text-base">
+        Prenez rendez-vous pour un appel découverte gratuit de 30 minutes afin
+        de discuter de votre projet et de vos besoins spécifiques.
+      </p>
+    </div>
+    <!-- Début de widget en ligne Calendly -->
+    <div
+      class="calendly-inline-widget"
+      data-url="https://calendly.com/maxgarandel-pro/30min"
+      style="min-width:320px;height:700px;"
+    >
+    </div>
+    <script
+      type="text/javascript"
+      src="https://assets.calendly.com/assets/external/widget.js"
+      async></script>
+    <!-- Fin de widget en ligne Calendly -->
+  </section>
+</Layout>
