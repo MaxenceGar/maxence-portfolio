@@ -20,7 +20,7 @@ import Marquee from "../components/MarqueeBrand.astro";
       </div>
       <!-- Titre -->
       <motion.h1
-        className="text-4xl md:text-6xl font-title font-extrabold leading-snug mb-10"
+        className="text-4xl md:text-7xl font-title font-extrabold leading-tight mb-6"
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{
@@ -32,12 +32,25 @@ import Marquee from "../components/MarqueeBrand.astro";
         client:visible
       >
         <span class="text-black"
-          >Créons ensemble votre boutique <br /> e-commerce sur Shopify</span
+          >Des boutiques Shopify <br />
+          <span class="text-orange">conçues pour vendre</span></span
         >
       </motion.h1>
-      <!-- Bouton -->
-      <div class="btn-primaire-max">
-        <a href="https://wa.me/0673551150" rel="nofollow">Réserver un appel</a>
+      <!-- Sous-titre -->
+      <p class="text-lg md:text-xl text-gray-500 max-w-2xl mb-10 leading-relaxed">
+        J'accompagne les marques ambitieuses dans la création et l'optimisation de leur boutique e-commerce. Plus de conversions, moins de friction.
+      </p>
+      <!-- Boutons -->
+      <div class="flex flex-col sm:flex-row items-center gap-4">
+        <div class="btn-primaire-max">
+          <a href="/appel-decouverte">Réserver un appel</a>
+        </div>
+        <a
+          href="/projets"
+          class="px-6 py-3 rounded-xl border-2 border-gray-200 text-black font-bold hover:border-orange hover:text-orange transition-colors duration-300"
+        >
+          Voir mes projets
+        </a>
       </div>
     </div>
   </div>

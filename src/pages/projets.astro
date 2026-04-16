@@ -1,0 +1,110 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
+---
+
+<Layout>
+  <section class="font-title w-full container mx-auto py-16 md:py-32 px-4 md:px-0">
+    <div class="text-left mb-16">
+      <div
+        class="inline-block px-4 py-1.5 rounded-full bg-[#C54202]/20 text-orange font-medium text-sm mb-4"
+      >
+        Portfolio
+      </div>
+      <h1 class="text-4xl md:text-7xl font-bold">Mes projets</h1>
+      <p class="text-lg text-gray-600 mt-4 max-w-2xl">
+        Découvrez une sélection de projets sur lesquels j'ai travaillé, du e-commerce au site vitrine.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Card 1 - Énergie Fruit -->
+      <a href="/energie-fruit" class="group">
+        <div class="bg-white border border-gray-200 rounded-3xl overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
+          <div class="aspect-video overflow-hidden">
+            <img
+              src="/images/energiefruit-website.webp"
+              alt="Énergie Fruit"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          <div class="p-6">
+            <div class="inline-block px-3 py-1 rounded-full bg-[#C54202]/20 text-orange text-xs font-bold uppercase mb-3">
+              E-commerce
+            </div>
+            <h2 class="text-2xl font-bold mb-2">Énergie Fruit</h2>
+            <p class="text-gray-600">
+              Optimisation du parcours client, SEO et création de sections custom pour cette marque française de soins naturels.
+            </p>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 2 - ID Postur -->
+      <a href="/id-postur" class="group">
+        <div class="bg-white border border-gray-200 rounded-3xl overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
+          <div class="aspect-video overflow-hidden">
+            <img
+              src="/images/id-postur-website.webp"
+              alt="ID Postur"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          <div class="p-6">
+            <div class="inline-block px-3 py-1 rounded-full bg-green-max/20 text-shopify-green text-xs font-bold uppercase mb-3">
+              Site Vitrine
+            </div>
+            <h2 class="text-2xl font-bold mb-2">ID Postur</h2>
+            <p class="text-gray-600">
+              Conception et développement d'un site vitrine performant pour un spécialiste de l'ergonomie au travail.
+            </p>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 3 - Oh My Case -->
+      <a href="https://www.ohmycase.com" target="_blank" rel="noopener noreferrer" class="group">
+        <div class="bg-white border border-gray-200 rounded-3xl overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
+          <div class="aspect-video overflow-hidden">
+            <img
+              src="/images/ohmycase-website.webp"
+              alt="Oh My Case"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          <div class="p-6">
+            <div class="inline-block px-3 py-1 rounded-full bg-[#C54202]/20 text-orange text-xs font-bold uppercase mb-3">
+              Application Shopify
+            </div>
+            <h2 class="text-2xl font-bold mb-2">Oh My Case</h2>
+            <p class="text-gray-600">
+              Installation et configuration d'une application de personnalisation de coques pour cette boutique Shopify.
+            </p>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 4 - Boutique Shopify -->
+      <a href="/shopify" class="group">
+        <div class="bg-white border border-gray-200 rounded-3xl overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
+          <div class="aspect-video overflow-hidden">
+            <img
+              src="/images/site-shopify.webp"
+              alt="Création boutique Shopify"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          <div class="p-6">
+            <div class="inline-block px-3 py-1 rounded-full bg-[#C54202]/20 text-orange text-xs font-bold uppercase mb-3">
+              E-commerce
+            </div>
+            <h2 class="text-2xl font-bold mb-2">Création Shopify</h2>
+            <p class="text-gray-600">
+              Création de boutiques Shopify sur-mesure, optimisées pour la conversion et le référencement naturel.
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+</Layout>
