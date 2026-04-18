@@ -1,0 +1,182 @@
+---
+import "../styles/global.css";
+import Nav from "@/components/Nav.astro";
+import FooterPunchy from "@/components/FooterPunchy.astro";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+}
+
+const {
+  title = "Maxence Garandel — Expert Shopify Freelance à Rennes",
+  description = "Expert Shopify freelance basé à Rennes. Optimisation vitesse, refonte de thème, apps & intégrations, conseil CRO. Direct, sans jargon.",
+  canonical = Astro.url.href,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#FC5D10" />
+    <meta name="author" content="Maxence Garandel" />
+    <meta
+      name="keywords"
+      content="Shopify, freelance, expert Shopify, développeur Shopify, Rennes, optimisation Shopify, refonte thème, CRO, Core Web Vitals, Liquid"
+    />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Canonical -->
+    <link rel="canonical" href={canonical} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/FAVICON.png" />
+    <link rel="apple-touch-icon" href="/FAVICON.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/images/website-link.png" />
+    <meta property="og:site_name" content="Maxence Garandel" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/images/website-link.png" />
+
+    <!-- Preconnect + preload Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Kalam:wght@300;400;700&family=Caveat:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Kalam:wght@300;400;700&family=Caveat:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- JSON-LD -->
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Maxence Garandel",
+      "image": "https://maxence-garandel.vercel.app/images/website-link.png",
+      "description": description,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Rennes",
+        "addressRegion": "Bretagne",
+        "addressCountry": "FR"
+      },
+      "url": "https://maxence-garandel.vercel.app",
+      "email": "maxgarandel.pro@gmail.com",
+      "priceRange": "€€",
+      "areaServed": "FR",
+      "makesOffer": [
+        { "@type": "Offer", "name": "Optimisation vitesse & Core Web Vitals" },
+        { "@type": "Offer", "name": "Refonte de thème Shopify" },
+        { "@type": "Offer", "name": "Apps & intégrations Shopify" },
+        { "@type": "Offer", "name": "Conseil CRO" }
+      ],
+      "sameAs": []
+    })}></script>
+
+    <!-- Google Analytics -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-ZCSNXP0LNN"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-ZCSNXP0LNN");
+    </script>
+  </head>
+
+  <body class="bg-paper text-ink font-body antialiased">
+    <Nav />
+
+    <main>
+      <slot />
+    </main>
+
+    <FooterPunchy />
+
+    <!-- Scripts Studio Punchy -->
+    <script>
+      // Curseur custom
+      (() => {
+        if (window.matchMedia('(hover: none)').matches) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        const cursor = document.createElement('div');
+        cursor.className = 'custom-cursor';
+        document.body.appendChild(cursor);
+
+        let x = 0, y = 0, tx = 0, ty = 0;
+        document.addEventListener('mousemove', (e) => {
+          tx = e.clientX;
+          ty = e.clientY;
+        });
+
+        function raf() {
+          x += (tx - x) * 0.2;
+          y += (ty - y) * 0.2;
+          cursor.style.transform = `translate(${x}px, ${y}px)`;
+          requestAnimationFrame(raf);
+        }
+        raf();
+
+        const selector = 'a, button, [data-cursor="hover"]';
+        document.querySelectorAll(selector).forEach((el) => {
+          el.addEventListener('mouseenter', () => cursor.classList.add('is-hover'));
+          el.addEventListener('mouseleave', () => cursor.classList.remove('is-hover'));
+        });
+      })();
+
+      // Scroll reveal
+      (() => {
+        if (!('IntersectionObserver' in window)) return;
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add('is-in');
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+        document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
+      })();
+
+      // Nav sticky styling
+      (() => {
+        const nav = document.querySelector('[data-nav]');
+        if (!nav) return;
+        const onScroll = () => {
+          if (window.scrollY > window.innerHeight * 0.8) {
+            nav.classList.add('is-scrolled');
+          } else {
+            nav.classList.remove('is-scrolled');
+          }
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
+  </body>
+</html>

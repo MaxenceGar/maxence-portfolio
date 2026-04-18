@@ -1,0 +1,74 @@
+---
+const services = [
+  {
+    number: '01',
+    title: 'Vitesse & Core Web Vitals',
+    description: "J'audit ton site, je vois ce qui rame, je fixe. Objectif : un PageSpeed en vert, des visiteurs qui restent.",
+  },
+  {
+    number: '02',
+    title: 'Refonte de thème',
+    description: "Un thème propre, rapide, pensé pour vendre. Et que tu peux maintenir facilement après mon passage.",
+  },
+  {
+    number: '03',
+    title: 'Apps & intégrations',
+    description: "Installation d'apps Shopify + custom code pour qu'elles collent pile à ton besoin. Pas de bricolage.",
+  },
+  {
+    number: '04',
+    title: 'Conseil CRO',
+    description: "Audit UX, recos concrètes, priorités claires. Tu arrêtes de deviner ce qui bloque tes ventes.",
+  },
+];
+---
+
+<section id="services" class="py-20 md:py-32 bg-paper-2 border-y-2 border-ink">
+  <div class="max-w-[1440px] mx-auto px-6 md:px-10">
+    <!-- Header -->
+    <div class="mb-12 md:mb-20" data-reveal>
+      <p class="font-mono text-xs uppercase tracking-[0.15em] text-muted mb-3">
+        // 02 — Services
+      </p>
+      <h2 class="font-display text-[48px] md:text-[88px] leading-[0.95] text-ink">
+        Les <span class="text-[#FC5D10]">services</span>.
+      </h2>
+    </div>
+
+    <!-- Rangées services -->
+    <div class="border-t-2 border-ink" data-reveal>
+      {
+        services.map((service) => (
+          <a
+            href="#contact"
+            class="service-row group grid grid-cols-[60px_1fr_120px] md:grid-cols-[80px_1fr_1fr_160px] gap-4 md:gap-8 items-center px-4 md:px-8 py-8 md:py-10 border-b-2 border-ink cursor-pointer"
+            data-cursor="hover"
+          >
+            <div class="font-display text-4xl md:text-6xl text-[#FC5D10] leading-none">
+              {service.number}
+            </div>
+
+            <div class="font-display text-2xl md:text-4xl text-ink leading-[0.95]">
+              {service.title}
+            </div>
+
+            <div class="hidden md:block font-body text-base text-ink-soft leading-snug">
+              {service.description}
+            </div>
+
+            <div class="service-arrow font-display text-3xl md:text-5xl text-ink text-right">
+              →
+            </div>
+          </a>
+        ))
+      }
+    </div>
+
+    <!-- Note bas -->
+    <div class="mt-12 text-center" data-reveal>
+      <p class="font-note text-xl md:text-2xl text-ink-soft">
+        Pas sûr de ce dont t'as besoin ? On en discute 30 min.
+      </p>
+    </div>
+  </div>
+</section>

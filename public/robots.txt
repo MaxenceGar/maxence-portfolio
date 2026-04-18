@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maxence-garandel.vercel.app/sitemap-index.xml

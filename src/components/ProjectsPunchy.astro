@@ -1,0 +1,168 @@
+---
+import { Image } from 'astro:assets';
+import energieFruitImg from '../assets/projects/energie-fruit.png';
+import castafioreImg from '../assets/projects/castafiore.png';
+import shLucasImg from '../assets/projects/stephane-humbert-lucas.png';
+import monsieurMadameImg from '../assets/projects/monsieur-madame.png';
+import ohmycaseImg from '../assets/projects/ohmycase.png';
+
+const projects = [
+  {
+    name: 'Castafiore',
+    tag: 'bijoux vintage',
+    year: '2025',
+    image: castafioreImg,
+  },
+  {
+    name: 'Stephane H. Lucas',
+    tag: 'parfums de niche',
+    year: '2025',
+    image: shLucasImg,
+  },
+  {
+    name: 'Monsieur Madame',
+    tag: 'mode',
+    year: '2024',
+    image: monsieurMadameImg,
+  },
+  {
+    name: 'Ohmycase',
+    tag: 'coques custom',
+    year: '2024',
+    image: ohmycaseImg,
+  },
+];
+---
+
+<section id="work" class="py-20 md:py-32">
+  <div class="max-w-[1440px] mx-auto px-6 md:px-10">
+    <!-- Header -->
+    <div class="flex items-end justify-between mb-12 md:mb-20" data-reveal>
+      <div>
+        <p class="font-mono text-xs uppercase tracking-[0.15em] text-muted mb-3">
+          // 01 — Projets
+        </p>
+        <h2 class="font-display text-[48px] md:text-[88px] leading-[0.95] text-ink">
+          Du <span class="text-orange">récent</span>.
+        </h2>
+      </div>
+      <a
+        href="#contact"
+        class="hidden md:inline-flex font-mono text-sm text-ink hover:text-orange transition-colors border-b-2 border-ink pb-1"
+      >
+        Discuter d'un projet →
+      </a>
+    </div>
+
+    <!-- Grille asymétrique -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-reveal>
+      <!-- Card hero : Energie Fruit (span 2 rows) -->
+      <a
+        href="#contact"
+        class="project-card md:row-span-2 bg-paper-2 border-2 border-ink rounded-sketch-b p-6 md:p-8 flex flex-col justify-between min-h-[420px] md:min-h-auto"
+        data-cursor="hover"
+      >
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-mono text-[11px] uppercase tracking-wider bg-orange text-white px-2 py-1 border-2 border-ink">
+              Projet phare
+            </span>
+            <span class="font-mono text-xs text-muted">2024</span>
+          </div>
+
+          <!-- Visuel Energie Fruit -->
+          <div class="border-2 border-ink rounded-sketch-a aspect-[4/5] mb-6 overflow-hidden bg-paper-2">
+            <Image
+              src={energieFruitImg}
+              alt="Energie Fruit — boutique e-commerce Shopify optimisée"
+              widths={[400, 600, 800]}
+              sizes="(max-width: 768px) 90vw, 33vw"
+              formats={['avif', 'webp']}
+              quality={80}
+              loading="eager"
+              fetchpriority="high"
+              class="w-full h-full object-cover object-top"
+            />
+          </div>
+
+          <h3 class="font-display text-4xl md:text-5xl leading-[0.95] text-ink mb-3">
+            Energie Fruit
+          </h3>
+          <p class="font-body text-base text-ink-soft mb-4 leading-snug">
+            Marque française de soins naturels, certifiée B Corp. J'ai bossé sur
+            l'optimisation du parcours, le SEO et la création de sections 100%
+            custom pour coller à leur identité.
+          </p>
+
+          <!-- Tags -->
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="font-mono text-[11px] uppercase tracking-wider bg-paper border border-ink px-2 py-1">
+              SEO
+            </span>
+            <span class="font-mono text-[11px] uppercase tracking-wider bg-paper border border-ink px-2 py-1">
+              CRO
+            </span>
+            <span class="font-mono text-[11px] uppercase tracking-wider bg-paper border border-ink px-2 py-1">
+              sections custom
+            </span>
+          </div>
+        </div>
+
+        <!-- Highlights -->
+        <div class="grid grid-cols-2 gap-4 pt-6 border-t-2 border-ink">
+          <div>
+            <div class="font-display text-4xl md:text-5xl text-orange leading-none">
+              4 mois
+            </div>
+            <div class="font-mono text-[11px] uppercase tracking-wider text-muted mt-2">
+              d'accompagnement
+            </div>
+          </div>
+          <div>
+            <div class="font-display text-4xl md:text-5xl text-orange leading-none">
+              100%
+            </div>
+            <div class="font-mono text-[11px] uppercase tracking-wider text-muted mt-2">
+              sections sur-mesure
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Cards colonnes 2 & 3 -->
+      {
+        projects.map((project) => (
+          <a
+            href="#contact"
+            class="project-card bg-paper-2 border-2 border-ink rounded-sketch-a p-6 flex flex-col"
+            data-cursor="hover"
+          >
+            <div class="border-2 border-ink rounded-sketch-c aspect-[4/3] mb-4 overflow-hidden bg-paper-2">
+              <Image
+                src={project.image}
+                alt={`${project.name} — ${project.tag}`}
+                widths={[300, 500]}
+                sizes="(max-width: 768px) 90vw, 25vw"
+                formats={['avif', 'webp']}
+                quality={75}
+                loading="lazy"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-display text-2xl md:text-3xl leading-[0.95] text-ink">
+                {project.name}
+              </h3>
+              <span class="font-mono text-xs text-muted">{project.year}</span>
+            </div>
+
+            <span class="font-mono text-[11px] uppercase tracking-wider bg-paper border border-ink px-2 py-1 self-start">
+              {project.tag}
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

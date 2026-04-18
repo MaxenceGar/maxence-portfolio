@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Source material (not needed in repo)
+Photo Portfolio/
+design_handoff_portfolio/

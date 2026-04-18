@@ -1,26 +1,14 @@
 ---
-import Welcome from "../components/Welcome.astro";
-import Layout from "../layouts/Layout.astro";
-import Contact from "../components/contact.astro";
-import Presentation from "@/components/presentation.astro";
-import Project from "../components/project.astro";
-import Cv from "../components/Cv.astro";
-import Service from "../components/service.astro";
-import Tarif from "../components/tarif.astro";
-import Timeline from "../components/timeline.astro";
-import Information from "@/components/information.astro";
-import Projets from "../components/max-projets.astro";
-import FAQ from "../components/faq.astro";
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import LayoutPunchy from "../layouts/LayoutPunchy.astro";
+import HeroPunchy from "../components/HeroPunchy.astro";
+import ProjectsPunchy from "../components/ProjectsPunchy.astro";
+import ServicesPunchy from "../components/ServicesPunchy.astro";
+import CTAPunchy from "../components/CTAPunchy.astro";
 ---
 
-<Layout>
-  <Welcome />
-  <Presentation />
-  <Service />
-  <Information />
-  <Projets />
-  <Tarif />
-  <FAQ />
-</Layout>
+<LayoutPunchy>
+  <HeroPunchy />
+  <ProjectsPunchy />
+  <ServicesPunchy />
+  <CTAPunchy />
+</LayoutPunchy>

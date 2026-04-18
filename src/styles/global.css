@@ -12,6 +12,7 @@
 @import '@fontsource/instrument-serif';
 
 @theme {
+  /* Legacy tokens (pages existantes) */
   --font-title: 'Poppins', sans-serif;
   --font-serif: 'Instrument Serif', serif;
   --color-green-max: #36f4a4;
@@ -21,6 +22,28 @@
   --color-orange: #FC5D10;
   --color-orange-secondaire: #C54202;
   --color-black-max: #252525;
+
+  /* === Studio Punchy tokens === */
+  --font-display: 'Gloria Hallelujah', cursive;
+  --font-body: 'Kalam', system-ui, sans-serif;
+  --font-note: 'Caveat', cursive;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --color-ink: #1a1a1a;
+  --color-ink-soft: #333333;
+  --color-muted: #555555;
+  --color-line-soft: #c9c4b5;
+  --color-paper: #fdfcf8;
+  --color-paper-2: #f6f3ea;
+  --color-orange-soft: #ffe4d4;
+
+  --radius-sketch-a: 6px 18px 4px 14px;
+  --radius-sketch-b: 8px 30px 8px 30px;
+  --radius-sketch-c: 4px 16px 4px 16px;
+
+  --shadow-punch-sm: 3px 3px 0 #1a1a1a;
+  --shadow-punch-md: 5px 5px 0 #1a1a1a;
+  --shadow-punch-lg: 6px 6px 0 #1a1a1a;
 }
 
 @layer utilities {
@@ -51,17 +74,159 @@ html {
     background-size: auto, auto 40px;
 }
 
-/* Assurez-vous d'avoir ce CSS dans un fichier accessible (e.g., global.css) */
+/* === Studio Punchy utilities === */
+.rounded-sketch-a { border-radius: 6px 18px 4px 14px; }
+.rounded-sketch-b { border-radius: 8px 30px 8px 30px; }
+.rounded-sketch-c { border-radius: 4px 16px 4px 16px; }
+
+.shadow-punch-sm { box-shadow: 3px 3px 0 #1a1a1a; }
+.shadow-punch-md { box-shadow: 5px 5px 0 #1a1a1a; }
+.shadow-punch-lg { box-shadow: 6px 6px 0 #1a1a1a; }
+
+.bg-paper { background-color: #fdfcf8; }
+.bg-paper-2 { background-color: #f6f3ea; }
+.bg-ink { background-color: #1a1a1a; }
+.bg-orange-soft { background-color: #ffe4d4; }
+
+.text-ink { color: #1a1a1a; }
+.text-ink-soft { color: #333333; }
+.text-muted { color: #555555; }
+.text-paper { color: #fdfcf8; }
+
+.border-ink { border-color: #1a1a1a; }
+
+.font-display { font-family: 'Gloria Hallelujah', cursive; }
+.font-body { font-family: 'Kalam', system-ui, sans-serif; }
+.font-note { font-family: 'Caveat', cursive; }
+.font-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+/* Placeholder diagonal stripes */
+.placeholder-stripes {
+  background-image: repeating-linear-gradient(
+    45deg,
+    #1a1a1a 0,
+    #1a1a1a 1px,
+    transparent 1px,
+    transparent 12px
+  );
+  background-color: #f6f3ea;
+}
+
+/* Curseur custom */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  background: #FC5D10;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 90;
+  transition: width 200ms cubic-bezier(0.22, 1, 0.36, 1),
+              height 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  mix-blend-mode: difference;
+  margin-left: -8px;
+  margin-top: -8px;
+}
+.custom-cursor.is-hover {
+  width: 64px;
+  height: 64px;
+  margin-left: -32px;
+  margin-top: -32px;
+}
+@media (hover: none) {
+  .custom-cursor { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .custom-cursor { display: none; }
+}
+
+/* Marquee Studio Punchy */
+@keyframes marquee-punchy {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-punchy-track {
+  display: flex;
+  gap: 32px;
+  animation: marquee-punchy 30s linear infinite;
+  will-change: transform;
+  width: max-content;
+}
+.marquee-punchy:hover .marquee-punchy-track {
+  animation-play-state: paused;
+}
+
+/* Scroll reveal */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1),
+              transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Focus accessibles */
+.focus-ring:focus-visible,
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #FC5D10;
+  outline-offset: 4px;
+}
+
+/* Project card hover */
+.project-card {
+  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.project-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 5px 5px 0 #1a1a1a;
+}
+
+/* Service row hover */
+.service-row {
+  transition: background-color 250ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.service-row:hover {
+  background-color: #ffe4d4;
+}
+.service-row .service-arrow {
+  transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.service-row:hover .service-arrow {
+  transform: translateX(8px);
+}
+
+/* CTA pill hover */
+.cta-pill {
+  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.cta-pill:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 #1a1a1a;
+}
+
+/* Marquee legacy */
 @keyframes marquee {
   0% { transform: translateX(0%); }
-  /* Défile de 50% de la largeur totale (ce qui est la taille du premier bloc de logos) */
-  100% { transform: translateX(-50%); } 
+  100% { transform: translateX(-50%); }
 }
 
 .marquee-track {
-  /* Assurez que l'animation est appliquée ici */
-  animation: marquee 25s linear infinite; 
-  /* J'ai augmenté le temps à 25s pour un défilement plus lent et professionnel */
+  animation: marquee 25s linear infinite;
 }
 
 @keyframes float {
