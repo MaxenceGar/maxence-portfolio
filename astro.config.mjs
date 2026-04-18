@@ -13,7 +13,14 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), icon(), lenis (), sitemap()],
+  integrations: [
+    react(),
+    icon(),
+    lenis(),
+    sitemap({
+      filter: (page) => !page.includes('/assets-lib'),
+    }),
+  ],
   site: 'https://maxence-garandel.vercel.app',
   vite: {
     plugins: [tailwindcss()]

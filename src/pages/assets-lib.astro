@@ -1,0 +1,414 @@
+---
+// Page privée — Asset Library SVG (accessible uniquement via URL directe)
+// Exclue du sitemap et noindex
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <title>Asset Library — SVG copy/paste</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Kalam:wght@300;400;700&family=Gloria+Hallelujah&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style is:global>
+      :root {
+        --ink: #1a1a1a;
+        --paper: #fdfcf8;
+        --paper-2: #f6f3ea;
+        --orange: #FC5D10;
+        --orange-soft: #ffe4d4;
+        --hand: 'Kalam', cursive;
+        --display: 'Gloria Hallelujah', cursive;
+        --note: 'Caveat', cursive;
+        --mono: 'JetBrains Mono', monospace;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); font-family: var(--hand); }
+
+      .shell { max-width: 1400px; margin: 0 auto; padding: 48px 32px 120px; }
+
+      header.top { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 24px; border-bottom: 2px solid var(--ink); margin-bottom: 24px; }
+      header.top h1 { font-family: var(--display); font-weight: 400; font-size: 56px; line-height: 0.95; margin: 0; }
+      header.top h1 em { font-style: normal; color: var(--orange); }
+      header.top .meta { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; color: #555; text-align: right; line-height: 1.6; }
+      header.top .meta b { color: var(--orange); }
+
+      .intro { font-family: var(--hand); font-size: 17px; color: #333; max-width: 760px; line-height: 1.5; margin: 0 0 32px; }
+
+      /* Sticky jump nav */
+      .jumpnav {
+        position: sticky; top: 0; z-index: 20;
+        background: var(--paper);
+        border-bottom: 2px solid var(--ink);
+        padding: 14px 32px;
+        margin: 0 -32px 40px;
+        display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+      }
+      .jumpnav .lbl { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: #777; }
+      .jumpnav a {
+        font-family: var(--mono); font-size: 11px;
+        text-transform: uppercase; letter-spacing: 0.1em;
+        color: var(--ink); text-decoration: none;
+        padding: 5px 10px; border: 2px solid var(--ink);
+        border-radius: 4px 12px 4px 12px;
+        transition: all 120ms;
+      }
+      .jumpnav a:hover { background: var(--orange); color: white; transform: translate(-1px,-1px); box-shadow: 3px 3px 0 var(--ink); }
+
+      /* Section headers */
+      .section-title { display: flex; align-items: baseline; gap: 18px; margin: 56px 0 20px; scroll-margin-top: 90px; }
+      .section-title .n { font-family: var(--display); color: var(--orange); font-size: 36px; line-height: 1; }
+      .section-title h2 { font-family: var(--hand); font-weight: 700; font-size: 20px; text-transform: uppercase; letter-spacing: 0.1em; margin: 0; }
+      .section-title .dot { flex: 1; border-bottom: 2px dotted #c9c4b5; transform: translateY(-4px); }
+      .section-title .count { font-family: var(--mono); font-size: 11px; color: #777; text-transform: uppercase; letter-spacing: 0.15em; }
+
+      /* Grid */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 18px;
+      }
+
+      .card {
+        background: var(--paper);
+        border: 2px solid var(--ink);
+        border-radius: 6px 18px 4px 14px;
+        display: flex; flex-direction: column;
+        overflow: hidden;
+        position: relative;
+        transition: transform 150ms cubic-bezier(0.22,1,0.36,1), box-shadow 150ms;
+        cursor: pointer;
+      }
+      .card:hover { transform: translate(-3px,-3px); box-shadow: 5px 5px 0 var(--ink); }
+
+      .card .preview {
+        aspect-ratio: 4/3;
+        display: flex; align-items: center; justify-content: center;
+        background: var(--paper-2);
+        padding: 20px;
+        border-bottom: 2px solid var(--ink);
+        overflow: hidden;
+      }
+      .card .preview svg { max-width: 100%; max-height: 100%; display: block; }
+      .card.dark-bg .preview { background: var(--ink); }
+
+      .card .footer {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 10px 14px;
+        font-family: var(--mono); font-size: 11px;
+        text-transform: uppercase; letter-spacing: 0.06em;
+        gap: 8px;
+      }
+      .card .label { color: #333; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .card .copybtn {
+        font-family: var(--mono); font-size: 10px;
+        letter-spacing: 0.1em; text-transform: uppercase;
+        background: var(--ink); color: white;
+        border: none; padding: 6px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background 120ms;
+        white-space: nowrap;
+      }
+      .card .copybtn:hover { background: var(--orange); }
+      .card.copied .copybtn { background: var(--orange); }
+      .card.copied .copybtn::before { content: '✓ '; }
+
+      /* Toolbar */
+      .toolbar {
+        position: fixed; bottom: 24px; right: 24px; z-index: 40;
+        background: var(--paper); border: 2px solid var(--ink);
+        border-radius: 6px 18px 4px 14px;
+        box-shadow: 5px 5px 0 var(--ink);
+        padding: 14px 16px;
+        display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+        font-family: var(--hand); font-size: 14px;
+        max-width: 440px;
+      }
+      .toolbar .grp { display: flex; align-items: center; gap: 6px; }
+      .toolbar input[type=color] {
+        padding: 0; width: 34px; height: 30px;
+        border: 2px solid var(--ink);
+        border-radius: 4px 10px 4px 10px;
+        background: var(--paper);
+        cursor: pointer;
+      }
+      .toolbar .lbl { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #666; }
+      .toolbar button {
+        font-family: var(--mono); font-size: 11px;
+        text-transform: uppercase; letter-spacing: 0.1em;
+        background: var(--orange); color: white; border: 2px solid var(--ink);
+        padding: 7px 12px; border-radius: 4px 12px 4px 12px;
+        cursor: pointer;
+        box-shadow: 3px 3px 0 var(--ink);
+        transition: transform 120ms;
+      }
+      .toolbar button:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--ink); }
+
+      /* Toast */
+      .toast {
+        position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%) translateY(20px);
+        background: var(--ink); color: white;
+        font-family: var(--hand); font-weight: 700; font-size: 15px;
+        padding: 10px 18px;
+        border-radius: 4px 14px 4px 14px;
+        border: 2px solid var(--orange);
+        opacity: 0; pointer-events: none;
+        transition: opacity 200ms, transform 200ms;
+        z-index: 100;
+      }
+      .toast.on { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+      .footer-note {
+        margin-top: 80px; text-align: center;
+        font-family: var(--note); font-size: 22px; color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header class="top">
+        <h1>Asset <em>library</em> · SVG</h1>
+        <div class="meta">
+          PRESS COPY · PASTE ANYWHERE<br />
+          <b>→ tout en SVG pur, éditable Figma</b>
+        </div>
+      </header>
+
+      <p class="intro">
+        Bibliothèque complète de la DA — flèches, icônes, annotations, tampons, soulignements, bullets.
+        Chaque bloc a son bouton <b>COPY SVG</b> : un clic, le SVG est dans ton presse-papier.
+        Change les couleurs en live avec le panneau en bas à droite (ça met à jour les SVG exportés).
+      </p>
+
+      <nav class="jumpnav">
+        <span class="lbl">Jump →</span>
+        <a href="#arrows">Arrows</a>
+        <a href="#icons">Icons</a>
+        <a href="#annots">Annotations</a>
+        <a href="#stamps">Stamps</a>
+        <a href="#underlines">Underlines</a>
+        <a href="#bullets">Bullets</a>
+        <a href="#buttons">Buttons</a>
+      </nav>
+
+      <div class="section-title" id="arrows">
+        <span class="n">❶</span><h2>Arrows</h2><span class="dot"></span><span class="count">8 assets</span>
+      </div>
+      <div class="grid" id="grid-arrows"></div>
+
+      <div class="section-title" id="icons">
+        <span class="n">❷</span><h2>Icons · e-com</h2><span class="dot"></span><span class="count">10 assets</span>
+      </div>
+      <div class="grid" id="grid-icons"></div>
+
+      <div class="section-title" id="annots">
+        <span class="n">❸</span><h2>Annotations · numbered &amp; notes</h2><span class="dot"></span><span class="count">10 assets</span>
+      </div>
+      <div class="grid" id="grid-annots"></div>
+
+      <div class="section-title" id="stamps">
+        <span class="n">❹</span><h2>Stamps · Badges</h2><span class="dot"></span><span class="count">6 assets</span>
+      </div>
+      <div class="grid" id="grid-stamps"></div>
+
+      <div class="section-title" id="underlines">
+        <span class="n">❺</span><h2>Underlines &amp; scribbles</h2><span class="dot"></span><span class="count">6 assets</span>
+      </div>
+      <div class="grid" id="grid-underlines"></div>
+
+      <div class="section-title" id="bullets">
+        <span class="n">❻</span><h2>Bullets · separators</h2><span class="dot"></span><span class="count">8 assets</span>
+      </div>
+      <div class="grid" id="grid-bullets"></div>
+
+      <div class="section-title" id="buttons">
+        <span class="n">❼</span><h2>Buttons · SVG</h2><span class="dot"></span><span class="count">6 assets</span>
+      </div>
+      <div class="grid" id="grid-buttons"></div>
+
+      <p class="footer-note">→ Tout est en SVG pur · pas de dépendance · copie &amp; colle où tu veux</p>
+    </div>
+
+    <div class="toolbar">
+      <span class="lbl">Colors</span>
+      <div class="grp">
+        <input type="color" id="c-orange" value="#FC5D10" title="Orange" />
+        <input type="color" id="c-ink" value="#1a1a1a" title="Ink" />
+      </div>
+      <button id="reset-colors">reset</button>
+      <span class="lbl">· click card → copy SVG</span>
+    </div>
+
+    <div class="toast" id="toast">→ SVG copié</div>
+
+    <script is:inline>
+      // Palette mutable — injectée dans chaque SVG au moment de la copie
+      const COLORS = { orange: '#FC5D10', ink: '#1a1a1a' };
+
+      const ARROWS = [
+        { name: 'arrow_curve_right', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60" fill="none" width="100" height="60"><path d="M5 12 Q 40 4 80 38" stroke="{{INK}}" stroke-width="2.8" stroke-linecap="round" fill="none"/><path d="M70 30 L82 40 L74 50" stroke="{{INK}}" stroke-width="2.8" stroke-linecap="round" fill="none"/></svg>` },
+        { name: 'arrow_curve_left', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60" fill="none" width="100" height="60"><path d="M95 12 Q 60 4 20 38" stroke="{{INK}}" stroke-width="2.8" stroke-linecap="round" fill="none"/><path d="M30 30 L18 40 L26 50" stroke="{{INK}}" stroke-width="2.8" stroke-linecap="round" fill="none"/></svg>` },
+        { name: 'arrow_zigzag', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50" fill="none" width="100" height="50"><path d="M5 25 L25 12 L45 38 L65 12 L85 38 L92 28" stroke="{{INK}}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M84 20 L92 28 L84 36" stroke="{{INK}}" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg>` },
+        { name: 'arrow_straight_thick', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 30" fill="none" width="100" height="30"><path d="M5 15 L85 15" stroke="{{INK}}" stroke-width="4" stroke-linecap="round" fill="none"/><path d="M75 6 L88 15 L75 24" stroke="{{INK}}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>` },
+        { name: 'arrow_loop', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80" fill="none" width="100" height="80"><path d="M10 60 Q 10 10 50 10 Q 90 10 90 40 Q 90 65 60 65" stroke="{{INK}}" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M68 58 L58 65 L65 75" stroke="{{INK}}" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg>` },
+        { name: 'arrow_down_squiggle', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 90" fill="none" width="40" height="90"><path d="M20 5 Q 10 20 20 35 Q 30 50 20 65 L 20 80" stroke="{{INK}}" stroke-width="2.8" stroke-linecap="round" fill="none"/><path d="M12 72 L20 82 L28 72" stroke="{{INK}}" stroke-width="2.8" stroke-linecap="round" fill="none"/></svg>` },
+        { name: 'arrow_up_diag', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none" width="80" height="80"><path d="M10 70 L70 12" stroke="{{ORANGE}}" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M48 12 L72 12 L72 36" stroke="{{ORANGE}}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>` },
+        { name: 'arrow_chunky', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50" fill="none" width="100" height="50"><path d="M5 25 L 70 25 L 70 10 L 95 25 L 70 40 L 70 25 Z" stroke="{{INK}}" stroke-width="2.5" stroke-linejoin="round" fill="{{ORANGE}}"/></svg>` },
+      ];
+
+      const ICONS = [
+        { name: 'shopify_bag', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none" width="60" height="60"><path d="M15 22 L15 50 L45 50 L45 22 Z" stroke="{{INK}}" stroke-width="2.5" fill="none"/><path d="M22 22 Q 22 10 30 10 Q 38 10 38 22" stroke="{{INK}}" stroke-width="2.5" fill="none"/><circle cx="30" cy="34" r="3" fill="{{ORANGE}}"/></svg>` },
+        { name: 'speed_gauge', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none" width="60" height="60"><path d="M10 42 A 22 22 0 0 1 50 42" stroke="{{INK}}" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M30 42 L 45 22" stroke="{{ORANGE}}" stroke-width="3" stroke-linecap="round" fill="none"/><circle cx="30" cy="42" r="3" fill="{{INK}}"/></svg>` },
+        { name: 'tools_wrench', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none" width="60" height="60"><path d="M14 14 L 22 22 L 18 26 L 14 22 L 10 26 L 14 30 L 36 52 L 48 40 L 26 18 L 30 14 L 22 6 L 14 14 Z" stroke="{{INK}}" stroke-width="2.5" stroke-linejoin="round" fill="none"/></svg>` },
+        { name: 'cart', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none" width="60" height="60"><path d="M10 14 L18 14 L24 38 L46 38 L50 20 L20 20" stroke="{{INK}}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" fill="none"/><circle cx="26" cy="48" r="4" stroke="{{ORANGE}}" stroke-width="2.5" fill="none"/><circle cx="42" cy="48" r="4" stroke="{{ORANGE}}" stroke-width="2.5" fill="none"/></svg>` },
+        { name: 'chart_up', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none" width="60" height="60"><path d="M10 50 L10 10" stroke="{{INK}}" stroke-width="2.5" fill="none"/><path d="M10 50 L50 50" stroke="{{INK}}" stroke-width="2.5" fill="none"/><path d="M14 42 L 24 32 L 32 38 L 48 18" stroke="{{ORANGE}}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" fill="none"/><path d="M40 18 L48 18 L48 26" stroke="{{ORANGE}}" stroke-width="3" stroke-linejoin="round" fill="none"/></svg>` },
+        { name: 'lightbulb', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none" width="60" height="60"><path d="M30 8 Q 16 8 16 22 Q 16 32 24 38 L 24 44 L 36 44 L 36 38 Q 44 32 44 22 Q 44 8 30 8 Z" stroke="{{INK}}" stroke-width="2.5" stroke-linejoin="round" fill="#ffe4d4"/><path d="M24 48 L 36 48" stroke="{{INK}}" stroke-width="2.5" fill="none"/><path d="M26 52 L 34 52" stroke="{{INK}}" stroke-width="2.5" fill="none"/></svg>` },
+        { name: 'gear', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none" width="60" height="60"><circle cx="30" cy="30" r="8" stroke="{{INK}}" stroke-width="2.5" fill="none"/><path d="M30 8 L30 14 M30 46 L30 52 M52 30 L46 30 M14 30 L8 30 M45 15 L41 19 M19 41 L15 45 M45 45 L41 41 M19 19 L15 15" stroke="{{INK}}" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg>` },
+        { name: 'check_thick', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none" width="60" height="60"><circle cx="30" cy="30" r="22" stroke="{{INK}}" stroke-width="2.5" fill="{{ORANGE}}"/><path d="M18 30 L 26 38 L 42 22" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>` },
+        { name: 'cross_thick', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none" width="60" height="60"><circle cx="30" cy="30" r="22" stroke="{{INK}}" stroke-width="2.5" fill="none"/><path d="M20 20 L 40 40 M40 20 L 20 40" stroke="{{INK}}" stroke-width="3" stroke-linecap="round" fill="none"/></svg>` },
+        { name: 'calendar', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none" width="60" height="60"><rect x="10" y="14" width="40" height="36" stroke="{{INK}}" stroke-width="2.5" fill="none"/><path d="M10 24 L50 24" stroke="{{INK}}" stroke-width="2.5" fill="none"/><path d="M20 8 L20 18 M40 8 L40 18" stroke="{{INK}}" stroke-width="2.5" stroke-linecap="round" fill="none"/><rect x="32" y="32" width="10" height="10" fill="{{ORANGE}}"/></svg>` },
+      ];
+
+      const ANNOTS = [
+        { name: 'num_circle_1', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none" width="60" height="60"><circle cx="30" cy="32" r="22" fill="{{INK}}"/><circle cx="28" cy="30" r="22" fill="{{ORANGE}}" stroke="{{INK}}" stroke-width="2"/><text x="28" y="40" text-anchor="middle" font-family="Gloria Hallelujah, cursive" font-size="26" fill="white">1</text></svg>` },
+        { name: 'num_circle_2', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none" width="60" height="60"><circle cx="30" cy="32" r="22" fill="{{INK}}"/><circle cx="28" cy="30" r="22" fill="{{ORANGE}}" stroke="{{INK}}" stroke-width="2"/><text x="28" y="40" text-anchor="middle" font-family="Gloria Hallelujah, cursive" font-size="26" fill="white">2</text></svg>` },
+        { name: 'num_circle_3', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none" width="60" height="60"><circle cx="30" cy="32" r="22" fill="{{INK}}"/><circle cx="28" cy="30" r="22" fill="{{ORANGE}}" stroke="{{INK}}" stroke-width="2"/><text x="28" y="40" text-anchor="middle" font-family="Gloria Hallelujah, cursive" font-size="26" fill="white">3</text></svg>` },
+        { name: 'num_circle_ink', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none" width="60" height="60"><circle cx="30" cy="32" r="22" fill="{{ORANGE}}"/><circle cx="28" cy="30" r="22" fill="{{INK}}" stroke="{{INK}}" stroke-width="2"/><text x="28" y="40" text-anchor="middle" font-family="Gloria Hallelujah, cursive" font-size="26" fill="white">4</text></svg>` },
+        { name: 'num_circle_outline', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none" width="60" height="60"><circle cx="30" cy="30" r="22" fill="white" stroke="{{ORANGE}}" stroke-width="3"/><text x="30" y="40" text-anchor="middle" font-family="Gloria Hallelujah, cursive" font-size="26" fill="{{ORANGE}}">5</text></svg>` },
+        { name: 'note_paper', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 80" fill="none" width="180" height="80"><g transform="rotate(-3 90 40)"><rect x="10" y="14" width="160" height="56" fill="{{INK}}"/><rect x="6" y="10" width="160" height="56" fill="#fdfcf8" stroke="{{INK}}" stroke-width="2"/><text x="86" y="32" text-anchor="middle" font-family="Kalam, cursive" font-weight="700" font-size="17" fill="{{INK}}">CTA planqué,</text><text x="86" y="54" text-anchor="middle" font-family="Kalam, cursive" font-weight="700" font-size="17" fill="{{INK}}">WTF ?</text></g></svg>` },
+        { name: 'note_orange', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 60" fill="none" width="180" height="60"><g transform="rotate(2 90 30)"><rect x="10" y="12" width="160" height="40" fill="{{INK}}"/><rect x="6" y="8" width="160" height="40" fill="{{ORANGE}}" stroke="{{INK}}" stroke-width="2"/><text x="86" y="33" text-anchor="middle" font-family="Kalam, cursive" font-weight="700" font-size="18" fill="white">= perte sèche.</text></g></svg>` },
+        { name: 'note_dark', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 60" fill="none" width="180" height="60"><g transform="rotate(-2 90 30)"><rect x="10" y="12" width="160" height="40" fill="{{ORANGE}}"/><rect x="6" y="8" width="160" height="40" fill="{{INK}}" stroke="{{INK}}" stroke-width="2"/><text x="86" y="33" text-anchor="middle" font-family="Kalam, cursive" font-weight="700" font-size="18" fill="white">Spotted en 30s</text></g></svg>` },
+        { name: 'annot_combo', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" fill="none" width="200" height="120"><circle cx="32" cy="32" r="20" fill="{{INK}}"/><circle cx="30" cy="30" r="20" fill="{{ORANGE}}" stroke="{{INK}}" stroke-width="2"/><text x="30" y="39" text-anchor="middle" font-family="Gloria Hallelujah, cursive" font-size="22" fill="white">1</text><g transform="rotate(-2 100 85)"><rect x="14" y="70" width="170" height="32" fill="{{INK}}"/><rect x="10" y="66" width="170" height="32" fill="#fdfcf8" stroke="{{INK}}" stroke-width="2"/><text x="95" y="88" text-anchor="middle" font-family="Kalam, cursive" font-weight="700" font-size="15" fill="{{INK}}">photo unique →</text></g></svg>` },
+        { name: 'callout_arrow', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 80" fill="none" width="140" height="80"><path d="M10 15 Q 60 5 120 50" stroke="{{ORANGE}}" stroke-width="3.5" stroke-linecap="round" fill="none"/><path d="M108 40 L125 52 L112 65" stroke="{{ORANGE}}" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>` },
+      ];
+
+      const STAMPS = [
+        { name: 'stamp_dispo', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" width="120" height="120"><g transform="rotate(-3 60 60)"><circle cx="62" cy="62" r="46" fill="{{INK}}"/><circle cx="60" cy="60" r="46" fill="{{ORANGE}}" stroke="{{INK}}" stroke-width="2"/><text x="60" y="55" text-anchor="middle" font-family="Kalam, cursive" font-weight="700" font-size="15" fill="white">DISPO</text><text x="60" y="74" text-anchor="middle" font-family="Kalam, cursive" font-weight="700" font-size="14" fill="white">MAINTENANT</text></g></svg>` },
+        { name: 'stamp_new', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 60" fill="none" width="140" height="60"><g transform="rotate(-3 70 30)"><rect x="10" y="12" width="120" height="40" fill="{{INK}}"/><rect x="6" y="8" width="120" height="40" fill="{{ORANGE}}" stroke="{{INK}}" stroke-width="2"/><text x="66" y="33" text-anchor="middle" font-family="Kalam, cursive" font-weight="700" font-size="18" fill="white">NEW →</text></g></svg>` },
+        { name: 'stamp_30min', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" width="120" height="120"><g transform="rotate(4 60 60)"><circle cx="62" cy="62" r="46" fill="{{ORANGE}}"/><circle cx="60" cy="60" r="46" fill="{{INK}}" stroke="{{INK}}" stroke-width="2"/><text x="60" y="53" text-anchor="middle" font-family="Kalam, cursive" font-weight="700" font-size="17" fill="{{ORANGE}}">30 MIN</text><text x="60" y="74" text-anchor="middle" font-family="Kalam, cursive" font-weight="700" font-size="17" fill="{{ORANGE}}">GRATUIT</text></g></svg>` },
+        { name: 'stamp_no_bs', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 60" fill="none" width="160" height="60"><g transform="rotate(2 80 30)"><rect x="10" y="12" width="140" height="40" fill="{{INK}}"/><rect x="6" y="8" width="140" height="40" fill="white" stroke="{{INK}}" stroke-width="2"/><text x="76" y="34" text-anchor="middle" font-family="Kalam, cursive" font-weight="700" font-size="18" fill="{{INK}}">No-bullshit</text></g></svg>` },
+        { name: 'stamp_freelance', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none" width="160" height="40"><rect x="4" y="4" width="150" height="32" fill="{{INK}}" rx="2"/><text x="79" y="25" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="600" font-size="12" fill="white" letter-spacing="2">// FREELANCE</text></svg>` },
+        { name: 'stamp_shopify_pro', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 60" fill="none" width="160" height="60"><g transform="rotate(-2 80 30)"><rect x="10" y="12" width="140" height="40" fill="{{INK}}"/><rect x="6" y="8" width="140" height="40" fill="#ffe4d4" stroke="{{INK}}" stroke-width="2"/><text x="76" y="34" text-anchor="middle" font-family="Kalam, cursive" font-weight="700" font-size="18" fill="{{INK}}">Shopify pro</text></g></svg>` },
+      ];
+
+      const UNDERLINES = [
+        { name: 'underline_thick', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 30" fill="none" width="200" height="30"><path d="M5 18 Q 50 8 100 18 T 195 18" stroke="{{ORANGE}}" stroke-width="6" stroke-linecap="round" fill="none"/></svg>` },
+        { name: 'underline_double', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 30" fill="none" width="200" height="30"><path d="M5 12 L 195 12" stroke="{{ORANGE}}" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M10 22 L 190 22" stroke="{{INK}}" stroke-width="2" stroke-linecap="round" fill="none"/></svg>` },
+        { name: 'circle_highlight', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" fill="none" width="200" height="80"><path d="M30 70 Q 5 40 20 20 Q 60 0 130 8 Q 195 14 185 50 Q 175 78 100 70 Q 50 65 30 60" stroke="{{ORANGE}}" stroke-width="3" stroke-linecap="round" fill="none"/></svg>` },
+        { name: 'squiggle', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 20" fill="none" width="200" height="20"><path d="M5 10 Q 20 2 35 10 T 65 10 T 95 10 T 125 10 T 155 10 T 195 10" stroke="{{ORANGE}}" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg>` },
+        { name: 'highlight_block', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" fill="none" width="200" height="40"><rect x="6" y="8" width="188" height="24" fill="{{ORANGE}}" opacity="0.35"/></svg>` },
+        { name: 'cross_out', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 30" fill="none" width="200" height="30"><path d="M5 18 L 195 12" stroke="{{ORANGE}}" stroke-width="4" stroke-linecap="round" fill="none"/></svg>` },
+      ];
+
+      const BULLETS = [
+        { name: 'dot_solid', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" fill="none" width="30" height="30"><circle cx="15" cy="15" r="8" fill="{{ORANGE}}"/></svg>` },
+        { name: 'dot_ringed', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" fill="none" width="30" height="30"><circle cx="15" cy="15" r="6" fill="{{ORANGE}}"/><circle cx="15" cy="15" r="11" stroke="{{INK}}" stroke-width="2" fill="none"/></svg>` },
+        { name: 'square_solid', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" fill="none" width="30" height="30"><rect x="7" y="7" width="16" height="16" fill="{{INK}}"/></svg>` },
+        { name: 'diamond', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" fill="none" width="30" height="30"><path d="M15 4 L 26 15 L 15 26 L 4 15 Z" fill="{{ORANGE}}"/></svg>` },
+        { name: 'star_5pt', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" fill="none" width="30" height="30"><path d="M15 3 L18.5 11 L27 12 L20 18 L22 27 L15 22 L8 27 L10 18 L3 12 L11.5 11 Z" fill="{{ORANGE}}"/></svg>` },
+        { name: 'plus_thick', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" fill="none" width="30" height="30"><path d="M15 4 L 15 26 M 4 15 L 26 15" stroke="{{ORANGE}}" stroke-width="4" stroke-linecap="round" fill="none"/></svg>` },
+        { name: 'separator_dashes', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 20" fill="none" width="200" height="20"><path d="M5 10 L 195 10" stroke="{{INK}}" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6 8" fill="none"/></svg>` },
+        { name: 'separator_dots', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 20" fill="none" width="200" height="20"><circle cx="20" cy="10" r="3" fill="{{ORANGE}}"/><circle cx="60" cy="10" r="3" fill="{{INK}}"/><circle cx="100" cy="10" r="3" fill="{{ORANGE}}"/><circle cx="140" cy="10" r="3" fill="{{INK}}"/><circle cx="180" cy="10" r="3" fill="{{ORANGE}}"/></svg>` },
+      ];
+
+      const BUTTONS = [
+        { name: 'btn_primary', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none" width="200" height="60"><path d="M10 10 Q 10 6 14 6 L 186 6 Q 194 6 194 18 L 194 44 Q 194 54 184 54 L 14 54 Q 6 54 6 46 L 6 18 Q 6 10 14 10 Z" fill="{{INK}}"/><path d="M10 8 Q 10 4 14 4 L 186 4 Q 194 4 194 16 L 194 42 Q 194 52 184 52 L 14 52 Q 6 52 6 44 L 6 16 Q 6 8 14 8 Z" fill="{{ORANGE}}" stroke="{{INK}}" stroke-width="2"/><text x="100" y="33" text-anchor="middle" font-family="Kalam, cursive" font-weight="700" font-size="16" fill="white">📅 Prendre un call →</text></svg>` },
+        { name: 'btn_ghost', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none" width="200" height="60"><path d="M10 8 Q 10 4 14 4 L 186 4 Q 194 4 194 16 L 194 42 Q 194 52 184 52 L 14 52 Q 6 52 6 44 L 6 16 Q 6 8 14 8 Z" fill="transparent" stroke="{{INK}}" stroke-width="2"/><text x="100" y="33" text-anchor="middle" font-family="Kalam, cursive" font-weight="700" font-size="16" fill="{{INK}}">Voir les projets</text></svg>` },
+        { name: 'btn_dark', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none" width="200" height="60"><path d="M10 8 Q 10 4 14 4 L 186 4 Q 194 4 194 16 L 194 42 Q 194 52 184 52 L 14 52 Q 6 52 6 44 L 6 16 Q 6 8 14 8 Z" fill="{{INK}}" stroke="{{INK}}" stroke-width="2"/><text x="100" y="34" text-anchor="middle" font-family="Kalam, cursive" font-weight="700" font-size="16" fill="white">→ contact.sh</text></svg>` },
+        { name: 'btn_outline_orange', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none" width="200" height="60"><path d="M10 8 Q 10 4 14 4 L 186 4 Q 194 4 194 16 L 194 42 Q 194 52 184 52 L 14 52 Q 6 52 6 44 L 6 16 Q 6 8 14 8 Z" fill="transparent" stroke="{{ORANGE}}" stroke-width="2"/><text x="100" y="33" text-anchor="middle" font-family="Kalam, cursive" font-weight="700" font-size="16" fill="{{ORANGE}}">Lire la suite</text></svg>` },
+        { name: 'btn_pill', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none" width="200" height="60"><rect x="10" y="12" width="184" height="40" rx="20" fill="{{INK}}"/><rect x="6" y="8" width="184" height="40" rx="20" fill="{{ORANGE}}" stroke="{{INK}}" stroke-width="2"/><text x="98" y="33" text-anchor="middle" font-family="Kalam, cursive" font-weight="700" font-size="15" fill="white">→ LinkedIn</text></svg>` },
+        { name: 'btn_chip_mono', svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 40" fill="none" width="140" height="40"><rect x="4" y="4" width="128" height="28" rx="4" fill="transparent" stroke="{{INK}}" stroke-width="2"/><text x="68" y="23" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="600" font-size="11" fill="{{INK}}" letter-spacing="2">VITESSE</text></svg>` },
+      ];
+
+      function applyPalette(svg) {
+        return svg.replaceAll('{{ORANGE}}', COLORS.orange).replaceAll('{{INK}}', COLORS.ink);
+      }
+
+      function renderGrid(id, items, darkPreview = false) {
+        const grid = document.getElementById(id);
+        items.forEach(item => {
+          const card = document.createElement('div');
+          card.className = 'card' + (darkPreview ? ' dark-bg' : '');
+
+          const preview = document.createElement('div');
+          preview.className = 'preview';
+          preview.innerHTML = applyPalette(item.svg);
+          card.appendChild(preview);
+
+          const footer = document.createElement('div');
+          footer.className = 'footer';
+          const label = document.createElement('span');
+          label.className = 'label';
+          label.textContent = item.name;
+          const btn = document.createElement('button');
+          btn.className = 'copybtn';
+          btn.textContent = 'Copy SVG';
+          footer.appendChild(label);
+          footer.appendChild(btn);
+          card.appendChild(footer);
+
+          const copy = async () => {
+            const out = applyPalette(item.svg);
+            try {
+              await navigator.clipboard.writeText(out);
+              card.classList.add('copied');
+              showToast('✓ ' + item.name + ' copié');
+              setTimeout(() => card.classList.remove('copied'), 1500);
+            } catch (e) {
+              showToast('✗ copy failed');
+            }
+          };
+          card.addEventListener('click', copy);
+          grid.appendChild(card);
+        });
+      }
+
+      function rerenderAll() {
+        document.querySelectorAll('.grid').forEach(g => g.innerHTML = '');
+        renderGrid('grid-arrows', ARROWS);
+        renderGrid('grid-icons', ICONS);
+        renderGrid('grid-annots', ANNOTS);
+        renderGrid('grid-stamps', STAMPS);
+        renderGrid('grid-underlines', UNDERLINES);
+        renderGrid('grid-bullets', BULLETS);
+        renderGrid('grid-buttons', BUTTONS);
+      }
+      rerenderAll();
+
+      const toast = document.getElementById('toast');
+      let toastTO;
+      function showToast(msg) {
+        toast.textContent = msg;
+        toast.classList.add('on');
+        clearTimeout(toastTO);
+        toastTO = setTimeout(() => toast.classList.remove('on'), 1600);
+      }
+
+      const cOrange = document.getElementById('c-orange');
+      const cInk = document.getElementById('c-ink');
+      function syncColors() {
+        COLORS.orange = cOrange.value;
+        COLORS.ink = cInk.value;
+        document.documentElement.style.setProperty('--orange', cOrange.value);
+        document.documentElement.style.setProperty('--ink', cInk.value);
+        rerenderAll();
+      }
+      cOrange.addEventListener('input', syncColors);
+      cInk.addEventListener('input', syncColors);
+      document.getElementById('reset-colors').addEventListener('click', () => {
+        cOrange.value = '#FC5D10';
+        cInk.value = '#1a1a1a';
+        syncColors();
+      });
+    </script>
+  </body>
+</html>
