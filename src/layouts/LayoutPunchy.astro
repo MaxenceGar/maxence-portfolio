@@ -7,12 +7,14 @@ export interface Props {
   title?: string;
   description?: string;
   canonical?: string;
+  robots?: string;
 }
 
 const {
-  title = "Maxence Garandel — Expert Shopify Freelance à Rennes",
-  description = "Expert Shopify freelance basé à Rennes. Optimisation vitesse, refonte de thème, apps & intégrations, conseil CRO. Direct, sans jargon.",
+  title = "Maxence Garandel — Freelance Shopify à Rennes",
+  description = "Freelance Shopify à Rennes. Je code des sites sur-mesure pour les marques indépendantes — plus d'identité, moins d'apps, plus de conversion.",
   canonical = Astro.url.href,
+  robots = "index, follow",
 } = Astro.props;
 ---
 
@@ -25,11 +27,12 @@ const {
     <meta name="author" content="Maxence Garandel" />
     <meta
       name="keywords"
-      content="Shopify, freelance, expert Shopify, développeur Shopify, Rennes, optimisation Shopify, refonte thème, CRO, Core Web Vitals, Liquid"
+      content="Shopify, freelance, expert Shopify, développeur Shopify, Rennes, optimisation Shopify, sections custom, CRO, Core Web Vitals, Liquid"
     />
 
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
 
     <!-- Canonical -->
     <link rel="canonical" href={canonical} />
@@ -86,7 +89,7 @@ const {
       "areaServed": "FR",
       "makesOffer": [
         { "@type": "Offer", "name": "Optimisation vitesse & Core Web Vitals" },
-        { "@type": "Offer", "name": "Refonte de thème Shopify" },
+        { "@type": "Offer", "name": "Sections custom & dev sur-mesure" },
         { "@type": "Offer", "name": "Apps & intégrations Shopify" },
         { "@type": "Offer", "name": "Conseil CRO" }
       ],
@@ -116,36 +119,6 @@ const {
 
     <!-- Scripts Studio Punchy -->
     <script>
-      // Curseur custom
-      (() => {
-        if (window.matchMedia('(hover: none)').matches) return;
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-        const cursor = document.createElement('div');
-        cursor.className = 'custom-cursor';
-        document.body.appendChild(cursor);
-
-        let x = 0, y = 0, tx = 0, ty = 0;
-        document.addEventListener('mousemove', (e) => {
-          tx = e.clientX;
-          ty = e.clientY;
-        });
-
-        function raf() {
-          x += (tx - x) * 0.2;
-          y += (ty - y) * 0.2;
-          cursor.style.transform = `translate(${x}px, ${y}px)`;
-          requestAnimationFrame(raf);
-        }
-        raf();
-
-        const selector = 'a, button, [data-cursor="hover"]';
-        document.querySelectorAll(selector).forEach((el) => {
-          el.addEventListener('mouseenter', () => cursor.classList.add('is-hover'));
-          el.addEventListener('mouseleave', () => cursor.classList.remove('is-hover'));
-        });
-      })();
-
       // Scroll reveal
       (() => {
         if (!('IntersectionObserver' in window)) return;

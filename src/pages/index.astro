@@ -1,14 +1,927 @@
 ---
 import LayoutPunchy from "../layouts/LayoutPunchy.astro";
-import HeroPunchy from "../components/HeroPunchy.astro";
-import ProjectsPunchy from "../components/ProjectsPunchy.astro";
-import ServicesPunchy from "../components/ServicesPunchy.astro";
-import CTAPunchy from "../components/CTAPunchy.astro";
+import { Image } from "astro:assets";
+import energieFruitImg from "../assets/projects/energie-fruit.png";
+import castafioreImg from "../assets/projects/castafiore.png";
+import shLucasImg from "../assets/projects/stephane-humbert-lucas.png";
+import monsieurMadameImg from "../assets/projects/monsieur-madame.png";
+import ohmycaseImg from "../assets/projects/ohmycase.png";
+
+const projects = [
+  {
+    name: "Energie Fruit",
+    tag: "Soins naturels · B Corp",
+    year: "Depuis 10/25",
+    image: energieFruitImg,
+    featured: true,
+  },
+  {
+    name: "Castafiore",
+    tag: "Bijoux vintage",
+    year: "2025",
+    image: castafioreImg,
+  },
+  {
+    name: "Stephane H. Lucas",
+    tag: "Parfums de niche",
+    year: "2025",
+    image: shLucasImg,
+  },
+  {
+    name: "Monsieur Madame",
+    tag: "Mode",
+    year: "2024",
+    image: monsieurMadameImg,
+  },
+  {
+    name: "Ohmycase",
+    tag: "Coques custom",
+    year: "2024",
+    image: ohmycaseImg,
+  },
+];
+
+const clients = [
+  { name: "Castafiore", logo: "/images/logo-castafiore.svg" },
+  { name: "Ohmycase", logo: "/images/logo-ohmycase.svg" },
+  { name: "Monsieur Madame", logo: "/images/logo-monsieur-madame.webp" },
+  { name: "Energie Fruit", logo: "/images/logo-energie-fruit.svg" },
+  {
+    name: "Stephane H. Lucas",
+    logo: "/images/logo-stephane-humbert-lucas.svg",
+  },
+];
+
+const services = [
+  {
+    n: "01",
+    title: "Sections sur-mesure",
+    description:
+      "Pour que ton site arrête de ressembler à tous les autres Shopify Dawn. Blocs custom, identité unique, éditables depuis l'admin.",
+  },
+  {
+    n: "02",
+    title: "Remplacer tes apps",
+    description:
+      "Upsell, cross-sell, wishlist, countdown… tout ce que tu paies en abo chaque mois, je le code en natif. Tu économises, ton site reste rapide.",
+  },
+  {
+    n: "03",
+    title: "Vitesse & Core Web Vitals",
+    description:
+      "J'audite, je fix ce qui rame, ton PageSpeed passe au vert. Les visiteurs restent, Google aime, Shopify aussi.",
+  },
+  {
+    n: "04",
+    title: "Conseil CRO",
+    description:
+      "Audit UX, recos priorisées, plan d'action clair. Tu arrêtes de deviner ce qui bloque tes ventes.",
+  },
+];
 ---
 
 <LayoutPunchy>
-  <HeroPunchy />
-  <ProjectsPunchy />
-  <ServicesPunchy />
-  <CTAPunchy />
+  <div class="max-w-[1200px] mx-auto px-6 md:px-10 font-title">
+    <!-- ================================================================
+         HERO — split layout avec portrait
+         ================================================================ -->
+    <section class="pt-28 md:pt-40 pb-20 md:pb-24">
+      <div
+        class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 md:gap-12 lg:gap-16 items-start"
+      >
+        <!-- Photo (first on mobile, right on desktop) -->
+        <div
+          class="md:col-start-2 md:row-start-1 w-44 md:w-[320px] lg:w-[380px]"
+        >
+          <div
+            class="relative aspect-square rounded-sm overflow-hidden border border-ink/20 bg-ink"
+          >
+            <img
+              src="/images/pdp-maxence-garandel.png"
+              alt="Maxence Garandel — freelance Shopify à Rennes"
+              width="500"
+              height="500"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              class="w-full h-full object-cover"
+            />
+            <!-- Floating status pill -->
+            <div
+              class="absolute bottom-3 left-3 md:bottom-4 md:left-4 inline-flex items-center gap-1.5 bg-paper/95 backdrop-blur-sm px-2.5 py-1 rounded-full border border-ink/10"
+            >
+              <span class="relative flex h-1.5 w-1.5">
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange opacity-60"
+                ></span>
+                <span
+                  class="relative inline-flex rounded-full h-1.5 w-1.5 bg-orange"
+                ></span>
+              </span>
+              <span
+                class="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.12em] text-ink"
+              >
+                Dispo
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text column -->
+        <div class="md:col-start-1 md:row-start-1 max-w-xl">
+          <!-- Eyebrow pill -->
+          <div
+            class="inline-flex items-center gap-2 pl-2 pr-3.5 py-1 rounded-full bg-paper-2 border border-ink/5 mb-8 md:mb-10"
+          >
+            <span class="relative flex h-2 w-2">
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange opacity-60"
+              ></span>
+              <span
+                class="relative inline-flex rounded-full h-2 w-2 bg-orange"
+              ></span>
+            </span>
+            <span
+              class="font-mono text-[11px] uppercase tracking-[0.12em] text-muted"
+            >
+              Freelance Shopify · Rennes
+            </span>
+          </div>
+
+          <!-- Headline -->
+          <h1
+            class="font-title font-medium text-4xl md:text-5xl lg:text-[60px] text-ink tracking-[-0.02em] leading-[1.02]"
+          >
+            Des boutiques Shopify<br />
+            <span class="text-muted">qui vendent vraiment.</span>
+          </h1>
+
+          <!-- Sub -->
+          <p
+            class="mt-6 text-base md:text-lg text-ink-soft font-light leading-relaxed"
+          >
+            Je suis Maxence, freelance Shopify à Rennes. Je code des sites
+            sur-mesure pour les <strong class="font-medium text-ink">marques
+            indépendantes</strong> qui veulent plus d'identité, plus de
+            conversion, et moins d'apps dans l'équation.
+          </p>
+
+          <!-- CTAs -->
+          <div class="mt-8 flex flex-wrap items-center gap-3">
+            <a
+              href="https://calendly.com/maxgarandel-pro/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cta-primary inline-flex items-center gap-2 bg-ink text-paper px-5 py-2.5 rounded-full text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+            >
+              Réserver un call
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-3.5 h-3.5"
+                aria-hidden="true"
+              >
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+            <a
+              href="#work"
+              class="inline-flex items-center gap-2 text-ink px-5 py-2.5 rounded-full text-sm font-medium border border-ink/10 hover:border-ink/30 hover:bg-paper-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+            >
+              Voir les projets
+            </a>
+          </div>
+
+          <!-- Stats strip -->
+          <dl
+            class="mt-12 md:mt-14 grid grid-cols-3 gap-x-8 gap-y-2 border-t border-ink/5 pt-6 md:pt-8"
+          >
+            <div>
+              <dt
+                class="font-mono text-[10px] uppercase tracking-[0.12em] text-muted"
+              >
+                sur Shopify
+              </dt>
+              <dd class="font-title font-medium text-xl text-ink mt-1">
+                5 ans
+              </dd>
+            </div>
+            <div>
+              <dt
+                class="font-mono text-[10px] uppercase tracking-[0.12em] text-muted"
+              >
+                approche
+              </dt>
+              <dd class="font-title font-medium text-xl text-ink mt-1">
+                Sur-mesure
+              </dd>
+            </div>
+            <div>
+              <dt
+                class="font-mono text-[10px] uppercase tracking-[0.12em] text-muted"
+              >
+                basé à
+              </dt>
+              <dd class="font-title font-medium text-xl text-ink mt-1">
+                Rennes
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SOCIAL PROOF — logos clients
+         ================================================================ -->
+    <section class="py-14 md:py-20 border-y border-ink/10">
+      <p
+        class="font-mono text-[10px] uppercase tracking-[0.15em] text-muted text-center mb-10 md:mb-12"
+      >
+        Marques accompagnées
+      </p>
+      <div
+        class="flex flex-wrap items-center justify-center gap-x-10 sm:gap-x-14 md:gap-x-20 gap-y-10"
+      >
+        {
+          clients.map((c) => (
+            <div class="logo-cell h-7 md:h-8 flex items-center justify-center">
+              <img
+                src={c.logo}
+                alt={`Logo ${c.name}`}
+                loading="lazy"
+                decoding="async"
+                class="h-full w-auto"
+              />
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- ================================================================
+         PROJECTS — carousel horizontal uniforme
+         ================================================================ -->
+    <section id="work" class="pt-20 md:pt-28 pb-20 md:pb-28 scroll-mt-20">
+      <div
+        class="flex items-end justify-between mb-10 pb-5 border-b border-ink/10 gap-6"
+      >
+        <div>
+          <p
+            class="font-mono text-[10px] uppercase tracking-[0.15em] text-muted mb-2"
+          >
+            Projets
+          </p>
+          <h2
+            class="font-title font-medium text-3xl md:text-4xl text-ink tracking-tight"
+          >
+            Du concret.
+          </h2>
+        </div>
+
+        <!-- Navigation desktop -->
+        <div
+          class="hidden md:flex items-center gap-2"
+          role="group"
+          aria-label="Navigation du carrousel"
+        >
+          <button
+            id="carousel-prev"
+            type="button"
+            class="carousel-btn"
+            aria-label="Projet précédent"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-4 h-4"
+              aria-hidden="true"
+            >
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </button>
+          <button
+            id="carousel-next"
+            type="button"
+            class="carousel-btn"
+            aria-label="Projet suivant"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-4 h-4"
+              aria-hidden="true"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Carousel -->
+      <div
+        class="relative -mx-6 md:-mx-10"
+        role="region"
+        aria-label="Projets récents"
+        aria-roledescription="carousel"
+      >
+        <ul
+          id="carousel-track"
+          class="carousel-track flex overflow-x-auto snap-x snap-mandatory gap-5 md:gap-6 pb-6 px-6 md:px-10 scroll-pl-6 md:scroll-pl-10 list-none"
+          tabindex="0"
+          aria-label="Faites défiler horizontalement pour voir tous les projets"
+        >
+          {
+            projects.map((p, i) => (
+              <li
+                class="snap-start shrink-0 w-[280px] sm:w-[320px] md:w-[340px] lg:w-[360px]"
+              >
+                <a
+                  href="#contact"
+                  class="project-card group flex flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+                  aria-label={`Projet ${p.name} — ${p.tag}`}
+                >
+                  <div class="thumbnail aspect-[4/3] rounded-sm overflow-hidden border border-ink/20 bg-paper-2 relative flex items-center justify-center p-3 md:p-4">
+                    {p.featured && (
+                      <div class="absolute top-3 left-3 z-10 inline-flex items-center gap-1.5 bg-paper/95 backdrop-blur-sm px-2.5 py-1 rounded-full border border-ink/10">
+                        <span class="w-1.5 h-1.5 rounded-full bg-orange" />
+                        <span class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink">
+                          Client actif
+                        </span>
+                      </div>
+                    )}
+                    <Image
+                      src={p.image}
+                      alt={`${p.name} — ${p.tag}`}
+                      widths={[400, 600, 800]}
+                      sizes="(max-width: 640px) 280px, (max-width: 768px) 320px, 360px"
+                      formats={["avif", "webp"]}
+                      quality={78}
+                      loading={i === 0 ? "eager" : "lazy"}
+                      class="thumbnail-img max-w-full max-h-full w-auto h-auto object-contain"
+                    />
+                  </div>
+                  <div class="mt-4 flex items-start justify-between gap-3">
+                    <div class="min-w-0">
+                      <h3 class="font-title font-medium text-base md:text-lg text-ink leading-tight tracking-tight truncate">
+                        {p.name}
+                      </h3>
+                      <p class="font-light text-xs text-muted mt-0.5 truncate">
+                        {p.tag}
+                      </p>
+                    </div>
+                    <span class="font-mono text-[10px] uppercase tracking-[0.12em] text-muted shrink-0">
+                      {p.year}
+                    </span>
+                  </div>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Mobile hint + secondary link -->
+      <div
+        class="mt-6 flex items-center justify-between gap-4 font-mono text-[10px] uppercase tracking-[0.15em] text-muted"
+      >
+        <span class="md:hidden">Glisse pour voir plus →</span>
+        <a
+          href="#contact"
+          class="ml-auto hover:text-ink transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-paper rounded-sm px-1"
+        >
+          Discuter d'un projet →
+        </a>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         TESTIMONIAL — Juliette Gendre / Energie Fruit
+         ================================================================ -->
+    <section class="pt-20 md:pt-28 pb-20 md:pb-28 border-t border-ink/10">
+      <div class="max-w-4xl">
+        <p
+          class="font-mono text-[10px] uppercase tracking-[0.15em] text-muted mb-8"
+        >
+          Témoignage
+        </p>
+
+        <!-- Quote mark -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="w-10 h-10 text-orange mb-6"
+          aria-hidden="true"
+        >
+          <path
+            d="M7.17 8.5c-1.94 0-3.5 1.56-3.5 3.5s1.56 3.5 3.5 3.5c0 1.93-1.57 3.5-3.5 3.5v2c3.03 0 5.5-2.47 5.5-5.5V12c0-1.93-1.57-3.5-3.5-3.5zm9.33 0c-1.93 0-3.5 1.56-3.5 3.5s1.57 3.5 3.5 3.5c0 1.93-1.57 3.5-3.5 3.5v2c3.03 0 5.5-2.47 5.5-5.5V12c0-1.93-1.57-3.5-3.5-3.5z"
+          ></path>
+        </svg>
+
+        <blockquote>
+          <p
+            class="font-title font-light text-xl md:text-2xl lg:text-[28px] text-ink leading-[1.4] tracking-[-0.01em]"
+          >
+            Maxence travaille à nos côtés depuis le lancement du site en
+            octobre 2025, et nous avons déjà prévu de poursuivre notre
+            partenariat alors que nous ne pensions pas, au vu de la taille de
+            notre PME, allouer un budget récurrent à ce poste de dépense. Il
+            a su nous guider vers les priorités à mettre en place pour le
+            lancement du e-shop et trouve toujours une solution pour
+            retranscrire nos souhaits et idées sur le site : animation trade,
+            pack builder, jauge panier, calendrier de l'avent, etc. Il est
+            très flexible, disponible et réactif, ce qui est crucial pour une
+            PME comme la nôtre.{" "}
+            <span class="text-muted"
+              >Je recommande son travail, nous avons hâte de mettre en place
+              tout ce qui est prévu pour 2026 à ses côtés !</span
+            >
+          </p>
+        </blockquote>
+
+        <!-- Author -->
+        <figcaption
+          class="mt-10 flex items-center gap-5 pt-6 border-t border-ink/10"
+        >
+          <img
+            src="/images/logo-energie-fruit.svg"
+            alt="Energie Fruit"
+            loading="lazy"
+            decoding="async"
+            class="h-7 md:h-8 w-auto shrink-0"
+          />
+          <div class="border-l border-ink/15 pl-5">
+            <p class="font-title font-medium text-ink text-sm md:text-base">
+              Juliette Gendre
+            </p>
+            <p
+              class="font-mono text-[10px] uppercase tracking-[0.12em] text-muted mt-0.5"
+            >
+              Eretail Manager · Energie Fruit
+            </p>
+          </div>
+        </figcaption>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SERVICES — grid 2x2 avec icônes SVG
+         ================================================================ -->
+    <section
+      id="services"
+      class="pt-20 md:pt-28 pb-20 md:pb-28 scroll-mt-20 border-t border-ink/10"
+    >
+      <div class="mb-10">
+        <p
+          class="font-mono text-[10px] uppercase tracking-[0.15em] text-muted mb-2"
+        >
+          Services
+        </p>
+        <h2
+          class="font-title font-medium text-3xl md:text-4xl text-ink tracking-tight"
+        >
+          Ce que je fais.
+        </h2>
+      </div>
+
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink/20 border border-ink/20 rounded-sm overflow-hidden"
+      >
+        <!-- 01 · Sections sur-mesure (icône layout-grid) -->
+        <div class="bg-paper p-8 md:p-10">
+          <div
+            class="inline-flex items-center justify-center w-10 h-10 rounded-sm bg-orange/10 text-orange mb-6"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5"
+              aria-hidden="true"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <line x1="9" y1="21" x2="9" y2="9"></line>
+            </svg>
+          </div>
+          <div
+            class="font-mono text-[10px] uppercase tracking-[0.15em] text-muted mb-2"
+          >
+            {services[0].n}
+          </div>
+          <h3
+            class="font-title font-medium text-lg md:text-xl text-ink mb-2 tracking-tight"
+          >
+            {services[0].title}
+          </h3>
+          <p class="font-light text-sm text-ink-soft leading-relaxed">
+            {services[0].description}
+          </p>
+        </div>
+
+        <!-- 02 · Remplacer tes apps (icône coins) -->
+        <div class="bg-paper p-8 md:p-10">
+          <div
+            class="inline-flex items-center justify-center w-10 h-10 rounded-sm bg-orange/10 text-orange mb-6"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5"
+              aria-hidden="true"
+            >
+              <circle cx="8" cy="8" r="6"></circle>
+              <path d="M18.09 10.37A6 6 0 1 1 10.34 18"></path>
+              <path d="M7 6h1v4"></path>
+              <path d="m16.71 13.88.7.71-2.82 2.82"></path>
+            </svg>
+          </div>
+          <div
+            class="font-mono text-[10px] uppercase tracking-[0.15em] text-muted mb-2"
+          >
+            {services[1].n}
+          </div>
+          <h3
+            class="font-title font-medium text-lg md:text-xl text-ink mb-2 tracking-tight"
+          >
+            {services[1].title}
+          </h3>
+          <p class="font-light text-sm text-ink-soft leading-relaxed">
+            {services[1].description}
+          </p>
+        </div>
+
+        <!-- 03 · Vitesse & Core Web Vitals (icône zap) -->
+        <div class="bg-paper p-8 md:p-10">
+          <div
+            class="inline-flex items-center justify-center w-10 h-10 rounded-sm bg-orange/10 text-orange mb-6"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5"
+              aria-hidden="true"
+            >
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
+              ></polygon>
+            </svg>
+          </div>
+          <div
+            class="font-mono text-[10px] uppercase tracking-[0.15em] text-muted mb-2"
+          >
+            {services[2].n}
+          </div>
+          <h3
+            class="font-title font-medium text-lg md:text-xl text-ink mb-2 tracking-tight"
+          >
+            {services[2].title}
+          </h3>
+          <p class="font-light text-sm text-ink-soft leading-relaxed">
+            {services[2].description}
+          </p>
+        </div>
+
+        <!-- 04 · CRO -->
+        <div class="bg-paper p-8 md:p-10">
+          <div
+            class="inline-flex items-center justify-center w-10 h-10 rounded-sm bg-orange/10 text-orange mb-6"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5"
+              aria-hidden="true"
+            >
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+          </div>
+          <div
+            class="font-mono text-[10px] uppercase tracking-[0.15em] text-muted mb-2"
+          >
+            {services[3].n}
+          </div>
+          <h3
+            class="font-title font-medium text-lg md:text-xl text-ink mb-2 tracking-tight"
+          >
+            {services[3].title}
+          </h3>
+          <p class="font-light text-sm text-ink-soft leading-relaxed">
+            {services[3].description}
+          </p>
+        </div>
+      </div>
+
+      <p class="mt-8 text-sm text-muted font-light">
+        Pas sûr de ce dont tu as besoin ?{" "}
+        <a
+          href="#contact"
+          class="text-ink underline underline-offset-4 hover:text-orange transition-colors"
+        >
+          On en discute 30 min
+        </a>.
+      </p>
+    </section>
+
+    <!-- ================================================================
+         LEAD MAGNET — Sections gratuites (banner full-width)
+         ================================================================ -->
+    <section class="pb-20 md:pb-28">
+      <a
+        href="/sections-gratuites"
+        class="group block relative overflow-hidden rounded-sm bg-paper-2 p-8 md:p-12 border border-ink/20 hover:border-ink/60 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+      >
+        <div class="grid md:grid-cols-[1fr_auto] gap-6 md:gap-10 items-center">
+          <div>
+            <div
+              class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-paper border border-ink/10 mb-5"
+            >
+              <span class="w-1.5 h-1.5 rounded-full bg-orange"></span>
+              <span
+                class="font-mono text-[10px] uppercase tracking-[0.12em] text-muted"
+                >Gratuit · par email</span
+              >
+            </div>
+            <h2
+              class="font-title font-medium text-2xl md:text-4xl text-ink tracking-tight"
+            >
+              Des sections Shopify, offertes.
+            </h2>
+            <p
+              class="mt-3 font-light text-sm md:text-base text-ink-soft leading-relaxed max-w-xl"
+            >
+              Des sections Liquid prêtes à copier-coller dans ton thème.
+              Compatible OS 2.0, 100% personnalisables, une nouvelle fournée
+              chaque mois. Laisse ton email, c'est à toi.
+            </p>
+          </div>
+          <div
+            class="inline-flex items-center gap-2 bg-ink text-paper px-5 py-3 rounded-full text-sm font-medium group-hover:bg-orange transition-colors whitespace-nowrap self-start md:self-center"
+          >
+            Recevoir les sections
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-4 h-4 group-hover:translate-x-1 transition-transform"
+              aria-hidden="true"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+        </div>
+      </a>
+    </section>
+
+    <!-- ================================================================
+         FINAL CTA — Calendly
+         ================================================================ -->
+    <section id="contact" class="pb-24 md:pb-32 scroll-mt-20">
+      <div
+        class="relative overflow-hidden rounded-sm bg-ink text-paper p-10 md:p-16 text-center"
+      >
+        <!-- Gradient accents -->
+        <div
+          class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-orange opacity-15 blur-3xl pointer-events-none"
+          aria-hidden="true"
+        >
+        </div>
+        <div
+          class="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-orange opacity-10 blur-3xl pointer-events-none"
+          aria-hidden="true"
+        >
+        </div>
+
+        <div class="relative max-w-2xl mx-auto">
+          <p
+            class="font-mono text-[10px] uppercase tracking-[0.15em] text-orange mb-5"
+          >
+            On en parle ?
+          </p>
+          <h2
+            class="font-title font-medium text-3xl md:text-5xl tracking-tight leading-[1.05]"
+          >
+            30 minutes, sans bullshit.
+          </h2>
+          <p
+            class="mt-5 text-base md:text-lg text-paper/70 font-light leading-relaxed"
+          >
+            Call découverte gratuit. On regarde ton besoin, je te dis
+            honnêtement si je peux aider — ou pas.
+          </p>
+
+          <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href="https://calendly.com/maxgarandel-pro/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 bg-paper text-ink px-6 py-3 rounded-full text-sm font-medium hover:bg-orange hover:text-paper transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+            >
+              Réserver un call
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-4 h-4"
+                aria-hidden="true"
+              >
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+            <a
+              href="mailto:maxgarandel.pro@gmail.com"
+              class="inline-flex items-center gap-2 text-paper/80 hover:text-paper px-3 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-ink rounded-full"
+            >
+              ou écris-moi
+            </a>
+          </div>
+
+          <!-- Meta -->
+          <div
+            class="mt-10 pt-6 border-t border-paper/10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.12em] text-paper/50"
+          >
+            <span>Réponse sous 24h ouvrées</span>
+            <span class="inline-block w-1 h-1 rounded-full bg-paper/20"></span>
+            <span>Basé à Rennes · remote FR</span>
+            <span class="inline-block w-1 h-1 rounded-full bg-paper/20"></span>
+            <span>SIRET dispo</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <style>
+    .cta-primary:hover {
+      background: #fc5d10;
+    }
+
+    .project-card {
+      cursor: pointer;
+      border: 1px solid black;
+      padding: 10px;
+    }
+
+    /* Logos : silhouettes noires unifiées, couleur naturelle au hover */
+    .logo-cell img {
+      filter: brightness(0);
+      opacity: 0.45;
+      transition:
+        filter 200ms ease,
+        opacity 200ms ease;
+    }
+    .logo-cell:hover img {
+      filter: none;
+      opacity: 1;
+    }
+
+    /* Carousel projets */
+    .carousel-track {
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+    }
+    .carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+    .carousel-track:focus-visible {
+      outline: 2px solid #fc5d10;
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    .carousel-btn {
+      width: 40px;
+      height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(26, 26, 26, 0.15);
+      border-radius: 9999px;
+      background: transparent;
+      color: #1a1a1a;
+      transition:
+        background-color 200ms ease,
+        border-color 200ms ease,
+        opacity 200ms ease;
+      cursor: pointer;
+    }
+    .carousel-btn:hover {
+      background-color: #f6f3ea;
+      border-color: rgba(26, 26, 26, 0.4);
+    }
+    .carousel-btn:focus-visible {
+      outline: none;
+      box-shadow:
+        0 0 0 2px #fdfcf8,
+        0 0 0 4px #fc5d10;
+    }
+    .carousel-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+    .carousel-btn:disabled:hover {
+      background-color: transparent;
+      border-color: rgba(26, 26, 26, 0.15);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .animate-ping {
+        animation: none !important;
+      }
+      .logo-cell img,
+      .carousel-btn {
+        transition: none !important;
+      }
+      .carousel-track {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+
+  <!-- Carousel prev/next logic -->
+  <script is:inline>
+    (() => {
+      const track = document.getElementById("carousel-track");
+      const prevBtn = document.getElementById("carousel-prev");
+      const nextBtn = document.getElementById("carousel-next");
+      if (!track || !prevBtn || !nextBtn) return;
+
+      function getStep() {
+        const card = track.querySelector("li");
+        if (!card) return 300;
+        const w = card.getBoundingClientRect().width;
+        const styles = getComputedStyle(track);
+        const gap =
+          parseFloat(styles.columnGap || styles.gap || "0") || 0;
+        return w + gap;
+      }
+
+      function scrollCarousel(dir) {
+        track.scrollBy({ left: getStep() * dir, behavior: "smooth" });
+      }
+
+      function updateButtons() {
+        const atStart = track.scrollLeft <= 2;
+        const atEnd =
+          track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+        prevBtn.disabled = atStart;
+        nextBtn.disabled = atEnd;
+      }
+
+      prevBtn.addEventListener("click", () => scrollCarousel(-1));
+      nextBtn.addEventListener("click", () => scrollCarousel(1));
+      track.addEventListener("scroll", updateButtons, { passive: true });
+      window.addEventListener("resize", updateButtons);
+      updateButtons();
+    })();
+  </script>
 </LayoutPunchy>

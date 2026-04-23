@@ -1,0 +1,549 @@
+{%- doc -%}
+  Mother's Day Countdown — fully self-contained section.
+  Live countdown to Mother's Day with shipping cutoff, floating SVG flowers,
+  shimmering serif numbers, elegant typography, and gradient CTA.
+  Drop into any Shopify theme. Zero dependencies.
+{%- enddoc -%}
+
+{%- liquid
+  assign target_date = section.settings.target_date | default: '2026-05-31'
+  assign target_iso = target_date | append: 'T00:00:00'
+-%}
+
+<section class="mothers" id="mothers-{{ section.id }}">
+  <svg class="mothers__svg-defs" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="mothers-flower-{{ section.id }}" viewBox="0 0 24 24">
+        <g fill="currentColor">
+          <circle cx="12" cy="5.5" r="4"/>
+          <circle cx="18.5" cy="9" r="4"/>
+          <circle cx="16" cy="16" r="4"/>
+          <circle cx="8" cy="16" r="4"/>
+          <circle cx="5.5" cy="9" r="4"/>
+        </g>
+        <circle cx="12" cy="11" r="2" fill="#fbbf24"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <div class="mothers__bg" aria-hidden="true">
+    <div class="mothers__glow mothers__glow--a"></div>
+    <div class="mothers__glow mothers__glow--b"></div>
+  </div>
+
+  <div class="mothers__petals" aria-hidden="true">
+    <svg class="mothers__petal mothers__petal--1"><use href="#mothers-flower-{{ section.id }}"/></svg>
+    <svg class="mothers__petal mothers__petal--2"><use href="#mothers-flower-{{ section.id }}"/></svg>
+    <svg class="mothers__petal mothers__petal--3"><use href="#mothers-flower-{{ section.id }}"/></svg>
+    <svg class="mothers__petal mothers__petal--4"><use href="#mothers-flower-{{ section.id }}"/></svg>
+    <svg class="mothers__petal mothers__petal--5"><use href="#mothers-flower-{{ section.id }}"/></svg>
+    <svg class="mothers__petal mothers__petal--6"><use href="#mothers-flower-{{ section.id }}"/></svg>
+  </div>
+
+  <div class="mothers__inner">
+    {%- if section.settings.badge != blank -%}
+      <div class="mothers__badge">{{ section.settings.badge }}</div>
+    {%- endif -%}
+
+    {%- if section.settings.heading != blank -%}
+      <h2 class="mothers__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.subheading != blank or section.settings.cutoff != blank -%}
+      <p class="mothers__subheading">
+        {{ section.settings.subheading }}
+        {%- if section.settings.cutoff != blank -%}
+          <strong>{{ section.settings.cutoff }}</strong>
+        {%- endif -%}
+      </p>
+    {%- endif -%}
+
+    <div
+      class="mothers__countdown"
+      data-target="{{ target_iso }}"
+      role="timer"
+      aria-live="off"
+      aria-label="Compte à rebours jusqu'à la fête des mères"
+    >
+      <div class="mothers__unit">
+        <div class="mothers__number" data-days>--</div>
+        <div class="mothers__label">jours</div>
+      </div>
+      <div class="mothers__sep" aria-hidden="true">:</div>
+      <div class="mothers__unit">
+        <div class="mothers__number" data-hours>--</div>
+        <div class="mothers__label">heures</div>
+      </div>
+      <div class="mothers__sep" aria-hidden="true">:</div>
+      <div class="mothers__unit">
+        <div class="mothers__number" data-minutes>--</div>
+        <div class="mothers__label">min</div>
+      </div>
+      <div class="mothers__sep" aria-hidden="true">:</div>
+      <div class="mothers__unit">
+        <div class="mothers__number" data-seconds>--</div>
+        <div class="mothers__label">sec</div>
+      </div>
+    </div>
+
+    {%- if section.settings.cta_label != blank -%}
+      <a href="{{ section.settings.cta_link | default: '#' }}" class="mothers__cta">
+        <span>{{ section.settings.cta_label }}</span>
+        <span class="mothers__cta-arrow" aria-hidden="true">→</span>
+      </a>
+    {%- endif -%}
+
+    {%- if section.settings.footnote != blank -%}
+      <p class="mothers__footnote">{{ section.settings.footnote }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  #mothers-{{ section.id }}.mothers {
+    position: relative;
+    padding: clamp(80px, 10vw, 140px) clamp(16px, 4vw, 32px);
+    background:
+      radial-gradient(ellipse 60% 40% at 20% 0%, #fff7ed 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 80% 100%, #fce7f3 0%, transparent 60%),
+      linear-gradient(180deg, #fef7ed 0%, #fef2f2 100%);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #44403c;
+    overflow: hidden;
+    isolation: isolate;
+    box-sizing: border-box;
+  }
+
+  #mothers-{{ section.id }} *,
+  #mothers-{{ section.id }} *::before,
+  #mothers-{{ section.id }} *::after {
+    box-sizing: border-box;
+  }
+
+  #mothers-{{ section.id }} .mothers__svg-defs {
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+
+  /* ====== Ambient background ====== */
+  #mothers-{{ section.id }} .mothers__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  #mothers-{{ section.id }} .mothers__glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+  }
+
+  #mothers-{{ section.id }} .mothers__glow--a {
+    width: 500px; height: 500px;
+    top: -200px; left: -150px;
+    background: rgba(251, 113, 133, 0.22);
+    animation: mothers-drift-a 24s ease-in-out infinite;
+  }
+
+  #mothers-{{ section.id }} .mothers__glow--b {
+    width: 550px; height: 550px;
+    bottom: -220px; right: -160px;
+    background: rgba(251, 191, 36, 0.2);
+    animation: mothers-drift-b 28s ease-in-out infinite;
+  }
+
+  @keyframes mothers-drift-a {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50%      { transform: translate(80px, 100px) scale(1.2); }
+  }
+  @keyframes mothers-drift-b {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50%      { transform: translate(-100px, -80px) scale(1.15); }
+  }
+
+  /* ====== Floating flowers ====== */
+  #mothers-{{ section.id }} .mothers__petals {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  #mothers-{{ section.id }} .mothers__petal {
+    position: absolute;
+    top: -60px;
+    width: 28px;
+    height: 28px;
+    color: rgba(244, 114, 182, 0.4);
+    animation: mothers-petal-fall 20s linear infinite;
+  }
+
+  #mothers-{{ section.id }} .mothers__petal--1 { left: 8%;  animation-duration: 22s; animation-delay: -3s; color: rgba(244, 114, 182, 0.35); }
+  #mothers-{{ section.id }} .mothers__petal--2 { left: 24%; animation-duration: 28s; animation-delay: -10s; color: rgba(251, 191, 36, 0.45); width: 22px; height: 22px; }
+  #mothers-{{ section.id }} .mothers__petal--3 { left: 42%; animation-duration: 25s; animation-delay: -17s; color: rgba(251, 113, 133, 0.4); width: 20px; height: 20px; }
+  #mothers-{{ section.id }} .mothers__petal--4 { left: 60%; animation-duration: 30s; animation-delay: -6s;  color: rgba(244, 114, 182, 0.3); width: 32px; height: 32px; }
+  #mothers-{{ section.id }} .mothers__petal--5 { left: 78%; animation-duration: 26s; animation-delay: -14s; color: rgba(251, 191, 36, 0.35); width: 24px; height: 24px; }
+  #mothers-{{ section.id }} .mothers__petal--6 { left: 92%; animation-duration: 24s; animation-delay: -8s;  color: rgba(251, 113, 133, 0.35); width: 26px; height: 26px; }
+
+  @keyframes mothers-petal-fall {
+    0%   { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(calc(100vh + 100px)) rotate(540deg); }
+  }
+
+  /* ====== Main inner content ====== */
+  #mothers-{{ section.id }} .mothers__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #mothers-{{ section.id }} .mothers__badge {
+    display: inline-block;
+    padding: 7px 16px;
+    margin-bottom: 32px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(244, 114, 182, 0.25);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #be185d;
+  }
+
+  #mothers-{{ section.id }} .mothers__heading {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(32px, 5.5vw, 64px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #1c1917;
+    margin: 0 0 22px;
+  }
+
+  #mothers-{{ section.id }} .mothers__heading em,
+  #mothers-{{ section.id }} .mothers__heading i {
+    font-style: italic;
+    font-weight: 500;
+    color: #be185d;
+  }
+
+  #mothers-{{ section.id }} .mothers__subheading {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(15px, 1.7vw, 18px);
+    line-height: 1.55;
+    color: #78716c;
+    margin: 0 0 44px;
+    font-style: italic;
+  }
+
+  #mothers-{{ section.id }} .mothers__subheading strong {
+    color: #be185d;
+    font-style: normal;
+    font-weight: 600;
+    font-family: system-ui, -apple-system, sans-serif;
+    display: inline-block;
+    padding: 1px 8px;
+    margin-left: 6px;
+    background: rgba(190, 24, 93, 0.08);
+    border-radius: 6px;
+    font-size: 0.92em;
+  }
+
+  /* ====== Countdown ====== */
+  #mothers-{{ section.id }} .mothers__countdown {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 28px 36px;
+    margin-bottom: 44px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 24px;
+    box-shadow:
+      0 20px 50px -12px rgba(190, 24, 93, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+
+  #mothers-{{ section.id }} .mothers__unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 72px;
+  }
+
+  #mothers-{{ section.id }} .mothers__number {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(40px, 6vw, 64px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+    color: transparent;
+    background-image:
+      linear-gradient(
+        110deg,
+        transparent 20%,
+        rgba(255, 255, 255, 0.95) 50%,
+        transparent 80%
+      ),
+      linear-gradient(180deg, #881337 0%, #be185d 100%);
+    background-size: 70% 100%, 100% 100%;
+    background-position: -70% 0, 0 0;
+    background-repeat: no-repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: mothers-number-shine 4s linear infinite;
+  }
+
+  @keyframes mothers-number-shine {
+    0%   { background-position: -70% 0, 0 0; }
+    100% { background-position: 170% 0, 0 0; }
+  }
+
+  #mothers-{{ section.id }} .mothers__label {
+    margin-top: 10px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #a8a29e;
+  }
+
+  #mothers-{{ section.id }} .mothers__sep {
+    font-family: Georgia, serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 300;
+    line-height: 1;
+    color: #f9a8d4;
+    margin-top: 4px;
+    opacity: 0.5;
+    animation: mothers-sep-blink 1s ease-in-out infinite;
+  }
+
+  @keyframes mothers-sep-blink {
+    0%, 100% { opacity: 0.5; }
+    50%      { opacity: 0.15; }
+  }
+
+  /* ====== CTA ====== */
+  #mothers-{{ section.id }} .mothers__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
+    color: #fff;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    box-shadow:
+      0 14px 30px -8px rgba(225, 29, 72, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition:
+      transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  #mothers-{{ section.id }} .mothers__cta:hover {
+    transform: translateY(-3px);
+    box-shadow:
+      0 20px 45px -8px rgba(225, 29, 72, 0.55),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  #mothers-{{ section.id }} .mothers__cta-arrow {
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  #mothers-{{ section.id }} .mothers__cta:hover .mothers__cta-arrow {
+    transform: translateX(5px);
+  }
+
+  #mothers-{{ section.id }} .mothers__footnote {
+    margin: 24px 0 0;
+    font-size: 13px;
+    color: #a8a29e;
+    font-style: italic;
+  }
+
+  /* ====== Mobile ====== */
+  @media (max-width: 640px) {
+    #mothers-{{ section.id }} .mothers__countdown {
+      padding: 20px 16px;
+      gap: 10px;
+    }
+    #mothers-{{ section.id }} .mothers__unit {
+      min-width: 56px;
+    }
+    #mothers-{{ section.id }} .mothers__label {
+      font-size: 10px;
+    }
+    #mothers-{{ section.id }} .mothers__sep {
+      display: none;
+    }
+    #mothers-{{ section.id }} .mothers__subheading strong {
+      display: inline-block;
+      margin: 4px 0 0;
+    }
+  }
+
+  /* ====== Accessibility ====== */
+  @media (prefers-reduced-motion: reduce) {
+    #mothers-{{ section.id }} .mothers__glow,
+    #mothers-{{ section.id }} .mothers__petal,
+    #mothers-{{ section.id }} .mothers__number,
+    #mothers-{{ section.id }} .mothers__sep {
+      animation: none !important;
+    }
+    #mothers-{{ section.id }} .mothers__number {
+      -webkit-text-fill-color: #881337;
+      color: #881337;
+      background: none;
+    }
+    #mothers-{{ section.id }} .mothers__petal {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  (function() {
+    var section = document.getElementById('mothers-{{ section.id }}');
+    if (!section) return;
+
+    var container = section.querySelector('[data-target]');
+    if (!container) return;
+
+    var target = new Date(container.getAttribute('data-target')).getTime();
+    if (isNaN(target)) return;
+
+    var daysEl = container.querySelector('[data-days]');
+    var hoursEl = container.querySelector('[data-hours]');
+    var minutesEl = container.querySelector('[data-minutes]');
+    var secondsEl = container.querySelector('[data-seconds]');
+
+    function pad(n) {
+      return (n < 10 ? '0' : '') + n;
+    }
+
+    function update() {
+      var diff = target - Date.now();
+
+      if (diff <= 0) {
+        daysEl.textContent = '00';
+        hoursEl.textContent = '00';
+        minutesEl.textContent = '00';
+        secondsEl.textContent = '00';
+        return;
+      }
+
+      var days = Math.floor(diff / 86400000);
+      var hours = Math.floor((diff % 86400000) / 3600000);
+      var minutes = Math.floor((diff % 3600000) / 60000);
+      var seconds = Math.floor((diff % 60000) / 1000);
+
+      daysEl.textContent = pad(days);
+      hoursEl.textContent = pad(hours);
+      minutesEl.textContent = pad(minutes);
+      secondsEl.textContent = pad(seconds);
+    }
+
+    update();
+    setInterval(update, 1000);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Fête des mères — Countdown",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Événement"
+    },
+    {
+      "type": "text",
+      "id": "target_date",
+      "label": "Date cible",
+      "info": "Format : AAAA-MM-JJ (ex : 2026-05-31)",
+      "default": "2026-05-31"
+    },
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Badge",
+      "default": "Fête des mères · 31 mai 2026"
+    },
+
+    {
+      "type": "header",
+      "content": "Contenu"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "info": "Utilisez <em>mot</em> pour un mot en italique rose.",
+      "default": "Montrez-lui <em>combien</em> vous l'aimez."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Sous-titre (avant la date limite)",
+      "default": "Dernière commande garantie livrée avant la fête :"
+    },
+    {
+      "type": "text",
+      "id": "cutoff",
+      "label": "Date limite de commande",
+      "default": "28 mai 2026 · 14h"
+    },
+
+    {
+      "type": "header",
+      "content": "Bouton"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Texte du bouton",
+      "default": "Découvrir les idées cadeaux"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Lien"
+    },
+
+    {
+      "type": "header",
+      "content": "Mention basse"
+    },
+    {
+      "type": "text",
+      "id": "footnote",
+      "label": "Texte sous le bouton",
+      "default": "Livraison offerte dès 50 € · Emballage cadeau offert"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Fête des mères — Countdown"
+    }
+  ]
+}
+{% endschema %}
