@@ -14,6 +14,7 @@ const projects = [
     year: "Depuis 10/25",
     image: energieFruitImg,
     featured: true,
+    href: "/energie-fruit",
   },
   {
     name: "Castafiore",
@@ -137,8 +138,7 @@ const services = [
               <span
                 class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange opacity-60"
               ></span>
-              <span
-                class="relative inline-flex rounded-full h-2 w-2 bg-orange"
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-orange"
               ></span>
             </span>
             <span
@@ -152,8 +152,8 @@ const services = [
           <h1
             class="font-title font-medium text-4xl md:text-5xl lg:text-[60px] text-ink tracking-[-0.02em] leading-[1.02]"
           >
-            Des boutiques Shopify<br />
-            <span class="text-muted">qui vendent vraiment.</span>
+            Je transforme ta boutique Shopify<br />
+            <span class="text-muted">en expérience qui convertit.</span>
           </h1>
 
           <!-- Sub -->
@@ -161,9 +161,10 @@ const services = [
             class="mt-6 text-base md:text-lg text-ink-soft font-light leading-relaxed"
           >
             Je suis Maxence, freelance Shopify à Rennes. Je code des sites
-            sur-mesure pour les <strong class="font-medium text-ink">marques
-            indépendantes</strong> qui veulent plus d'identité, plus de
-            conversion, et moins d'apps dans l'équation.
+            sur-mesure pour les <strong class="font-medium text-ink"
+              >marques indépendantes</strong
+            > qui veulent plus d'identité, plus de conversion, et moins d'apps dans
+            l'équation.
           </p>
 
           <!-- CTAs -->
@@ -351,12 +352,10 @@ const services = [
         >
           {
             projects.map((p, i) => (
-              <li
-                class="snap-start shrink-0 w-[280px] sm:w-[320px] md:w-[340px] lg:w-[360px]"
-              >
+              <li class="snap-start shrink-0 w-[280px] sm:w-[320px] md:w-[340px] lg:w-[360px]">
                 <a
-                  href="#contact"
-                  class="project-card group flex flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+                  href={p.href || "#contact"}
+                  class="project-card flex flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-orange"
                   aria-label={`Projet ${p.name} — ${p.tag}`}
                 >
                   <div class="thumbnail aspect-[4/3] rounded-sm overflow-hidden border border-ink/20 bg-paper-2 relative flex items-center justify-center p-3 md:p-4">
@@ -441,16 +440,15 @@ const services = [
           <p
             class="font-title font-light text-xl md:text-2xl lg:text-[28px] text-ink leading-[1.4] tracking-[-0.01em]"
           >
-            Maxence travaille à nos côtés depuis le lancement du site en
-            octobre 2025, et nous avons déjà prévu de poursuivre notre
-            partenariat alors que nous ne pensions pas, au vu de la taille de
-            notre PME, allouer un budget récurrent à ce poste de dépense. Il
-            a su nous guider vers les priorités à mettre en place pour le
-            lancement du e-shop et trouve toujours une solution pour
-            retranscrire nos souhaits et idées sur le site : animation trade,
-            pack builder, jauge panier, calendrier de l'avent, etc. Il est
-            très flexible, disponible et réactif, ce qui est crucial pour une
-            PME comme la nôtre.{" "}
+            Maxence travaille à nos côtés depuis le lancement du site en octobre
+            2025, et nous avons déjà prévu de poursuivre notre partenariat alors
+            que nous ne pensions pas, au vu de la taille de notre PME, allouer
+            un budget récurrent à ce poste de dépense. Il a su nous guider vers
+            les priorités à mettre en place pour le lancement du e-shop et
+            trouve toujours une solution pour retranscrire nos souhaits et idées
+            sur le site : animation trade, pack builder, jauge panier,
+            calendrier de l'avent, etc. Il est très flexible, disponible et
+            réactif, ce qui est crucial pour une PME comme la nôtre.{" "}
             <span class="text-muted"
               >Je recommande son travail, nous avons hâte de mettre en place
               tout ce qui est prévu pour 2026 à ses côtés !</span
@@ -808,6 +806,13 @@ const services = [
       cursor: pointer;
       border: 1px solid black;
       padding: 10px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .project-card,
+    .project-card:hover,
+    .project-card:active {
+      text-decoration: none;
+      color: inherit;
     }
 
     /* Logos : silhouettes noires unifiées, couleur naturelle au hover */
@@ -900,8 +905,7 @@ const services = [
         if (!card) return 300;
         const w = card.getBoundingClientRect().width;
         const styles = getComputedStyle(track);
-        const gap =
-          parseFloat(styles.columnGap || styles.gap || "0") || 0;
+        const gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
         return w + gap;
       }
 

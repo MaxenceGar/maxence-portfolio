@@ -147,46 +147,10 @@ html {
   }
 }
 
-/* Focus accessibles */
-.focus-ring:focus-visible,
-a:focus-visible,
-button:focus-visible {
-  outline: 3px solid #FC5D10;
-  outline-offset: 4px;
-}
-
-/* Project card hover */
-.project-card {
-  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
-              box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-.project-card:hover {
-  transform: translate(-3px, -3px);
-  box-shadow: 5px 5px 0 #1a1a1a;
-}
-
-/* Service row hover */
-.service-row {
-  transition: background-color 250ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-.service-row:hover {
-  background-color: #ffe4d4;
-}
-.service-row .service-arrow {
-  transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-.service-row:hover .service-arrow {
-  transform: translateX(8px);
-}
-
-/* CTA pill hover */
-.cta-pill {
-  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
-              box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-.cta-pill:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0 #1a1a1a;
+/* Focus accessibles — ring flush à l'élément (pas de gap qui ressemble à "la bordure s'éloigne") */
+.focus-ring:focus-visible {
+  outline: 2px solid #FC5D10;
+  outline-offset: 0;
 }
 
 /* Marquee legacy */
