@@ -39,8 +39,8 @@ const {
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/png" href="/FAVICON.png" />
-    <link rel="apple-touch-icon" href="/FAVICON.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -71,33 +71,40 @@ const {
     />
 
     <!-- JSON-LD -->
-    <script is:inline type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Maxence Garandel",
-      "image": "https://maxence-garandel.vercel.app/images/website-link.png",
-      "description": description,
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Rennes",
-        "addressRegion": "Bretagne",
-        "addressCountry": "FR"
-      },
-      "url": "https://maxence-garandel.vercel.app",
-      "email": "maxgarandel.pro@gmail.com",
-      "priceRange": "€€",
-      "areaServed": "FR",
-      "makesOffer": [
-        { "@type": "Offer", "name": "Optimisation vitesse & Core Web Vitals" },
-        { "@type": "Offer", "name": "Sections custom & dev sur-mesure" },
-        { "@type": "Offer", "name": "Apps & intégrations Shopify" },
-        { "@type": "Offer", "name": "Conseil CRO" }
-      ],
-      "sameAs": []
-    })}></script>
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        name: "Maxence Garandel",
+        image: "https://maxence-garandel.vercel.app/images/website-link.png",
+        description: description,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Rennes",
+          addressRegion: "Bretagne",
+          addressCountry: "FR",
+        },
+        url: "https://maxence-garandel.vercel.app",
+        email: "maxgarandel.pro@gmail.com",
+        priceRange: "€€",
+        areaServed: "FR",
+        makesOffer: [
+          { "@type": "Offer", name: "Optimisation vitesse & Core Web Vitals" },
+          { "@type": "Offer", name: "Sections custom & dev sur-mesure" },
+          { "@type": "Offer", name: "Apps & intégrations Shopify" },
+          { "@type": "Offer", name: "Conseil CRO" },
+        ],
+        sameAs: [],
+      })}
+    />
 
     <!-- Google Analytics -->
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-ZCSNXP0LNN"></script>
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-ZCSNXP0LNN"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -121,33 +128,35 @@ const {
     <script>
       // Scroll reveal
       (() => {
-        if (!('IntersectionObserver' in window)) return;
+        if (!("IntersectionObserver" in window)) return;
         const io = new IntersectionObserver(
           (entries) => {
             entries.forEach((e) => {
               if (e.isIntersecting) {
-                e.target.classList.add('is-in');
+                e.target.classList.add("is-in");
                 io.unobserve(e.target);
               }
             });
           },
-          { threshold: 0.15 }
+          { threshold: 0.15 },
         );
-        document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
+        document
+          .querySelectorAll("[data-reveal]")
+          .forEach((el) => io.observe(el));
       })();
 
       // Nav sticky styling
       (() => {
-        const nav = document.querySelector('[data-nav]');
+        const nav = document.querySelector("[data-nav]");
         if (!nav) return;
         const onScroll = () => {
           if (window.scrollY > window.innerHeight * 0.8) {
-            nav.classList.add('is-scrolled');
+            nav.classList.add("is-scrolled");
           } else {
-            nav.classList.remove('is-scrolled');
+            nav.classList.remove("is-scrolled");
           }
         };
-        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener("scroll", onScroll, { passive: true });
         onScroll();
       })();
     </script>
