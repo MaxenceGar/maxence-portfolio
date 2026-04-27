@@ -58,12 +58,12 @@ const deliverables = [
   },
 ];
 
-// Galerie (chemins images depuis public/)
-const gallery = [
-  { src: "/images/energie-fruit-haut.webp", alt: "Energie Fruit — home", span: "full" },
-  { src: "/images/energie-fruit-gauche.webp", alt: "Energie Fruit — section détail 1" },
-  { src: "/images/energie-fruit-droite.webp", alt: "Energie Fruit — section détail 2" },
-];
+// Vidéo de présentation du site (remplace la galerie d'images)
+const showcaseVideo = {
+  src: "/video/ef.mp4",
+  poster: "/images/energie-fruit-site.webp",
+  alt: "Aperçu vidéo du site Energie Fruit",
+};
 
 // Témoignage (mettre à null pour masquer le bloc)
 const testimonial = {
@@ -201,7 +201,7 @@ const testimonial = {
          ================================================================ -->
     <section class="pb-20 md:pb-28">
       <div
-        class="rounded-sm overflow-hidden border border-ink/20 bg-paper-2 aspect-[16/10] md:aspect-[16/9]"
+        class="rounded-sm overflow-hidden border border-ink/20 bg-paper-2 aspect-16/10 md:aspect-video"
       >
         <img
           src={project.cover}
@@ -274,7 +274,7 @@ const testimonial = {
       </div>
 
       <ul
-        class="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink/[0.06] border border-ink/[0.06] rounded-sm overflow-hidden list-none"
+        class="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink/6 border border-ink/6 rounded-sm overflow-hidden list-none"
       >
         {
           deliverables.map((d, i) => (
@@ -311,42 +311,20 @@ const testimonial = {
         </h2>
       </div>
 
-      <div class="space-y-6 md:space-y-8">
-        <!-- Full-width image -->
-        {
-          gallery
-            .filter((g) => g.span === "full")
-            .map((g) => (
-              <div class="rounded-sm overflow-hidden border border-ink/20 bg-paper-2 aspect-[16/9]">
-                <img
-                  src={g.src}
-                  alt={g.alt}
-                  loading="lazy"
-                  decoding="async"
-                  class="w-full h-full object-cover object-top"
-                />
-              </div>
-            ))
-        }
-
-        <!-- Two-column images -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          {
-            gallery
-              .filter((g) => g.span !== "full")
-              .map((g) => (
-                <div class="rounded-sm overflow-hidden border border-ink/20 bg-paper-2 aspect-square">
-                  <img
-                    src={g.src}
-                    alt={g.alt}
-                    loading="lazy"
-                    decoding="async"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-              ))
-          }
-        </div>
+      <div
+        class="rounded-sm overflow-hidden border border-ink/20 bg-ink aspect-video"
+      >
+        <video
+          src={showcaseVideo.src}
+          poster={showcaseVideo.poster}
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="metadata"
+          aria-label={showcaseVideo.alt}
+          class="w-full h-full object-cover"
+        ></video>
       </div>
     </section>
 

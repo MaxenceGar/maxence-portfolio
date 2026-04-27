@@ -1,0 +1,462 @@
+---
+import LayoutPunchy from "../layouts/LayoutPunchy.astro";
+
+const offers = [
+  {
+    slug: "journee",
+    eyebrow: "À la journée",
+    name: "Mission ponctuelle",
+    price: "250€",
+    priceUnit: "/ jour",
+    minNote: "1 jour minimum",
+    pitch:
+      "Pour un fix rapide, une feature isolée, un audit ou une consult tech. Tu m'expliques, je règle.",
+    includes: [
+      "Diagnostic du besoin avant démarrage",
+      "Travail à la journée (ou demi-journée à partir de 2 jours)",
+      "Livraison + recette en fin de mission",
+      "Code propre, commenté, maintenable",
+    ],
+    forWho: [
+      "Bug à fixer rapidement",
+      "Petite feature à coder",
+      "Audit technique ou CRO ponctuel",
+      "Consultation Shopify",
+    ],
+    cta: "Décrire ma mission",
+  },
+  {
+    slug: "creation",
+    eyebrow: "Création",
+    name: "Lancement de boutique",
+    price: "À partir de 2 500€",
+    priceUnit: "",
+    minNote: "Délai ~3 semaines",
+    pitch:
+      "Tu lances ta marque, on monte ta boutique Shopify de zéro. Setup, thème customisé à ton image, prête à vendre.",
+    includes: [
+      "Setup complet Shopify (compte, paiement, livraison, légal)",
+      "Thème de base customisé à ton identité (couleurs, typo, layout)",
+      "Pages essentielles : home, fiche produit, collection, panier, contact",
+      "5 sections custom max pour matcher ta marque",
+      "Configuration des apps essentielles",
+      "Formation 1h pour que tu sois autonome",
+    ],
+    forWho: [
+      "Marque qui lance son e-commerce",
+      "Pas encore de site Shopify",
+      "Besoin d'une base solide pour scaler ensuite",
+    ],
+    cta: "Lancer ma boutique",
+    featured: true,
+  },
+  {
+    slug: "refonte",
+    eyebrow: "Refonte",
+    name: "Optimisation ciblée",
+    price: "À partir de 1 500€",
+    priceUnit: "",
+    minNote: "Délai ~2 semaines",
+    pitch:
+      "Tu as déjà un site mais il convertit pas. On refait ce qui compte vraiment : home, fiche produit, parcours d'achat.",
+    includes: [
+      "Audit UX/CRO du site existant",
+      "Refonte des pages clés : home + PDP + collection",
+      "5 sections custom max (upsell, paliers panier, etc.)",
+      "Optimisation vitesse & Core Web Vitals",
+      "2 rounds de feedback inclus",
+    ],
+    forWho: [
+      "Site Shopify déjà en ligne mais qui sous-performe",
+      "Taux de conversion bas",
+      "Identité de marque pas reflétée sur le site",
+    ],
+    cta: "Refondre mon site",
+  },
+  {
+    slug: "partenariat",
+    eyebrow: "Continu",
+    name: "Partenariat mensuel",
+    price: "À partir de 1 200€",
+    priceUnit: "/ mois",
+    minNote: "3 mois minimum",
+    pitch:
+      "Tu veux un dev Shopify dispo en continu, sans recruter. Je deviens ton dev attitré : sections custom, opérations trade, optimisations.",
+    includes: [
+      "2 à 3 jours de dev par mois",
+      "Réactivité prioritaire (réponse sous 24h ouvrées)",
+      "Sections custom à la demande",
+      "Animations trade (Black Friday, lancements, fêtes)",
+      "Suivi continu vitesse & SEO",
+      "Reporting mensuel des actions",
+    ],
+    forWho: [
+      "Marque active avec besoin régulier",
+      "Pas envie de recruter un dev en interne",
+      "Besoin de réactivité sur les opérations commerciales",
+    ],
+    cta: "Démarrer un partenariat",
+  },
+];
+
+const faq = [
+  {
+    q: "Pourquoi des prix \"à partir de\" et pas fixes ?",
+    a: "Parce que chaque marque a des besoins différents. Une création peut être simple (thème customisé) ou plus poussée (sections sur-mesure complexes). Le tarif final dépend du scope, qu'on cale ensemble lors du call découverte.",
+  },
+  {
+    q: "Comment se passe le paiement ?",
+    a: "Acompte de 30% à la signature, solde à la livraison pour les forfaits. Mensualisation pour le partenariat continu. Facture en bonne et due forme, SIRET dispo.",
+  },
+  {
+    q: "Tu peux travailler avec mon agence / mon équipe interne ?",
+    a: "Oui, je sous-traite régulièrement pour des agences et je collabore avec des équipes interne (marketing, design). Je m'adapte à ton process.",
+  },
+  {
+    q: "Et si mon projet ne rentre dans aucune de ces offres ?",
+    a: "On en parle 30 minutes en call découverte. Je te dis honnêtement si je peux aider, et si oui, on cadre ensemble une formule sur-mesure.",
+  },
+];
+---
+
+<LayoutPunchy
+  title="Offres & tarifs — Maxence Garandel · Freelance Shopify"
+  description="Mes 4 offres : mission à la journée (250€), création de boutique (à partir de 2500€), refonte ciblée (à partir de 1500€), partenariat mensuel (à partir de 1200€/mois)."
+>
+  <div class="max-w-[1200px] mx-auto px-6 md:px-10 font-title">
+    <!-- ================================================================
+         HERO
+         ================================================================ -->
+    <section class="pt-28 md:pt-40 pb-16 md:pb-20">
+      <div class="max-w-3xl">
+        <!-- Eyebrow pill -->
+        <div
+          class="inline-flex items-center gap-2 pl-2 pr-3.5 py-1 rounded-full bg-paper-2 border border-ink/5 mb-10"
+        >
+          <span class="relative flex h-2 w-2">
+            <span
+              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange opacity-60"
+            ></span>
+            <span
+              class="relative inline-flex rounded-full h-2 w-2 bg-orange"
+            ></span>
+          </span>
+          <span
+            class="font-mono text-[11px] uppercase tracking-[0.12em] text-muted"
+          >
+            Offres & tarifs
+          </span>
+        </div>
+
+        <!-- Headline -->
+        <h1
+          class="font-title font-medium text-4xl md:text-6xl lg:text-[64px] text-ink tracking-[-0.02em] leading-[1.02]"
+        >
+          Des prix clairs.<br />
+          <span class="text-muted">Pas de devis cachés.</span>
+        </h1>
+
+        <!-- Sub -->
+        <p
+          class="mt-7 text-base md:text-lg text-ink-soft font-light leading-relaxed max-w-2xl"
+        >
+          Quatre formules pour quatre besoins. Tu choisis ce qui colle à ton
+          projet, on cale les détails ensemble lors du call découverte.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         OFFRES — 4 cards
+         ================================================================ -->
+    <section class="pb-20 md:pb-28">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+        {
+          offers.map((o) => (
+            <article
+              id={o.slug}
+              class:list={[
+                "offer-card relative flex flex-col rounded-sm p-8 md:p-10 transition-colors scroll-mt-24",
+                o.featured
+                  ? "bg-ink text-paper border border-ink"
+                  : "bg-paper text-ink border border-ink/20",
+              ]}
+            >
+              {o.featured && (
+                <div class="absolute -top-3 left-8">
+                  <span class="inline-flex items-center gap-1.5 bg-orange text-paper px-2.5 py-1 rounded-full font-mono text-[10px] uppercase tracking-[0.12em] border border-ink">
+                    Le plus demandé
+                  </span>
+                </div>
+              )}
+
+              <!-- Eyebrow + nom -->
+              <div class="mb-6">
+                <p
+                  class:list={[
+                    "font-mono text-[10px] uppercase tracking-[0.15em] mb-2",
+                    o.featured ? "text-orange" : "text-muted",
+                  ]}
+                >
+                  {o.eyebrow}
+                </p>
+                <h2 class="font-title font-medium text-2xl md:text-3xl tracking-tight">
+                  {o.name}
+                </h2>
+              </div>
+
+              <!-- Prix -->
+              <div
+                class:list={[
+                  "pb-6 mb-6 border-b",
+                  o.featured ? "border-paper/15" : "border-ink/10",
+                ]}
+              >
+                <div class="flex items-baseline gap-1">
+                  <span class="font-title font-medium text-3xl md:text-4xl tracking-tight">
+                    {o.price}
+                  </span>
+                  {o.priceUnit && (
+                    <span
+                      class:list={[
+                        "font-light text-base",
+                        o.featured ? "text-paper/60" : "text-muted",
+                      ]}
+                    >
+                      {o.priceUnit}
+                    </span>
+                  )}
+                </div>
+                <p
+                  class:list={[
+                    "font-mono text-[10px] uppercase tracking-[0.12em] mt-2",
+                    o.featured ? "text-paper/50" : "text-muted",
+                  ]}
+                >
+                  {o.minNote}
+                </p>
+              </div>
+
+              <!-- Pitch -->
+              <p
+                class:list={[
+                  "text-sm md:text-base font-light leading-relaxed mb-6",
+                  o.featured ? "text-paper/80" : "text-ink-soft",
+                ]}
+              >
+                {o.pitch}
+              </p>
+
+              <!-- Inclus -->
+              <div class="mb-6 flex-1">
+                <p
+                  class:list={[
+                    "font-mono text-[10px] uppercase tracking-[0.15em] mb-3",
+                    o.featured ? "text-paper/50" : "text-muted",
+                  ]}
+                >
+                  Ce qui est inclus
+                </p>
+                <ul class="space-y-2">
+                  {o.includes.map((item) => (
+                    <li class="flex items-start gap-2.5 text-sm font-light leading-relaxed">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="w-3.5 h-3.5 text-orange shrink-0 mt-1"
+                        aria-hidden="true"
+                      >
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <!-- Pour qui -->
+              <details
+                class:list={[
+                  "mb-6 group",
+                  o.featured ? "border-t border-paper/15 pt-5" : "border-t border-ink/10 pt-5",
+                ]}
+              >
+                <summary
+                  class:list={[
+                    "cursor-pointer list-none flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.15em]",
+                    o.featured ? "text-paper/70 hover:text-paper" : "text-muted hover:text-ink",
+                  ]}
+                >
+                  <span>Pour qui ?</span>
+                  <span class="font-title text-base group-open:rotate-45 transition-transform">
+                    +
+                  </span>
+                </summary>
+                <ul class="mt-3 space-y-1.5">
+                  {o.forWho.map((w) => (
+                    <li
+                      class:list={[
+                        "text-sm font-light",
+                        o.featured ? "text-paper/70" : "text-ink-soft",
+                      ]}
+                    >
+                      → {w}
+                    </li>
+                  ))}
+                </ul>
+              </details>
+
+              <!-- CTA -->
+              <a
+                href="https://calendly.com/maxgarandel-pro/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                class:list={[
+                  "inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange",
+                  o.featured
+                    ? "bg-paper text-ink hover:bg-orange hover:text-paper"
+                    : "bg-ink text-paper hover:bg-orange",
+                ]}
+              >
+                {o.cta}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-3.5 h-3.5"
+                  aria-hidden="true"
+                >
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- ================================================================
+         FAQ
+         ================================================================ -->
+    <section class="pb-20 md:pb-28">
+      <div class="max-w-2xl">
+        <div class="mb-10">
+          <p
+            class="font-mono text-[10px] uppercase tracking-[0.15em] text-muted mb-2"
+          >
+            FAQ
+          </p>
+          <h2
+            class="font-title font-medium text-2xl md:text-3xl text-ink tracking-tight"
+          >
+            Les questions qu'on me pose.
+          </h2>
+        </div>
+
+        <div class="divide-y divide-ink/10 border-y border-ink/10">
+          {
+            faq.map((item) => (
+              <details class="group">
+                <summary class="flex items-start justify-between gap-6 py-5 cursor-pointer list-none focus:outline-none focus-visible:ring-2 focus-visible:ring-orange rounded-sm">
+                  <span class="font-title font-medium text-base md:text-lg text-ink leading-snug">
+                    {item.q}
+                  </span>
+                  <span
+                    class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-paper-2 text-ink group-open:bg-orange group-open:text-paper group-open:rotate-45 transition-all shrink-0"
+                    aria-hidden="true"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-4 h-4"
+                    >
+                      <line x1="12" y1="5" x2="12" y2="19" />
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                    </svg>
+                  </span>
+                </summary>
+                <p class="font-light text-sm md:text-base text-ink-soft leading-relaxed pb-5 pr-10">
+                  {item.a}
+                </p>
+              </details>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         CTA FINAL
+         ================================================================ -->
+    <section class="pb-24 md:pb-32">
+      <div
+        class="relative overflow-hidden rounded-sm bg-ink text-paper p-10 md:p-16 text-center"
+      >
+        <div
+          class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-orange opacity-15 blur-3xl pointer-events-none"
+          aria-hidden="true"
+        >
+        </div>
+
+        <div class="relative max-w-2xl mx-auto">
+          <p
+            class="font-mono text-[10px] uppercase tracking-[0.15em] text-orange mb-5"
+          >
+            Pas sûr de ce qu'il te faut ?
+          </p>
+          <h2
+            class="font-title font-medium text-3xl md:text-5xl tracking-tight leading-[1.05]"
+          >
+            On en parle 30 minutes.
+          </h2>
+          <p
+            class="mt-5 text-base md:text-lg text-paper/70 font-light leading-relaxed"
+          >
+            Call découverte gratuit. On regarde ton besoin, je te dis
+            honnêtement quelle offre colle — ou si on cadre du sur-mesure.
+          </p>
+
+          <div class="mt-8">
+            <a
+              href="https://calendly.com/maxgarandel-pro/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 bg-paper text-ink px-6 py-3 rounded-full text-sm font-medium hover:bg-orange hover:text-paper transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange"
+            >
+              Réserver un call
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-4 h-4"
+                aria-hidden="true"
+              >
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</LayoutPunchy>

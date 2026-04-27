@@ -1,38 +1,145 @@
 ---
-// Nav sticky : transparent sur hero, fond paper avec bordure basse après scroll
+// Nav sticky : transparent sur hero, fond paper avec bordure basse après scroll.
+// Sur mobile : burger qui ouvre un drawer plein écran avec les liens.
+
+const navLinks = [
+  { label: "Projets", href: "/#work" },
+  { label: "Services", href: "/#services" },
+  { label: "Tarifs", href: "/offres" },
+  { label: "Sections gratuites", href: "/sections-gratuites" },
+];
 ---
 
 <nav
   data-nav
-  class="nav-punchy fixed top-0 left-0 right-0 z-20 transition-colors duration-300"
+  class="nav-punchy fixed top-0 left-0 right-0 z-30 transition-colors duration-300"
 >
-  <div class="max-w-[1440px] mx-auto px-6 md:px-10 py-5 flex items-center justify-between">
+  <div
+    class="max-w-[1440px] mx-auto px-6 md:px-10 py-5 flex items-center justify-between"
+  >
     <!-- Logo -->
     <a
       href="/"
-      class="flex items-center gap-2 font-mono text-sm md:text-base font-semibold text-ink"
+      class="flex items-center gap-2 font-mono text-sm md:text-base font-semibold text-ink relative z-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange rounded-sm"
     >
       <span class="inline-block w-3 h-3 rounded-full bg-orange"></span>
       maxence.garandel
     </a>
 
-    <!-- Liens -->
+    <!-- Liens desktop -->
     <div class="hidden md:flex items-center gap-8 font-mono text-sm">
-      <a href="/#work" class="text-ink hover:text-orange transition-colors">projets</a>
-      <a href="/#services" class="text-ink hover:text-orange transition-colors">services</a>
-      <a href="/sections-gratuites" class="text-ink hover:text-orange transition-colors">sections</a>
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="text-ink hover:text-orange transition-colors"
+          >
+            {link.label.toLowerCase()}
+          </a>
+        ))
+      }
       <a href="/#contact" class="text-orange font-semibold">
         prendre un call ↗
       </a>
     </div>
 
-    <!-- Mobile CTA -->
-    <a
-      href="/#contact"
-      class="md:hidden font-mono text-xs text-orange font-semibold"
+    <!-- Burger mobile -->
+    <button
+      type="button"
+      id="nav-burger"
+      class="md:hidden relative z-10 inline-flex items-center justify-center w-10 h-10 -mr-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange rounded-sm"
+      aria-label="Ouvrir le menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
     >
-      calendly ↗
-    </a>
+      <span class="burger-bars" aria-hidden="true">
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+  </div>
+
+  <!-- Drawer mobile (full-screen overlay) -->
+  <div
+    id="mobile-menu"
+    class="mobile-menu md:hidden fixed inset-0 bg-paper opacity-0 invisible transition-[opacity,visibility] duration-300"
+    aria-hidden="true"
+  >
+    <div class="h-full flex flex-col px-6 pt-24 pb-10">
+      <!-- Eyebrow -->
+      <p
+        class="font-mono text-[10px] uppercase tracking-[0.15em] text-muted mb-6"
+      >
+        Menu
+      </p>
+
+      <!-- Liens principaux -->
+      <ul class="flex flex-col gap-1 mb-auto">
+        {
+          navLinks.map((link, i) => (
+            <li
+              class="mobile-link-item"
+              style={`--i: ${i}`}
+            >
+              <a
+                href={link.href}
+                class="mobile-link group flex items-baseline justify-between gap-4 py-4 border-b border-ink/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange rounded-sm"
+              >
+                <span class="font-title font-medium text-2xl md:text-3xl text-ink tracking-tight group-hover:text-orange transition-colors">
+                  {link.label}
+                </span>
+                <span
+                  class="font-mono text-[10px] uppercase tracking-[0.12em] text-muted shrink-0"
+                  aria-hidden="true"
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <!-- Bottom : CTA Calendly + email -->
+      <div
+        class="mobile-link-item mt-10 pt-8 border-t border-ink/10"
+        style="--i: 5"
+      >
+        <p
+          class="font-mono text-[10px] uppercase tracking-[0.15em] text-muted mb-4"
+        >
+          On se parle ?
+        </p>
+        <a
+          href="https://calendly.com/maxgarandel-pro/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-ink text-paper px-5 py-3 rounded-full text-sm font-medium hover:bg-orange transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange"
+        >
+          Réserver un call
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="w-3.5 h-3.5"
+            aria-hidden="true"
+          >
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </a>
+        <a
+          href="mailto:maxgarandel.pro@gmail.com"
+          class="mt-3 block font-light text-sm text-ink-soft hover:text-orange transition-colors"
+        >
+          maxgarandel.pro@gmail.com
+        </a>
+      </div>
+    </div>
   </div>
 </nav>
 
@@ -41,8 +148,134 @@
     background: transparent;
     border-bottom: 2px solid transparent;
   }
-  .nav-punchy.is-scrolled {
+  .nav-punchy.is-scrolled,
+  .nav-punchy.is-menu-open {
     background: #fdfcf8;
-    border-bottom: 2px solid #1a1a1a;
+    border-bottom-color: rgba(26, 26, 26, 0.1);
+  }
+
+  /* Burger : 2 barres qui forment un X à l'ouverture */
+  .burger-bars {
+    position: relative;
+    display: block;
+    width: 22px;
+    height: 14px;
+  }
+  .burger-bars span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background: #1a1a1a;
+    border-radius: 2px;
+    transition:
+      transform 250ms cubic-bezier(0.22, 1, 0.36, 1),
+      top 200ms ease 100ms,
+      bottom 200ms ease 100ms;
+  }
+  .burger-bars span:first-child {
+    top: 3px;
+  }
+  .burger-bars span:last-child {
+    bottom: 3px;
+  }
+
+  /* État ouvert : le burger devient une croix */
+  [aria-expanded="true"] .burger-bars span {
+    transition:
+      transform 250ms cubic-bezier(0.22, 1, 0.36, 1) 100ms,
+      top 200ms ease,
+      bottom 200ms ease;
+  }
+  [aria-expanded="true"] .burger-bars span:first-child {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+  [aria-expanded="true"] .burger-bars span:last-child {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
+  }
+
+  /* Drawer : visible quand .is-open */
+  .mobile-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Anim entrée des items (stagger) */
+  .mobile-link-item {
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 350ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: calc(80ms * var(--i, 0) + 100ms);
+  }
+  .mobile-menu.is-open .mobile-link-item {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .burger-bars span,
+    .mobile-link-item,
+    .mobile-menu {
+      transition: none !important;
+    }
+    .mobile-link-item {
+      opacity: 1;
+      transform: none;
+    }
   }
 </style>
+
+<script is:inline>
+  (() => {
+    const nav = document.querySelector("[data-nav]");
+    const burger = document.getElementById("nav-burger");
+    const menu = document.getElementById("mobile-menu");
+    if (!nav || !burger || !menu) return;
+
+    function open() {
+      menu.classList.add("is-open");
+      menu.setAttribute("aria-hidden", "false");
+      burger.setAttribute("aria-expanded", "true");
+      burger.setAttribute("aria-label", "Fermer le menu");
+      nav.classList.add("is-menu-open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function close() {
+      menu.classList.remove("is-open");
+      menu.setAttribute("aria-hidden", "true");
+      burger.setAttribute("aria-expanded", "false");
+      burger.setAttribute("aria-label", "Ouvrir le menu");
+      nav.classList.remove("is-menu-open");
+      document.body.style.overflow = "";
+    }
+
+    function toggle() {
+      const isOpen = burger.getAttribute("aria-expanded") === "true";
+      if (isOpen) close();
+      else open();
+    }
+
+    burger.addEventListener("click", toggle);
+
+    // Fermer au clic sur un lien
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", close);
+    });
+
+    // Fermer avec Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && menu.classList.contains("is-open")) close();
+    });
+
+    // Fermer si on passe en desktop
+    const mq = window.matchMedia("(min-width: 768px)");
+    mq.addEventListener("change", (e) => {
+      if (e.matches && menu.classList.contains("is-open")) close();
+    });
+  })();
+</script>

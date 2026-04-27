@@ -4,6 +4,7 @@ const year = new Date().getFullYear();
 const nav = [
   { label: "Projets", href: "/#work" },
   { label: "Services", href: "/#services" },
+  { label: "Tarifs", href: "/offres" },
   { label: "Sections gratuites", href: "/sections-gratuites" },
   { label: "Contact", href: "/#contact" },
 ];
@@ -84,7 +85,7 @@ const contact = [
                   href={item.href}
                   target={item.external ? "_blank" : undefined}
                   rel={item.external ? "noopener noreferrer" : undefined}
-                  class="text-sm text-ink-soft hover:text-orange transition-colors break-words focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-paper rounded-sm"
+                  class="text-sm text-ink-soft hover:text-orange transition-colors wrap-break-word focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-paper rounded-sm"
                 >
                   {item.label}
                 </a>
